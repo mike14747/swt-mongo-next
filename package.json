@@ -1,0 +1,36 @@
+{
+    "name": "swt-mongo-next",
+    "version": "1.0.0",
+    "description": "SkeeballWorldTour with a MongoDB database.",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mike14747/swt-mongo-next.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mike14747/swt-mongo-next/issues"
+    },
+    "homepage": "https://github.com/mike14747/swt-mongo-next#readme",
+    "dependencies": {
+        "next": "^10.0.3",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-html-parser": "^2.0.2"
+    },
+    "devDependencies": {
+        "eslint": "^7.15.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.21.5"
+    }
+}

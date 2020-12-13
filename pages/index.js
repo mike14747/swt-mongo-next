@@ -1,6 +1,15 @@
+import Head from 'next/head';
+
 const Home = () => {
     return (
-        <div>This is the homepage.</div>
+        <>
+            <Head>
+                <title>
+                    SkeeballWorldTour
+                </title>
+            </Head>
+            <div>This is the homepage.</div>
+        </>
     );
 };
 

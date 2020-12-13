@@ -55,10 +55,17 @@ Champions.propTypes = {
 };
 
 export async function getStaticProps() {
+    let champions = null;
+    let error = null;
+
     try {
         const championsResponse = await getChampions();
-        if (championsResponse && championsResponse.length > 0) return { props: { champions: JSON.parse(JSON.stringify(championsResponse)), error: null, revalidate: 1 } };
-        return { props: { champions: null, error: { message: 'Champions are not currently available. Please try again later!' }, revalidate: 1 } };
+        if (championsResponse && championsResponse.length > 0) {
+            champions = JSON.parse(JSON.stringify(championsResponse));
+        } else {
+            error = { message: 'Champions are not currently available. Please try again later!' };
+        }
+        return { props: { champions, error, revalidate: 1 } };
     } catch (error) {
         console.error(error.message);
         return { props: { champions: null, error: { message: 'An error occurred trying to fetch data!' }, revalidate: 1 } };

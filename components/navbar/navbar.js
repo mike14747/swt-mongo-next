@@ -10,7 +10,7 @@ const NavBar = () => {
     return (
         <div className="row mt-1 mb-4">
             <div className="col-12 justify-content-center text-center">
-                <NavButton buttonText="Standings" href={`/standings/${currentSeasonId}`} />
+                <NavButton buttonText="Standings" href={`/standings?seasonId=${currentSeasonId}`} />
                 <NavDropdown buttonText="Results +" listItems={storesInResults} />
                 {displaySchedule === 1 &&
                     <NavDropdown buttonText="Schedule +" listItems={storesInSchedule} />

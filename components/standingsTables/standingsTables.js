@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import StandingsRow from './subcomponents/standingsRow/standingsRow';
 
-const StandingsTables = ({ standingsArr }) => {
+const StandingsTables = ({ storesArr }) => {
     return (
         <>
-            {standingsArr.map(({ storeDivision, storeCity, dayName, standingsList }) => (
-                <div key={storeDivision}>
-                    <h5 className="text-center">{storeCity} - {dayName}</h5>
+            {storesArr.map(s => (
+                <div key={`${s.storeId}${s.divisionId}`}>
+                    <h5 className="text-center">{s.storeCity} - {s.divisionName}</h5>
                     <div className="d-flex justify-content-center mb-4">
                         <div className="min-w-50 mx-auto table-wrapper">
                             <table className="table table-bordered mb-4 text-center">
@@ -20,7 +20,7 @@ const StandingsTables = ({ standingsArr }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <StandingsRow standingsRowData={standingsList} />
+                                    <StandingsRow standingsRowData={s.teams} />
                                 </tbody>
                             </table>
                         </div>
@@ -32,7 +32,7 @@ const StandingsTables = ({ standingsArr }) => {
 };
 
 StandingsTables.propTypes = {
-    standingsArr: PropTypes.array,
+    storesArr: PropTypes.array,
 };
 
 export default StandingsTables;

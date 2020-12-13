@@ -1,15 +1,20 @@
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 const StandingsRow = ({ standingsRowData }) => {
     return (
         <>
-            {standingsRowData.map((standing) => (
-                <tr key={standing.standingsId}>
-                    <td className="text-left"><a href={'/teams/' + standing.teamId}>{standing.teamName}</a></td>
-                    <td>{standing.wins}</td>
-                    <td>{standing.losses}</td>
-                    <td>{standing.ties}</td>
-                    <td>{standing.totalPoints}</td>
+            {standingsRowData.map(s => (
+                <tr key={s.teamId}>
+                    <td className="text-left">
+                        <Link href={'/teams/' + s.teamId}>
+                            <a>{s.teamName}</a>
+                        </Link>
+                    </td>
+                    <td>{s.wins}</td>
+                    <td>{s.losses}</td>
+                    <td>{s.ties}</td>
+                    <td>{s.totalPoints}</td>
                 </tr>
             ))}
         </>

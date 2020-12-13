@@ -32,8 +32,8 @@ Rules.propTypes = {
 export async function getStaticProps() {
     try {
         const rulesResponse = await getRules();
-        if (rulesResponse && rulesResponse.length === 1) return { props: { rules: JSON.parse(JSON.stringify(rulesResponse[0])), error: null, revalidate: 1 } };
-        return { props: { rules: null, error: { message: 'Rules are not currently available. Please try again later!' }, revalidate: 1 } };
+        // console.log('rulesResponse:', rulesResponse);
+        return rulesResponse ? { props: { rules: JSON.parse(JSON.stringify(rulesResponse)), error: null, revalidate: 1 } } : { props: { rules: null, error: { message: 'Rules are not currently available. Please try again later!' }, revalidate: 1 } };
     } catch (error) {
         console.error(error.message);
         return { props: { rules: null, error: { message: 'An error occurred trying to fetch data!' }, revalidate: 1 } };

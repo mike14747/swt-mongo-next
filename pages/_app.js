@@ -14,7 +14,7 @@ import '../styles/my_style.css';
 import '../styles/app_style.css';
 
 function MyApp({ settings, headerTextbox, storesInNavbar, error, Component, pageProps }) {
-    console.log('props.settings', settings, 'headerTextbox:', headerTextbox, 'error:', error);
+    // console.log('props.settings', settings, 'headerTextbox:', headerTextbox, 'error:', error);
 
     const [loading, setLoading] = useState(false);
 

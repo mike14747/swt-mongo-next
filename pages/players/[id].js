@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import { getPlayerSeasonsList } from '../../lib/api/players';
+import { getPlayerSeasonsList, getSeasonStats, getCareerStats } from '../../lib/api/players';
+import { getCurrentSeasonId } from '../../lib/api/settings';
 
 import PageHeading from '../../components/pageHeading';
 import SeasonDropdown from '../../components/seasonDropdown';
 
 const Players = ({ seasonStats, careerStats, displayedSeason, seasons, error }) => {
+    console.log('seasonStats:', seasonStats, 'careerStats:', careerStats);
+
     return (
         <>
             <Head>
@@ -39,6 +42,7 @@ Players.propTypes = {
 };
 
 export async function getServerSideProps({ params, query }) {
+    let seasonId = 0;
     let seasonStats = null;
     let careerStats = null;
     let displayedSeason = null;
@@ -53,6 +57,21 @@ export async function getServerSideProps({ params, query }) {
                 url: `/players/${params.id}?seasonId=${season.seasonId}`,
             }));
         }
+
+        if (query && query.seasonId) {
+            seasonId = query.seasonId;
+        } else {
+            const seasonIdResponse = await getCurrentSeasonId();
+            if (seasonIdResponse) {
+                seasonId = JSON.parse(JSON.stringify(seasonIdResponse.currentSeasonId));
+            }
+        }
+
+        const seasonStatsResponse = await getSeasonStats(params.id, seasonId);
+        if (seasonStatsResponse) seasonStats = JSON.parse(JSON.stringify(seasonStatsResponse));
+
+        const careerStatsResponse = await getCareerStats(params.id);
+        if (careerStatsResponse) careerStats = JSON.parse(JSON.stringify(careerStatsResponse));
 
         // if (!query || !query.seasonId) {
         //     error = { message: 'No season was selected!' };

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 import { getStandingsBySeasonId, getStandingsSeasonsList } from '../lib/api/standings';
+import { getCurrentSeasonId } from '../lib/api/settings';
 
 import PageHeading from '../components/pageHeading';
 import StandingsTables from '../components/standingsTables/standingsTables';
@@ -39,6 +40,7 @@ Standings.propTypes = {
 };
 
 export async function getServerSideProps({ query }) {
+    let seasonId = 0;
     let standings = null;
     let displayedSeason = null;
     let seasons = null;
@@ -53,20 +55,25 @@ export async function getServerSideProps({ query }) {
             }));
         }
 
-        if (!query || !query.seasonId) {
-            error = { message: 'No season was selected!' };
+        if (query && query.seasonId) {
+            seasonId = query.seasonId;
         } else {
-            const [standingsResponse] = await getStandingsBySeasonId(query.seasonId);
-            if (standingsResponse) {
-                standings = JSON.parse(JSON.stringify(standingsResponse));
-                displayedSeason = {
-                    seasonId: standingsResponse.seasonId,
-                    seasonName: standingsResponse.seasonName,
-                    year: standingsResponse.year,
-                };
-            } else {
-                error = { message: 'No standings are available for the selected season!' };
+            const seasonIdResponse = await getCurrentSeasonId();
+            if (seasonIdResponse) {
+                seasonId = JSON.parse(JSON.stringify(seasonIdResponse.currentSeasonId));
             }
+        }
+
+        const [standingsResponse] = await getStandingsBySeasonId(seasonId);
+        if (standingsResponse) {
+            standings = JSON.parse(JSON.stringify(standingsResponse));
+            displayedSeason = {
+                seasonId: standingsResponse.seasonId,
+                seasonName: standingsResponse.seasonName,
+                year: standingsResponse.year,
+            };
+        } else {
+            error = { message: 'No standings are available for the selected season!' };
         }
 
         return { props: { standings, displayedSeason, seasons, error } };

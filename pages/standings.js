@@ -54,7 +54,7 @@ export async function getServerSideProps({ query }) {
         }
 
         if (!query || !query.seasonId) {
-            error = { message: 'No season was selected for standings!' };
+            error = { message: 'No season was selected!' };
         } else {
             const [standingsResponse] = await getStandingsBySeasonId(query.seasonId);
             if (standingsResponse) {

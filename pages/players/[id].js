@@ -39,13 +39,13 @@ Players.propTypes = {
 };
 
 export async function getServerSideProps({ params, query }) {
-    try {
-        let seasonStats = null;
-        let careerStats = null;
-        let displayedSeason = null;
-        let seasons = null;
-        let error = null;
+    let seasonStats = null;
+    let careerStats = null;
+    let displayedSeason = null;
+    let seasons = null;
+    let error = null;
 
+    try {
         const seasonsListResponse = await getPlayerSeasonsList(params.id);
         if (seasonsListResponse && seasonsListResponse.length > 0) {
             seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({

@@ -4,7 +4,7 @@ import SearchBar from './subcomponents/searchBar';
 import HeaderNav from './subcomponents/headerNav';
 import JoinFun from './subcomponents/joinFun';
 
-function Header() {
+const Header = () => {
     return (
         <div id="header" className="row mb-0">
             <div className="col-3 p-2 my-auto text-left">
@@ -40,6 +40,6 @@ function Header() {
             `}</style>
         </div>
     );
-}
+};
 
 export default Header;

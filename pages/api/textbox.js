@@ -1,11 +1,11 @@
-import { getSettings } from '../../lib/api/settings';
+import { getTextBoxData } from '../../lib/api/textbox';
 
 module.exports = async (req, res) => {
     switch (req.method) {
         case 'GET':
             try {
-                const settingsResponse = await getSettings();
-                if (settingsResponse) res.status(200).json(settingsResponse);
+                const textboxResponse = await getTextBoxData();
+                res.status(200).json(textboxResponse);
             } catch (error) {
                 res.status(500).end();
             }

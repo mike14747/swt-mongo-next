@@ -39,12 +39,12 @@ Standings.propTypes = {
 };
 
 export async function getServerSideProps({ query }) {
-    try {
-        let standings = null;
-        let displayedSeason = null;
-        let seasons = null;
-        let error = null;
+    let standings = null;
+    let displayedSeason = null;
+    let seasons = null;
+    let error = null;
 
+    try {
         const seasonsListResponse = await getStandingsSeasonsList();
         if (seasonsListResponse && seasonsListResponse.length > 0) {
             seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({
@@ -72,7 +72,7 @@ export async function getServerSideProps({ query }) {
         return { props: { standings, displayedSeason, seasons, error } };
     } catch (error) {
         console.error(error.message);
-        return { props: { standings: null, displayedSeason: null, seasons: null, error: { message: 'An error occurred trying to fetch data!' } } };
+        return { props: { standings, displayedSeason, seasons, error: { message: 'An error occurred trying to fetch data!' } } };
     }
 }
 

@@ -11,14 +11,14 @@ const JoinFun = () => {
         <div className="join-dropdown" data-toggle="dropdown">
             {headerData &&
                 <>
-                    {headerData.textBoxHeading &&
+                    {headerData.heading &&
                         <div className="join-heading">
-                            {headerData.textBoxHeading} +
+                            {headerData.heading} +
                         </div>
                     }
-                    {headerData.textBoxText &&
+                    {headerData.content &&
                         <div className="join-dropdown-content">
-                            {ReactHtmlParser(headerData.textBoxText)}
+                            {ReactHtmlParser(headerData.content)}
                         </div>
                     }
                 </>

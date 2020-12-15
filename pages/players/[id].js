@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import { getPlayerSeasonsList, getSeasonStats, getCareerStats } from '../../lib/api/players';
-import { getCurrentSeasonId } from '../../lib/api/settings';
+import { getPlayerSeasonsList, getCumulativeStatsForCurrentSeason, getCumulativeStatsForQuerySeason } from '../../lib/api/players';
 
 import PageHeading from '../../components/pageHeading';
 import SeasonDropdown from '../../components/seasonDropdown';
+import PlayerStatsBlock from '../../components/playerStatsBlock/playerStatsBlock';
 
-const Players = ({ seasonStats, careerStats, displayedSeason, seasons, error }) => {
-    console.log('seasonStats:', seasonStats, 'careerStats:', careerStats);
-
+const Players = ({ stats, displayedSeason, seasons, error }) => {
+    console.log('stats:', stats, 'error:', error);
     return (
         <>
             <Head>
@@ -23,19 +22,33 @@ const Players = ({ seasonStats, careerStats, displayedSeason, seasons, error }) 
                     }
                 </div>
             </div>
-            {/* {standings && standings.stores && standings.stores.length > 0
-                ? <StandingsTables storesArr={standings.stores} />
-                : standings
-                    ? <div className="empty-result">There are no standings for the selected season.</div>
-                    : error && <h4 className="text-danger text-center mt-4">{error.message}</h4>
-            } */}
+
+            {error && error.message}
+
+            {stats &&
+                <div className="row">
+                    <div className="col-sm-6">
+                        <div>Season Stats</div>
+                        {stats.seasonStats
+                            ? <PlayerStatsBlock stats={stats.seasonStats} />
+                            : <div className="text-danger">Player has no stats for the selected season.</div>
+                        }
+                    </div>
+                    <div className="col-sm-6">
+                        <div>Career Stats</div>
+                        {stats.careerStats
+                            ? <PlayerStatsBlock stats={stats.careerStats} />
+                            : <div>Player has no career stats.</div>
+                        }
+                    </div>
+                </div>
+            }
         </>
     );
 };
 
 Players.propTypes = {
-    seasonStats: PropTypes.object,
-    careerStats: PropTypes.object,
+    stats: PropTypes.object,
     displayedSeason: PropTypes.object,
     seasons: PropTypes.array,
     error: PropTypes.object,
@@ -43,8 +56,7 @@ Players.propTypes = {
 
 export async function getServerSideProps({ params, query }) {
     let seasonId = 0;
-    let seasonStats = null;
-    let careerStats = null;
+    let stats = null;
     let displayedSeason = null;
     let seasons = null;
     let error = null;
@@ -59,40 +71,19 @@ export async function getServerSideProps({ params, query }) {
         }
 
         if (query && query.seasonId) {
-            seasonId = query.seasonId;
+            const [statsResponse] = await getCumulativeStatsForQuerySeason(params.id, query.seasonId);
+            if (statsResponse) stats = JSON.parse(JSON.stringify(statsResponse));
         } else {
-            const seasonIdResponse = await getCurrentSeasonId();
-            if (seasonIdResponse) {
-                seasonId = JSON.parse(JSON.stringify(seasonIdResponse.currentSeasonId));
-            }
+            const [statsResponse] = await getCumulativeStatsForCurrentSeason(params.id);
+            if (statsResponse) stats = JSON.parse(JSON.stringify(statsResponse));
         }
 
-        const seasonStatsResponse = await getSeasonStats(params.id, seasonId);
-        if (seasonStatsResponse) seasonStats = JSON.parse(JSON.stringify(seasonStatsResponse));
+        if (stats === null) error = { message: 'Player was not found!' };
 
-        const careerStatsResponse = await getCareerStats(params.id);
-        if (careerStatsResponse) careerStats = JSON.parse(JSON.stringify(careerStatsResponse));
-
-        // if (!query || !query.seasonId) {
-        //     error = { message: 'No season was selected!' };
-        // } else {
-        //     const [standingsResponse] = await getStandingsBySeasonId(query.seasonId);
-        //     if (standingsResponse) {
-        //         standings = JSON.parse(JSON.stringify(standingsResponse));
-        //         displayedSeason = {
-        //             seasonId: standingsResponse.seasonId,
-        //             seasonName: standingsResponse.seasonName,
-        //             year: standingsResponse.year,
-        //         };
-        //     } else {
-        //         error = { message: 'No standings are available for the selected season!' };
-        //     }
-        // }
-
-        return { props: { seasonStats, careerStats, displayedSeason, seasons, error } };
+        return { props: { stats, displayedSeason, seasons, error } };
     } catch (error) {
         console.error(error.message);
-        return { props: { seasonStats: null, careerStats: null, displayedSeason: null, seasons: null, error: { message: 'An error occurred trying to fetch data!' } } };
+        return { props: { stats: null, displayedSeason: null, seasons: null, error: { message: 'An error occurred trying to fetch data!' } } };
     }
 }
 

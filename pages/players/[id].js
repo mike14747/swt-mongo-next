@@ -8,17 +8,10 @@ import { getPlayerSeasonsList, getCumulativeStatsForCurrentSeason, getCumulative
 import PageHeading from '../../components/pageHeading';
 import SeasonDropdown from '../../components/seasonDropdown';
 import PlayerStatsBlock from '../../components/playerStatsBlock/playerStatsBlock';
+import ErrorMessage from '../../components/errorMessage';
 
 const Players = ({ stats, displayedSeason, seasons, error }) => {
     const currentSeason = useContext(CurrentSeasonContext);
-
-    if (!displayedSeason) {
-        displayedSeason = {
-            seasonId: currentSeason.seasonId,
-            seasonName: currentSeason.seasonName,
-            year: currentSeason.year,
-        };
-    }
 
     return (
         <>
@@ -29,19 +22,21 @@ const Players = ({ stats, displayedSeason, seasons, error }) => {
             <div className="row mb-4">
                 <div className="col-12 text-right p-2">
                     {seasons && seasons.length > 0 &&
-                        <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
+                        <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
                     }
                 </div>
             </div>
 
-            {error && error.message}
+            {error && <ErrorMessage text={error.message} />}
 
             {stats &&
                 <div className="row">
                     <div className="col-md-6">
                         <div className="text-center bigger font-weight-bolder text-primary mb-2">
-                            {displayedSeason && displayedSeason.seasonId &&
-                                <div>{displayedSeason.seasonName}, {displayedSeason.year} Stats</div>
+                            {displayedSeason
+                                ? <><span className="small text-dark mr-2">Selected season: </span>{displayedSeason.seasonName}, {displayedSeason.year}</>
+                                : currentSeason &&
+                                    <><span className="small text-dark mr-2">Current Season is: </span>{currentSeason.seasonName}, {currentSeason.year}</>
                             }
                         </div>
                         <div className="d-flex justify-content-center mb-4">

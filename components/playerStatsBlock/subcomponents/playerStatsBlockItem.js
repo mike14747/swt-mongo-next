@@ -27,7 +27,7 @@ const PlayerStatsBlockItem = ({ heading, value }) => {
 
 PlayerStatsBlockItem.propTypes = {
     heading: PropTypes.string,
-    value: PropTypes.number,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default PlayerStatsBlockItem;

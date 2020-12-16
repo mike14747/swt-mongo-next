@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import { useContext } from 'react';
+import CurrentSeasonContext from '../../context/currentSeasonContext';
 
 import { getPlayerSeasonsList, getCumulativeStatsForCurrentSeason, getCumulativeStatsForQuerySeason } from '../../lib/api/players';
 
@@ -8,7 +10,16 @@ import SeasonDropdown from '../../components/seasonDropdown';
 import PlayerStatsBlock from '../../components/playerStatsBlock/playerStatsBlock';
 
 const Players = ({ stats, displayedSeason, seasons, error }) => {
-    console.log('stats:', stats, 'error:', error);
+    const currentSeason = useContext(CurrentSeasonContext);
+
+    if (!displayedSeason) {
+        displayedSeason = {
+            seasonId: currentSeason.seasonId,
+            seasonName: currentSeason.seasonName,
+            year: currentSeason.year,
+        };
+    }
+
     return (
         <>
             <Head>
@@ -27,19 +38,27 @@ const Players = ({ stats, displayedSeason, seasons, error }) => {
 
             {stats &&
                 <div className="row">
-                    <div className="col-sm-6">
-                        <div>Season Stats</div>
-                        {stats.seasonStats
-                            ? <PlayerStatsBlock stats={stats.seasonStats} />
-                            : <div className="text-danger">Player has no stats for the selected season.</div>
-                        }
+                    <div className="col-md-6">
+                        <div className="text-center bigger font-weight-bolder text-primary mb-2">
+                            {displayedSeason && displayedSeason.seasonId &&
+                                <div>{displayedSeason.seasonName}, {displayedSeason.year} Stats</div>
+                            }
+                        </div>
+                        <div className="d-flex justify-content-center mb-4">
+                            {stats.seasonStats
+                                ? <PlayerStatsBlock stats={stats.seasonStats} />
+                                : <div className="text-danger mt-3 mb-4 bigger">Player has no stats for the selected season.</div>
+                            }
+                        </div>
                     </div>
-                    <div className="col-sm-6">
-                        <div>Career Stats</div>
-                        {stats.careerStats
-                            ? <PlayerStatsBlock stats={stats.careerStats} />
-                            : <div>Player has no career stats.</div>
-                        }
+                    <div className="col-md-6 mb-4">
+                        <div className="text-center bigger font-weight-bolder text-success mb-2">Career Stats</div>
+                        <div className="d-flex justify-content-center mb-4">
+                            {stats.careerStats
+                                ? <PlayerStatsBlock stats={stats.careerStats} />
+                                : <div>Player has no career stats.</div>
+                            }
+                        </div>
                     </div>
                 </div>
             }
@@ -55,7 +74,6 @@ Players.propTypes = {
 };
 
 export async function getServerSideProps({ params, query }) {
-    let seasonId = 0;
     let stats = null;
     let displayedSeason = null;
     let seasons = null;
@@ -72,7 +90,16 @@ export async function getServerSideProps({ params, query }) {
 
         if (query && query.seasonId) {
             const [statsResponse] = await getCumulativeStatsForQuerySeason(params.id, query.seasonId);
-            if (statsResponse) stats = JSON.parse(JSON.stringify(statsResponse));
+            if (statsResponse) {
+                stats = JSON.parse(JSON.stringify(statsResponse));
+                if (stats.seasonStats) {
+                    displayedSeason = {
+                        seasonId: statsResponse.seasonStats.seasonId,
+                        seasonName: statsResponse.seasonStats.seasonName,
+                        year: statsResponse.seasonStats.year,
+                    };
+                }
+            }
         } else {
             const [statsResponse] = await getCumulativeStatsForCurrentSeason(params.id);
             if (statsResponse) stats = JSON.parse(JSON.stringify(statsResponse));

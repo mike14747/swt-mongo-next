@@ -3,13 +3,22 @@ import PropTypes from 'prop-types';
 const PlayerStatsBlockItem = ({ heading, value }) => {
     return (
         <>
-            <tr>
-                <td className="bg-stat-heading font-weight-bolder text-right">{heading}</td>
-                <td className="text-center px-4">{value}</td>
-            </tr>
+            <div className="grid-heading">{heading}</div>
+            <div className="grid-value">{value}</div>
+
             <style jsx>{`
-                .bg-stat-heading {
+                .grid-heading {
                     background-color: #eee8aa;
+                    font-weight: bolder;
+                    padding: 1rem;
+                    text-align: right;
+                    border-right: 1px #6c757d solid;
+                    border-bottom: 1px #6c757d solid;
+                }
+                .grid-value {
+                    padding: 1rem;
+                    text-align: center;
+                    border-bottom: 1px #6c757d solid;
                 }
             `}</style>
         </>

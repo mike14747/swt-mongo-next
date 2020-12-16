@@ -7,6 +7,7 @@ import { getCurrentSeasonId } from '../lib/api/settings';
 import PageHeading from '../components/pageHeading';
 import StandingsTables from '../components/standingsTables/standingsTables';
 import SeasonDropdown from '../components/seasonDropdown';
+import ErrorMessage from '../components/errorMessage';
 
 const Standings = ({ standings, displayedSeason, seasons, error }) => {
     return (
@@ -22,11 +23,11 @@ const Standings = ({ standings, displayedSeason, seasons, error }) => {
                     }
                 </div>
             </div>
-            {standings && standings.stores && standings.stores.length > 0
-                ? <StandingsTables storesArr={standings.stores} />
-                : standings
-                    ? <div className="empty-result">There are no standings for the selected season.</div>
-                    : error && <h4 className="text-danger text-center mt-4">{error.message}</h4>
+
+            {error && <ErrorMessage text={error.message} />}
+
+            {standings && standings.stores && standings.stores.length > 0 &&
+                <StandingsTables storesArr={standings.stores} />
             }
         </>
     );

@@ -10,7 +10,7 @@ import SeasonDropdown from '../../components/seasonDropdown';
 import PlayerStatsBlock from '../../components/playerStatsBlock/playerStatsBlock';
 import ErrorMessage from '../../components/errorMessage';
 
-const Players = ({ stats, displayedSeason, seasons, error }) => {
+const Players = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
     const currentSeason = useContext(CurrentSeasonContext);
 
     return (
@@ -20,7 +20,29 @@ const Players = ({ stats, displayedSeason, seasons, error }) => {
             </Head>
             <PageHeading text="Player Stats" />
             <div className="row mb-4">
-                <div className="col-12 text-right p-2">
+                <div className="col-6 text-left">
+                    {playerInfo &&
+                        <div className="mb-3">
+                            <div className="bigger font-weight-bolder"><span className="text-danger mr-2">Player:</span>{playerInfo.playerName}</div>
+                            <div>
+                                <span className="small mr-2">Current View:</span>
+                                <span className="font-weight-bolder">
+                                    none
+                                </span>
+                            </div>
+                            <div>
+                                <span className="small mr-2">Career Store(s):</span>
+                                {playerInfo.stores.map((s, i) => (
+                                    <span key={s.storeId}>
+                                        {i > 0 && <>, </>}
+                                        <>{s.storeCity}</>
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div className="col-6 text-right p-2">
                     {seasons && seasons.length > 0 &&
                         <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
                     }
@@ -36,7 +58,7 @@ const Players = ({ stats, displayedSeason, seasons, error }) => {
                             {displayedSeason
                                 ? <><span className="small text-dark mr-2">Selected season: </span>{displayedSeason.seasonName}, {displayedSeason.year}</>
                                 : currentSeason &&
-                                    <><span className="small text-dark mr-2">Current Season is: </span>{currentSeason.seasonName}, {currentSeason.year}</>
+                                <><span className="small text-dark mr-2">Current Season is: </span>{currentSeason.seasonName}, {currentSeason.year}</>
                             }
                         </div>
                         <div className="d-flex justify-content-center mb-4">
@@ -62,6 +84,7 @@ const Players = ({ stats, displayedSeason, seasons, error }) => {
 };
 
 Players.propTypes = {
+    playerInfo: PropTypes.object,
     stats: PropTypes.object,
     displayedSeason: PropTypes.object,
     seasons: PropTypes.array,
@@ -69,10 +92,12 @@ Players.propTypes = {
 };
 
 export async function getServerSideProps({ params, query }) {
+    let playerInfo = null;
     let stats = null;
     let displayedSeason = null;
     let seasons = null;
     let error = null;
+    let statsResponse = null;
 
     try {
         const seasonsListResponse = await getPlayerSeasonsList(params.id);
@@ -84,28 +109,37 @@ export async function getServerSideProps({ params, query }) {
         }
 
         if (query && query.seasonId) {
-            const [statsResponse] = await getCumulativeStatsForQuerySeason(params.id, query.seasonId);
-            if (statsResponse) {
-                stats = JSON.parse(JSON.stringify(statsResponse));
-                if (stats.seasonStats) {
-                    displayedSeason = {
-                        seasonId: statsResponse.seasonStats.seasonId,
-                        seasonName: statsResponse.seasonStats.seasonName,
-                        year: statsResponse.seasonStats.year,
-                    };
-                }
-            }
+            [statsResponse] = await getCumulativeStatsForQuerySeason(params.id, query.seasonId);
         } else {
-            const [statsResponse] = await getCumulativeStatsForCurrentSeason(params.id);
-            if (statsResponse) stats = JSON.parse(JSON.stringify(statsResponse));
+            [statsResponse] = await getCumulativeStatsForCurrentSeason(params.id);
+        }
+
+        if (statsResponse) {
+            const statsJson = JSON.parse(JSON.stringify(statsResponse));
+            playerInfo = {
+                playerId: statsJson.playerId,
+                playerName: statsJson.playerName,
+                stores: statsJson.stores,
+            };
+            stats = {
+                seasonStats: statsJson.seasonStats || null,
+                careerStats: statsJson.careerStats || null,
+            };
+            if (stats.seasonStats) {
+                displayedSeason = {
+                    seasonId: statsResponse.seasonStats.seasonId,
+                    seasonName: statsResponse.seasonStats.seasonName,
+                    year: statsResponse.seasonStats.year,
+                };
+            }
         }
 
         if (stats === null) error = { message: 'Player was not found!' };
 
-        return { props: { stats, displayedSeason, seasons, error } };
+        return { props: { playerInfo, stats, displayedSeason, seasons, error } };
     } catch (error) {
         console.error(error.message);
-        return { props: { stats: null, displayedSeason: null, seasons: null, error: { message: 'An error occurred trying to fetch data!' } } };
+        return { props: { playerInfo: null, stats: null, displayedSeason: null, seasons: null, error: { message: 'An error occurred trying to fetch data!' } } };
     }
 }
 

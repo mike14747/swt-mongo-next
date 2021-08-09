@@ -9,6 +9,7 @@ const Header = () => {
         <div id="header" className="row mb-0">
             <div className="col-3 p-2 my-auto text-left">
                 <Link href="/">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a><img className="img-fluid" src="/images/header/skeeball_logo.png" alt="Skeeball World Tour" /></a>
                 </Link>
             </div>

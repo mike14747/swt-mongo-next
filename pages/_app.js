@@ -7,12 +7,13 @@ import SettingsContext from '../context/settingsContext';
 import HeaderContext from '../context/headerContext';
 import CurrentSeasonContext from '../context/currentSeasonContext';
 
-import Header from '../components/header/header';
+import Header from '../components/Header';
 import Navbar from '../components/navbar/navbar';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
-import '../styles/my_style.css';
-import '../styles/app_style.css';
+// import '../styles/my_style.css';
+// import '../styles/app_style.css';
+import '../styles/globals.css';
 
 function MyApp({ settings, currentSeason, headerTextbox, storesInNavbar, error, Component, pageProps }) {
     const [loading, setLoading] = useState(false);
@@ -22,18 +23,18 @@ function MyApp({ settings, currentSeason, headerTextbox, storesInNavbar, error, 
     Router.onRouteChangeError = () => setLoading(false);
 
     return (
-        <div id="app-wrapper" className="container border bg-white">
+        <>
             <SettingsContext.Provider value={settings}>
                 <CurrentSeasonContext.Provider value={currentSeason}>
                     <HeaderContext.Provider value={headerTextbox}>
                         <Header />
                     </HeaderContext.Provider>
                     <Navbar />
-                    <div id="main-container">{loading ? <Loading /> : <Component {...pageProps} />}</div>
+                    <main className="main-container">{loading ? <Loading /> : <Component {...pageProps} />}</main>
                     <Footer />
                 </CurrentSeasonContext.Provider>
             </SettingsContext.Provider>
-        </div>
+        </>
     );
 }
 

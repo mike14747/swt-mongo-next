@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import ReactHtmlParser from 'react-html-parser';
 
-import HeaderContext from '../../../context/headerContext';
+import HeaderContext from '../context/headerContext';
 
 const JoinFun = () => {
     const headerData = useContext(HeaderContext);

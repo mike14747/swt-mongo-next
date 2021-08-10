@@ -18,7 +18,7 @@
 #__next {
     display: flex;
     flex-direction: column;
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 html,
@@ -572,18 +572,9 @@ template {
 }
 
 @media (min-width: 480px) {
-    .main-container,
-    .container {
-        width: calc(100% - 0.50rem);
-    }
 }
 
 @media (min-width: 768px) {
-    .main-container,
-    .container {
-        width: calc(100% - 1rem);
-    }
-
     .page-heading {
         margin-top: 0.5rem;
     }

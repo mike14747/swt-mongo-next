@@ -1,5 +1,7 @@
 .header {
     display: flex;
+    align-content: center;
+    background-color: #ffffff;
     background-image: url("/images/header/head_bg_new.jpg");
     background-size: cover;
     margin-bottom: 0;
@@ -10,13 +12,12 @@
 }
 
 .headerLeft {
-    flex: 1;
+    flex: 2 1 116px;
     text-align: left;
-    margin: auto 0;
 }
 
 .headerMiddle {
-    flex: 2;
+    flex: 2 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,16 +25,17 @@
 }
 
 .headerRight {
-    flex: 1;
+    flex: 1 1 auto;
+    align-self: center;
     padding: 0.50rem;
     text-align: right;
-    margin: auto 0;
 }
 
 .logo {
-    max-width: 100%;
+    width: 100%;
+    min-width: 116px;
+    max-width: 218px;
     height: auto;
-    margin-bottom: -1rem;
     padding: 0.50rem;
     transition: 0.3s;
 }
@@ -45,8 +47,13 @@
 }
 
 @media (min-width: 768px) {
-    .col-logo {
-        flex: 0 0 25%;
-        max-width: 25%;
+    .headerLeft {
+        flex: 2;
+    }
+    .headerMiddle {
+        flex: 3;
+    }
+    .headerRight {
+        flex: 2;
     }
 }

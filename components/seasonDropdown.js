@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import styles from '../styles/seasonDropdown.module.css';
+import styles from '../styles/SeasonDropdown.module.css';
 import PropTypes from 'prop-types';
 
 function Dropdown({ displayedSeason, buttonText, listItems }) {
@@ -19,11 +19,10 @@ function Dropdown({ displayedSeason, buttonText, listItems }) {
                         <Fragment key={item.seasonId}>
                             {displayedSeason && (item.seasonId === parseInt(displayedSeason.seasonId))
                                 ? <li className={styles.viewing}>&gt; {item.seasonName + ' - ' + item.year}</li>
-                                : <>
-                                    <Link href={item.url}>
-                                        <a><li>{item.seasonName + ' - ' + item.year}</li></a>
-                                    </Link>
-                                </>
+                                : <Link href={item.url}>
+                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                    <a><li>{item.seasonName + ' - ' + item.year}</li></a>
+                                </Link>
                             }
                         </Fragment>
                     ))}

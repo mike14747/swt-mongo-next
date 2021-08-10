@@ -19,7 +19,9 @@ const Footer = () => {
                 </p>
             </div>
             <div className={styles.footerRight}>
-                <h5><a href={`mailto:${contactEmail}`}>Contact Us</a></h5>
+                <address className={styles.contact}>
+                    <a href={`mailto:${contactEmail}`}>Contact Us</a>
+                </address>
                 <p>&copy; 2010 Skeeball World Tour</p>
             </div>
         </footer>

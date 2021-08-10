@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import SearchBar from './searchBar';
-import HeaderNav from './headerNav';
-import JoinFun from './joinFun';
+import SearchBar from './SearchBar';
+import HeaderNav from './HeaderNav';
+import JoinFun from './JoinFun';
 
 import styles from '../styles/Header.module.css';
 

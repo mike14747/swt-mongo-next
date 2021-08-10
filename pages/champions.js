@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { getChampions } from '../lib/api/champions';
 
-import PageHeading from '../components/pageHeading';
+import PageHeading from '../components/PageHeading';
 
 const Champions = ({ champions, error }) => {
     return (

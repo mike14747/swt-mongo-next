@@ -8,6 +8,7 @@ const StandingsRow = ({ standingsRowData }) => {
                 <tr key={s.teamId}>
                     <td className="text-left">
                         <Link href={'/teams/' + s.teamId}>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a>{s.teamName}</a>
                         </Link>
                     </td>

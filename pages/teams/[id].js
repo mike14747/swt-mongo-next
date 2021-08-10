@@ -3,9 +3,9 @@ import Head from 'next/head';
 import { useContext } from 'react';
 import CurrentSeasonContext from '../../context/currentSeasonContext';
 
-import PageHeading from '../../components/pageHeading';
-import SeasonDropdown from '../../components/seasonDropdown';
-import ErrorMessage from '../../components/errorMessage';
+import PageHeading from '../../components/PageHeading';
+import SeasonDropdown from '../../components/SeasonDropdown';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const Teams = ({ stats, displayedSeason, seasons, error }) => {
     const currentSeason = useContext(CurrentSeasonContext);

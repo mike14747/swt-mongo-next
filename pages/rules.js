@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 import { getRules } from '../lib/api/rules';
 
-import PageHeading from '../components/pageHeading';
+import PageHeading from '../components/PageHeading';
 
 const Rules = ({ rules, error }) => {
     return (

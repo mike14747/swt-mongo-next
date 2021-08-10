@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import StandingsRow from './subcomponents/standingsRow/standingsRow';
+import StandingsRow from './StandingsRow';
 
 const StandingsTables = ({ storesArr }) => {
     return (

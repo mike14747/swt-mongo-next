@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { getStandingsBySeasonId, getStandingsSeasonsList } from '../lib/api/standings';
 import { getCurrentSeasonId } from '../lib/api/settings';
 
-import PageHeading from '../components/pageHeading';
-import StandingsTables from '../components/standingsTables/standingsTables';
-import SeasonDropdown from '../components/seasonDropdown';
-import ErrorMessage from '../components/errorMessage';
+import PageHeading from '../components/PageHeading';
+import StandingsTables from '../components/StandingsTables';
+import SeasonDropdown from '../components/SeasonDropdown';
+import ErrorMessage from '../components/ErrorMessage';
 
 const Standings = ({ standings, displayedSeason, seasons, error }) => {
     return (

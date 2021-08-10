@@ -5,10 +5,10 @@ import CurrentSeasonContext from '../../context/currentSeasonContext';
 
 import { getPlayerSeasonsList, getCumulativeStatsForCurrentSeason, getCumulativeStatsForQuerySeason } from '../../lib/api/players';
 
-import PageHeading from '../../components/pageHeading';
-import SeasonDropdown from '../../components/seasonDropdown';
-import PlayerStatsBlock from '../../components/playerStatsBlock/playerStatsBlock';
-import ErrorMessage from '../../components/errorMessage';
+import PageHeading from '../../components/PageHeading';
+import SeasonDropdown from '../../components/SeasonDropdown';
+import PlayerStatsBlock from '../../components/playerStatsBlock/PlayerStatsBlock';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const Players = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
     const currentSeason = useContext(CurrentSeasonContext);

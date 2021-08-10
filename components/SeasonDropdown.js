@@ -1,24 +1,25 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import styles from '../styles/SeasonDropdown.module.css';
 import PropTypes from 'prop-types';
+
+import styles from '../styles/SeasonDropdown.module.css';
 
 function Dropdown({ displayedSeason, buttonText, listItems }) {
     return (
-        <>
+        <aside className={styles.seasonDropdown}>
             {displayedSeason &&
-                <Fragment>
-                    <span className="small">Current View:</span> <span className="font-weight-bolder">{displayedSeason.seasonName}, {displayedSeason.year}</span>
-                </Fragment>
+                <>
+                    <span className={styles.currentText}>Current View:</span> <span className={styles.currentSeasonText}>{displayedSeason.seasonName}, {displayedSeason.year}</span><span className={styles.break}></span>
+                </>
             }
             <div className={styles.dropdown}>
-                <button className={styles.dropbtn}>{buttonText}<div className={styles.down}></div></button>
+                <button className={styles.dropbtn}>{buttonText}</button>
                 <ul className={styles.dropdownContent}>
                     {listItems.map(item => (
                         <Fragment key={item.seasonId}>
                             {displayedSeason && (item.seasonId === parseInt(displayedSeason.seasonId))
-                                ? <li className={styles.viewing}>&gt; {item.seasonName + ' - ' + item.year}</li>
+                                ? <li className={styles.viewing}>-- {item.seasonName + ' - ' + item.year} --</li>
                                 : <Link href={item.url}>
                                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                     <a><li>{item.seasonName + ' - ' + item.year}</li></a>
@@ -28,7 +29,7 @@ function Dropdown({ displayedSeason, buttonText, listItems }) {
                     ))}
                 </ul>
             </div>
-        </>
+        </aside>
     );
 }
 

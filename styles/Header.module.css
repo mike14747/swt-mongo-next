@@ -1,9 +1,10 @@
 .header {
     display: flex;
     align-content: center;
-    background-color: #ffffff;
-    background-image: url("/images/header/head_bg_new.jpg");
-    background-size: cover;
+    /* background-color: #ffffff;
+    background-image: url("/images/header/header_bg.jpg");
+    background-size: cover; */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('/images/header/header_bg.jpg') center / cover, rgba(0, 0, 0, 0.15);
     margin-bottom: 0;
     width: 100%;
     margin-left: auto;

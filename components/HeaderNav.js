@@ -29,26 +29,30 @@ const HeaderNav = () => {
                 .h-nav-container {
                     position: relative;
                     display: inline-block;
+                    margin-bottom: -0.50rem;
                 }
                 
                 .h-nav-burger {
+                    display: inline-block;
                     font-size: calc(1vw + 1vh + .5vmin + 12px);
                     font-weight: 600;
                     cursor: pointer;
                     border-radius: 0.25rem;
                     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-                    background-color: rgba(255, 255, 255, 0.3);
+                    background-color: rgba(255, 255, 255, 0.5);
                     border: 1px #999999 solid;
                     padding: .25rem .50rem;
+                    margin-bottom: 0.50rem;
                 }
                 
-                .h-nav-content {
+                ul.h-nav-content {
                     font-size: 1.25rem;
                     font-weight: 500;
                     display: none;
                     position: absolute;
+                    right: 0;
                     text-align: left;
-                    width: calc(100% + 100px);
+                    width: calc(100% + 200px);
                     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                     z-index: 2;
                     margin: 0 0 0 -100px;
@@ -56,39 +60,48 @@ const HeaderNav = () => {
                     cursor: pointer;
                 }
                 
-                .h-nav-content a {
+                ul.h-nav-content a {
                     text-decoration: none;
                 }
                 
-                .h-nav-content:hover a {
+                ul.h-nav-content:hover a {
                     text-decoration: none;
                 }
                 
-                .h-nav-content li {
-                    padding: 0.75rem;
+                ul.h-nav-content li {
+                    padding: 1rem;
                     display: block;
-                    border-top: 1px #cccccc solid;
-                    border-right: 1px #cccccc solid;
-                    border-left: 1px #cccccc solid;
-                }
-                
-                .h-nav-content li:last-child {
-                    border-bottom: 1px #cccccc solid;
+                    border-top: 1px rgba(0, 0, 0, 0.25) solid;
+                    border-bottom: 1px rgba(0, 0, 0, 0.25) solid;
+                    border-right: 1px rgba(0, 0, 0, 0.25) solid;
+                    border-left: 1px rgba(0, 0, 0, 0.25) solid;
                 }
                 
                 .h-nav-container:hover, .h-nav-container:hover .h-nav-content {
                     display: block;
                 }
                 
-                .nav-item {
+                li.nav-item {
                     background-color: #f3e3c0 !important;
                     color: #cc0000;
                     cursor: pointer;
                 }
                 
-                .nav-item:hover {
+                li.nav-item:hover {
                     background-color: #d5eff4 !important;
                     color: #006699;
+                }
+
+                @media (min-width: 768px) {
+                    ul.h-nav-content {
+                        width: calc(100% + 100px);
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    ul.h-nav-content {
+                        width: 100%;
+                    }
                 }
             `}</style>
         </div>

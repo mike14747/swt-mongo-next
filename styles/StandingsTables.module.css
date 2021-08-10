@@ -1,0 +1,57 @@
+.storeHeading {
+    text-align: center;
+}
+
+.headingRow {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.tableWrapper {
+    /* min-width: 50%; */
+    margin: 0 auto 1rem auto;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.table {
+    /* width: 100%; */
+    min-width: 50%;
+    margin: 0 auto 1rem auto;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #6c757d;
+    text-align: center;
+}
+
+th.textLeft {
+    text-align: left;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #6c757d;
+}
+
+.table tbody + tbody {
+    border-top: 1px solid #6c757d;
+}
+
+.tableBordered {
+    border: 1px solid #6c757d;
+}
+
+.tableBordered th,
+.tableBordered td {
+    border: 1px solid #6c757d;
+}
+
+.tableBordered thead th,
+.tableBordered thead td {
+    border-bottom-width: 1px;
+}

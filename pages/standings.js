@@ -9,24 +9,26 @@ import StandingsTables from '../components/StandingsTables';
 import SeasonDropdown from '../components/SeasonDropdown';
 import ErrorMessage from '../components/ErrorMessage';
 
+import styles from '../styles/Standings.module.css';
+
 const Standings = ({ standings, displayedSeason, seasons, error }) => {
     return (
         <>
             <Head>
                 <title>Standings</title>
             </Head>
+
             <PageHeading text="Standings" />
-            <div className="row mb-4">
-                <div className="col-12 text-right p-2">
-                    {seasons && seasons.length > 0 &&
-                        <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
-                    }
-                </div>
-            </div>
+
+            {seasons?.length > 0 &&
+                <aside className={styles.seasonList}>
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
+                </aside>
+            }
 
             {error && <ErrorMessage text={error.message} />}
 
-            {standings && standings.stores && standings.stores.length > 0 &&
+            {standings?.stores?.length > 0 &&
                 <StandingsTables storesArr={standings.stores} />
             }
         </>

@@ -5,14 +5,15 @@
 }
 
 button.dropbtn {
-    background-color: #3F7DB7;
+    background-color: #30608c;
     color: #ffffff;
-    padding: 0.3rem 0.5rem;
+    padding: 0.50rem 0.75rem;
     margin: 0.50rem 0;
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 600;
+    letter-spacing: 0.50px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
 }
 
@@ -23,9 +24,9 @@ button.dropbtn::after {
 
 button.dropbtn:hover,
 .dropdown:hover button.dropbtn {
-    color: #3F7DB7;
-    background-color: rgba(0, 0, 0, 0.05);
-    outline: 1px #3F7DB7 solid;
+    color: #ffffff;
+    background-color: #b7793f;
+    outline: 1px #30608c solid;
     transition: 0.3s;
 }
 
@@ -40,7 +41,7 @@ ul.dropdownContent {
     position: absolute;
     right: 0;
     background-color: #ffffff;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     font-size: 90%;
@@ -62,7 +63,7 @@ ul.dropdownContent > li:last-child {
 }
 
 ul.dropdownContent > li > a {
-    color: #216290;
+    color: #132637;
     background-color: #ffffff;
     padding: 0.75rem 0.75rem;
     text-decoration: none;

@@ -1,7 +1,13 @@
+.joinDropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: auto;
+}
+
 .joinHeading {
-    padding: 10px 5px;
+    padding: 0.50rem;
     text-align: center;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
     font-style: italic;
     color: #333333;
     font-size: 1rem;
@@ -9,12 +15,8 @@
     font-weight: bolder;
     background-color: rgba(213, 239, 244, 0.75);
     margin-bottom: 0.50rem;
-}
-
-.joinDropdown {
-    position: relative;
-    display: inline-block;
-    margin-bottom: auto;
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+    border-radius: 0.25rem;
 }
 
 .joinDropdownContent {
@@ -25,7 +27,7 @@
     right: -40px;
     background-color: rgba(255, 255, 255, 0.9);
     /* min-width: 250px; */
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
     z-index: 1;
     margin: 0;
     padding: 0.5rem;

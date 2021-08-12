@@ -9,7 +9,7 @@ const StandingsTables = ({ storesArr }) => {
             {storesArr.map(s => (
                 <article key={`${s.storeId}${s.divisionId}`}>
                     <h5 className={styles.storeHeading}>{s.storeCity} - {s.divisionName}</h5>
-                    <div className={styles.tableWrapper}>
+                    <section className={styles.tableWrapper}>
                         <table className={styles.table + ' ' + styles.tableBordered}>
                             <thead>
                                 <tr className={styles.headingRow}>
@@ -24,7 +24,7 @@ const StandingsTables = ({ storesArr }) => {
                                 <StandingsRow standingsRowData={s.teams} />
                             </tbody>
                         </table>
-                    </div>
+                    </section>
                 </article>
             ))}
         </>

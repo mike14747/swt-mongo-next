@@ -1,59 +1,81 @@
-.navdropbtn {
-    background-color: #d5eff4;
-    color: #006699;
-    padding: 0.3rem 0.5rem;
-    margin: 0 0.3rem;
-    font-size: 1rem;
-    border: 1px #999999 solid;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.navdropbtn:hover {
-    background-color: #f3e3c0;
-    color: #cc0000;
-}
-
 .navdropdown {
     position: relative;
     display: inline-block;
 }
 
-.navdropdownContent {
+button.navdropbtn {
+    background-color: #30608c;
+    color: #ffffff;
+    padding: 0.50rem;
+    margin: 0 0.25rem 0.50rem 0.25rem;
+    font-size: clamp(0.9rem, 0.55vw + 0.55rem, 1.1rem);
+    line-height: 1;
+    letter-spacing: 0.5px;
+    border: none;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.navdropbtn::after {
+    content: '\2B9F';
+    padding-left: 0.5rem;
+}
+
+button.navdropbtn:hover,
+.navdropdown:hover button.navdropbtn {
+    background-color: #b7793f;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.30);
+    transition: 0.3s;
+}
+
+ul.navdropdownContent {
     text-align: left;
     display: none;
     position: absolute;
+    left: -50%;
+    right: -50%;
     background-color: #f3e3c0;
-    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    margin: 0 0 0 -50px;
+    margin: 0;
+    padding: 0 !important;
+    list-style-type: none;
 }
 
-.navdropdownContent a {
-    color: #cc0000;
-    padding: 1rem 0.5rem;
+ul.navdropdownContent > li > a {
+    background-color: #ffffff;
+    color: #132637;
+    padding: 0.75rem;
     text-decoration: none;
     display: block;
 }
 
-.navdropdownContent a:hover {
-    background-color: #d5eff4;
-    color: #006699;
+ul.navdropdownContent > li > a:hover {
+    background-color: #3F7DB7;
+    color: #ffffff;
     text-decoration: none;
 }
 
-.navdropdown:hover .navdropdownContent {
+.navdropdown:hover ul.navdropdownContent {
     display: block;
 }
 
-.navdropdown:hover .navdropbtn {
-    background-color: #f3e3c0;
-    color: #cc0000;
+ul.navdropdownContent > li {
+    display: block;
+    margin: 0;
+    border-top: 1px rgba(167, 160, 154, 1) solid;
+    border-right: 1px rgba(167, 160, 154, 1) solid;
+    border-left: 1px rgba(167, 160, 154, 1) solid;
 }
 
-.item {
-    border-top: 1px #cccccc solid;
-    border-right: 1px #cccccc solid;
-    border-left: 1px #cccccc solid;
+ul.navdropdownContent > li:last-child {
+    border-bottom: 1px rgba(167, 160, 154, 1) solid;
+}
+
+@media (min-width: 480px) {
+    button.navdropbtn {
+        margin: 0 0.50rem 0.50rem 0.50rem;
+        padding: 0.5rem 0.75rem;
+    }
 }

@@ -8,7 +8,7 @@ import styles from '../styles/Header.module.css';
 
 const Header = () => {
     return (
-        <header className={styles.header}>
+        <header className={styles.header + ' container'}>
             <div className={styles.headerLeft}>
                 <Link href="/">
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

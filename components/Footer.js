@@ -7,7 +7,7 @@ const Footer = () => {
     const { contactEmail } = useContext(SettingsContext);
 
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer + ' container'}>
             <div className={styles.footerLeft}>
                 <p><b>Brought to you by:</b></p>
                 <p>

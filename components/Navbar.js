@@ -23,7 +23,7 @@ const NavBar = () => {
     const { currentSeasonId = 0, displaySchedule = 0 } = useContext(SettingsContext);
 
     return (
-        <nav className={styles.nav}>
+        <nav className={styles.nav + ' container'}>
             <NavButton buttonText="Standings" href={`/standings?seasonId=${currentSeasonId}`} />
             <NavDropdown buttonText="Results" listItems={tempContent} />
             {displaySchedule === 1 &&

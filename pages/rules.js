@@ -16,7 +16,8 @@ const Rules = ({ rules, error }) => {
             <PageHeading text="League Rules" />
             {rules
                 ? <ReactMarkdown
-                    source={rules.content}
+                    // eslint-disable-next-line react/no-children-prop
+                    children={rules.content}
                 />
                 : error && <h4 className="text-danger text-center mt-4">{error.message}</h4>
             }

@@ -9,7 +9,7 @@ const JoinFun = () => {
     const headerData = useContext(HeaderContext);
 
     return (
-        <div className={styles.joinDropdown}>
+        <aside className={styles.joinDropdown}>
             {headerData?.heading &&
                 <div className={styles.joinHeading}>
                     {headerData.heading} +
@@ -20,7 +20,7 @@ const JoinFun = () => {
                     {ReactHtmlParser(headerData.content)}
                 </div>
             }
-        </div>
+        </aside>
 
     );
 };

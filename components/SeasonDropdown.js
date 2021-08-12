@@ -20,10 +20,12 @@ function Dropdown({ displayedSeason, buttonText, listItems }) {
                         <Fragment key={item.seasonId}>
                             {displayedSeason && (item.seasonId === parseInt(displayedSeason.seasonId))
                                 ? <li className={styles.viewing}>-- {item.seasonName + ' - ' + item.year} --</li>
-                                : <Link href={item.url}>
-                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                    <a><li>{item.seasonName + ' - ' + item.year}</li></a>
-                                </Link>
+                                : <li>
+                                    <Link href={item.url}>
+                                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                        <a>{item.seasonName + ' - ' + item.year}</a>
+                                    </Link>
+                                </li>
                             }
                         </Fragment>
                     ))}

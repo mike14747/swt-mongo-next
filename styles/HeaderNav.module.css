@@ -1,1 +1,83 @@
+.hNavContainer {
+    position: relative;
+    display: inline-block;
+    margin-bottom: -0.50rem;
+}
 
+.hNavBurger {
+    display: inline-block;
+    font-size: calc(1vw + 1vh + .5vmin + 12px);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px rgba(167, 160, 154, 1) solid;
+    padding: .25rem .50rem;
+    margin-bottom: 0.50rem;
+}
+
+ul.hNavContent {
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: none;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    width: calc(100% + 200px);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    margin: 0 0 0 -100px;
+    padding: 0;
+    background-color: #ffffff;
+    list-style-type: none;
+    transition: 0.3s;
+}
+
+ul.hNavContent li {
+    padding: 0;
+    display: block;
+    border-top: 1px rgba(167, 160, 154, 1) solid;
+    border-bottom: 2px rgba(167, 160, 154, 1) solid;
+    border-right: 1px rgba(167, 160, 154, 1) solid;
+    border-left: 1px rgba(167, 160, 154, 1) solid;
+}
+
+ul.hNavContent li:last-child {
+    border-bottom: 1px rgba(167, 160, 154, 1) solid;
+}
+
+.hNavContainer:hover, .hNavContainer:hover .hNavContent {
+    display: block;
+}
+
+li.navItem {
+    padding: 0;
+}
+
+li > a.link {
+    display: block;
+    padding: 1rem;
+    background-color: #ffffff;
+    color: #216290;
+    transition: 0.3s;
+}
+
+li > a.link:hover {
+    background-color: #3F7DB7;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+    ul.hNavContent {
+        width: calc(100% + 100px);
+    }
+}
+
+@media (min-width: 1024px) {
+    ul.hNavContent {
+        width: 100%;
+    }
+}

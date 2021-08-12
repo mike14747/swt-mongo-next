@@ -51,14 +51,14 @@ export async function getServerSideProps({ query }) {
 
     try {
         const seasonsListResponse = await getStandingsSeasonsList();
-        if (seasonsListResponse && seasonsListResponse.length > 0) {
+        if (seasonsListResponse?.length > 0) {
             seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({
                 ...season,
                 url: '/standings?seasonId=' + season.seasonId,
             }));
         }
 
-        if (query && query.seasonId) {
+        if (query?.seasonId) {
             seasonId = query.seasonId;
         } else {
             const seasonIdResponse = await getCurrentSeasonId();

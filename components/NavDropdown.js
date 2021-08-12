@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-import styles from '../../../styles/navDropdown.module.css';
+import styles from '../styles/navDropdown.module.css';
 
 export default function NavDropdown({ buttonText, listItems }) {
     return (
@@ -11,6 +11,7 @@ export default function NavDropdown({ buttonText, listItems }) {
                 {listItems.map(item => (
                     <div className={styles.item} key={item.id}>
                         <Link href={item.href}>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a>{item.text}</a>
                         </Link>
                     </div>

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import NavbarContext from '../../context/navbarContext';
-import SettingsContext from '../../context/settingsContext';
+import NavbarContext from '../context/navbarContext';
+import SettingsContext from '../context/settingsContext';
 
-import NavDropdown from './subcomponents/navDropdown';
-import NavButton from './subcomponents/navButton';
+import NavDropdown from './NavDropdown';
+import NavButton from './NavButton';
 
 const NavBar = () => {
     const { storesInNavbar = [] } = useContext(NavbarContext);

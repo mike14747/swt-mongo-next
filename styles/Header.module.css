@@ -1,15 +1,14 @@
 .header {
     display: flex;
     align-content: center;
-    /* background-color: #ffffff;
-    background-image: url("/images/header/header_bg.jpg");
-    background-size: cover; */
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('/images/header/header_bg.jpg') center / cover, rgba(0, 0, 0, 0.15);
-    margin-bottom: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+        url('/images/header/header_bg.jpg') center / cover, rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 1334px;
+    height: auto;
+    min-height: 80px;
+    border-bottom: 1px rgba(0, 0, 0, 0.75) solid;
 }
 
 .headerLeft {
@@ -28,7 +27,7 @@
 .headerRight {
     flex: 1 1 auto;
     align-self: center;
-    padding: 0.50rem;
+    padding: 0.5rem;
     text-align: right;
 }
 
@@ -38,24 +37,60 @@
     max-width: 218px;
     height: auto;
     padding: 0.50rem;
+    position: absolute;
+    top: 0;
+    left: 0;
     transition: 0.3s;
-    margin-bottom: -2rem;
 }
 
 .logo:hover {
     outline: 1px dotted rgba(0, 0, 0, 0.75);
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.5);
     transition: 0.3s;
 }
 
-@media (min-width: 768px) {
+a.logoLink {
+    display: block;
+    position: relative;
+}
+
+@media (min-width: 480px) {
     .headerLeft {
         flex: 2;
     }
+
     .headerMiddle {
         flex: 3;
     }
+
     .headerRight {
         flex: 2;
     }
+}
+
+@media (min-width: 600px) {
+    .header {
+        min-height: 100px;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        min-height: 120px;
+    }
+
+    /* .headerLeft {
+        flex: 2;
+    }
+
+    .headerMiddle {
+        flex: 3;
+    }
+
+    .headerRight {
+        flex: 2;
+    } */
+}
+
+@media (min-width: 1024px) {
 }

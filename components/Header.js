@@ -12,7 +12,7 @@ const Header = () => {
             <div className={styles.headerLeft}>
                 <Link href="/">
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a><img className={styles.logo} src="/images/header/skeeball_logo.png" alt="Skeeball World Tour" /></a>
+                    <a className={styles.logoLink}><img className={styles.logo} src="/images/header/skeeball_logo.png" alt="Skeeball World Tour" /></a>
                 </Link>
             </div>
             <div className={styles.headerMiddle}>

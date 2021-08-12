@@ -25,12 +25,9 @@ const SearchBar = () => {
     return (
         <form className={styles.formSearchbar} onSubmit={handleSubmit}>
             <input type="text" maxLength="20" placeholder="Find Player/Team" className={styles.inputSearchbar} value={searchInput} onChange={event => setSearchInput(event.target.value)} />
+
             <button type="submit" name="submit" className={styles.searchButton}>Go</button>
         </form>
-        // <div className={styles.formSearchbar}>
-        //     <div className={styles.inputSearchbar}>Find Player/Team</div>
-        //     <div className={styles.searchButton}>Go</div>
-        // </div>
     );
 };
 

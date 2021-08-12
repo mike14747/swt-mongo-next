@@ -8,7 +8,7 @@ import HeaderContext from '../context/headerContext';
 import CurrentSeasonContext from '../context/currentSeasonContext';
 
 import Header from '../components/Header';
-import Navbar from '../components/navbar/navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // import '../styles/my_style.css';

@@ -51,7 +51,12 @@ MyApp.propTypes = {
 export default MyApp;
 
 MyApp.getInitialProps = async () => {
-    const baseApiUrl = 'http://localhost:3000';
+    let baseApiUrl;
+    if (process.env.NODE_ENV === 'production') {
+        baseApiUrl = 'http://swt';
+    } else {
+        baseApiUrl = 'http://localhost:3000';
+    }
 
     let settings = null;
     let currentSeason = null;

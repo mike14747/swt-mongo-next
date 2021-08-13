@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-import styles from '../styles/navDropdown.module.css';
+import styles from '../styles/NavDropdown.module.css';
 
 export default function NavDropdown({ buttonText, listItems }) {
     return (

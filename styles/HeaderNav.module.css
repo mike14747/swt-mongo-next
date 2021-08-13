@@ -17,6 +17,11 @@
     margin-bottom: 0.50rem;
 }
 
+.hNavBurger:hover,
+.hNavContainer:hover .hNavBurger {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
 ul.hNavContent {
     font-size: 1.25rem;
     font-weight: 500;

@@ -5,15 +5,13 @@ import Head from 'next/head';
 
 import { getRules } from '../lib/api/rules';
 
-import PageHeading from '../components/PageHeading';
-
 const Rules = ({ rules, error }) => {
     return (
         <>
             <Head>
                 <title>League Rules</title>
             </Head>
-            <PageHeading text="League Rules" />
+            <h2 className="page-heading">League Rules</h2>
             {rules
                 ? <ReactMarkdown
                     // eslint-disable-next-line react/no-children-prop

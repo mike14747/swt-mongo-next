@@ -541,8 +541,16 @@ template {
 
 .page-heading {
     color: rgba(0, 0, 0, 0.75);
+    text-align: left;
+    margin: 0.50rem 0 1rem 0;
+    padding: 0 0 1rem 0;
+    border-bottom: 1px rgba(0, 0, 0, 0.50) solid;
+}
+
+.error {
     text-align: center;
-    margin: 0rem 0 1rem 0;
+    margin: 1rem 0;
+    color: red;
 }
 
 /* use with the <main> element on pages */
@@ -575,9 +583,6 @@ template {
 }
 
 @media (min-width: 768px) {
-    .page-heading {
-        margin-top: 0.5rem;
-    }
 }
 
 @media (min-width: 1024px) {

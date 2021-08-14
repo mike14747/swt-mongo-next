@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import ReactHtmlParser from 'react-html-parser';
 
 import { getNews } from '../lib/api/news';
-import PageHeading from '../components/PageHeading';
+
+import styles from '../styles/home.module.css';
 
 const Home = ({ news }) => {
     // console.log(news);
@@ -13,7 +15,34 @@ const Home = ({ news }) => {
                     SkeeballWorldTour
                 </title>
             </Head>
-            <PageHeading text="Latest News" />
+            <h2 className="page-heading">Latest News</h2>
+
+            {!news && <p className="error">An error occurred fetching data.</p>}
+
+            {news?.length === 0 &&
+                <article>
+                    <p>There are no news items to display. Check back again soon.</p>
+                </article>
+            }
+
+            {news?.length > 0 &&
+                news.map((item, index) => (
+                    <article key={index} className={styles.newsArticle}>
+                        <section>
+                            <h3 className={styles.newsHeading}>
+                                {item.heading}
+                            </h3>
+                            <p className={styles.newsDate}>
+                                {item.date}
+                            </p>
+                        </section>
+
+                        <section>
+                            {ReactHtmlParser(item.content)}
+                        </section>
+                    </article>
+                ))
+            }
         </>
     );
 };

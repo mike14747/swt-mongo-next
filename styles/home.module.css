@@ -1,0 +1,17 @@
+.newsArticle {
+    margin-bottom: 1rem;
+    border-bottom: 1px rgba(0, 0, 0, 0.25) solid;
+    padding: 1rem 0;
+}
+
+.newsHeading {
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
+    color: FireBrick;
+    font-weight: bolder;
+    margin: 0 0 0.25rem 0
+}
+
+.newsDate {
+    font-size: clamp(0.8rem, 0.55vw + 0.5rem, 1rem);
+    color: rgba(0, 0, 0, 0.6);
+}

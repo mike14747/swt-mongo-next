@@ -4,12 +4,11 @@ import Head from 'next/head';
 import { getStandingsBySeasonId, getStandingsSeasonsList } from '../lib/api/standings';
 import { getCurrentSeasonId } from '../lib/api/settings';
 
-import PageHeading from '../components/PageHeading';
 import StandingsTables from '../components/StandingsTables';
 import SeasonDropdown from '../components/SeasonDropdown';
 import ErrorMessage from '../components/ErrorMessage';
 
-import styles from '../styles/Standings.module.css';
+import styles from '../styles/standings.module.css';
 
 const Standings = ({ standings, displayedSeason, seasons, error }) => {
     return (
@@ -18,7 +17,7 @@ const Standings = ({ standings, displayedSeason, seasons, error }) => {
                 <title>Standings</title>
             </Head>
 
-            <PageHeading text="Standings" />
+            <h2 className="page-heading">Standings</h2>
 
             {seasons?.length > 0 &&
                 <aside className={styles.seasonList}>

@@ -4,15 +4,13 @@ import Link from 'next/link';
 
 import { getChampions } from '../lib/api/champions';
 
-import PageHeading from '../components/PageHeading';
-
 const Champions = ({ champions, error }) => {
     return (
         <>
             <Head>
                 <title>Champions</title>
             </Head>
-            <PageHeading text="Champions" />
+            <h2 className="page-heading">Champions</h2>
             {champions && champions.length > 0
                 ? <div className="d-flex justify-content-center">
                     <div className="min-w-50 mx-auto">

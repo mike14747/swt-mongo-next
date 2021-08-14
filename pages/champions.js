@@ -30,6 +30,7 @@ const Champions = ({ champions, error }) => {
                                         <td>{c.seasonName}-{c.year}</td>
                                         <td>
                                             <Link href={'/teams/' + c.champion.teamId}>
+                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                                 <a>{c.champion.teamName}</a>
                                             </Link>
                                             {c.champion.comments.length > 0 && <span className="small ml-2">*({c.champion.comments})</span>}
@@ -60,7 +61,7 @@ export async function getStaticProps() {
 
     try {
         const championsResponse = await getChampions();
-        if (championsResponse && championsResponse.length > 0) {
+        if (championsResponse?.length > 0) {
             champions = JSON.parse(JSON.stringify(championsResponse));
         } else {
             error = { message: 'Champions are not currently available. Please try again later!' };

@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 
+import styles from '../styles/PageHeading.module.css';
+
 const PageHeading = ({ text }) => {
     return (
-        <div className="mt-3 mb-4">
-            <h2 className="text-center">{text}</h2>
-            <hr />
-        </div>
+        <h2 className={styles.pageHeading}>{text}</h2>
     );
 };
 

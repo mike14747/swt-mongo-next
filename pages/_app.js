@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import Loading from '../components/loading';
+import Loading from '../components/Loading';
 import { useState } from 'react';
 import Router from 'next/router';
+import getBaseUrl from '../lib/getBaseUrl';
 
 import SettingsContext from '../context/settingsContext';
 import HeaderContext from '../context/headerContext';
@@ -50,13 +51,8 @@ MyApp.propTypes = {
 
 export default MyApp;
 
-MyApp.getInitialProps = async () => {
-    let baseApiUrl;
-    if (process.env.NODE_ENV === 'production') {
-        baseApiUrl = 'http://swt';
-    } else {
-        baseApiUrl = 'http://localhost:3000';
-    }
+MyApp.getInitialProps = async (context) => {
+    const baseUrl = getBaseUrl(context.ctx.req);
 
     let settings = null;
     let currentSeason = null;
@@ -66,21 +62,21 @@ MyApp.getInitialProps = async () => {
     const errorMessage = 'An error occurred trying to fetch data!';
 
     try {
-        const settingsResponse = await fetch(`${baseApiUrl}/api/settings`);
+        const settingsResponse = await fetch(`${baseUrl}/api/settings`);
         if (settingsResponse.ok) {
             settings = await settingsResponse.json();
         } else {
             error = { message: errorMessage };
         }
 
-        const currentSeasonResponse = await fetch(`${baseApiUrl}/api/current-season`);
+        const currentSeasonResponse = await fetch(`${baseUrl}/api/current-season`);
         if (currentSeasonResponse.ok) {
             [currentSeason] = await currentSeasonResponse.json();
         } else {
             error = { message: errorMessage };
         }
 
-        const textboxResponse = await fetch(`${baseApiUrl}/api/textbox`);
+        const textboxResponse = await fetch(`${baseUrl}/api/textbox`);
         if (textboxResponse.ok) {
             headerTextbox = await textboxResponse.json();
         } else {

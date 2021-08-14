@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import SearchBar from './SearchBar';
 import HeaderNav from './HeaderNav';
-import JoinFun from './JoinFun';
 
 import styles from '../styles/Header.module.css';
 
@@ -16,7 +15,6 @@ const Header = () => {
                 </Link>
             </div>
             <div className={styles.headerMiddle}>
-                <JoinFun />
                 <SearchBar />
             </div>
             <div className={styles.headerRight}>

@@ -1,10 +1,10 @@
-.joinDropdown {
-    position: relative;
+.textBoxDropdown {
+    /* position: relative; */
     display: inline-block;
     margin-bottom: auto;
 }
 
-.joinHeading {
+.textBoxHeading {
     padding: 0.50rem;
     text-align: center;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
@@ -19,12 +19,12 @@
     border-radius: 0.25rem;
 }
 
-.joinDropdownContent {
+.textBoxDropdownContent {
     text-align: left;
-    display: none;
-    position: absolute;
+    display: block;
+    /* position: absolute;
     left: -40px;
-    right: -40px;
+    right: -40px; */
     background-color: rgba(255, 255, 255, 0.9);
     /* min-width: 250px; */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
@@ -33,6 +33,6 @@
     padding: 0.5rem;
 }
 
-.joinDropdown:hover .joinDropdownContent {
+.textBoxDropdown:hover .textBoxDropdownContent {
     display: block;
 }

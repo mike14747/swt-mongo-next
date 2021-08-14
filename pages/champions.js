@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import { getChampions } from '../lib/api/champions';
 
+import styles from '../styles/champions.module.css';
+
 const Champions = ({ champions, error }) => {
     return (
         <>
@@ -12,7 +14,7 @@ const Champions = ({ champions, error }) => {
             </Head>
             <h2 className="page-heading">Champions</h2>
             {champions && champions.length > 0
-                ? <div className="d-flex justify-content-center">
+                ? <article className="d-flex justify-content-center">
                     <div className="min-w-50 mx-auto">
                         <table className="table table-bordered table-hover">
                             <thead>
@@ -39,7 +41,7 @@ const Champions = ({ champions, error }) => {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </article>
                 : champions
                     ? <div className="empty-result">There are no champions to display!</div>
                     : error && <h4 className="text-danger text-center mt-4">An error occurred trying to fetch data!</h4>

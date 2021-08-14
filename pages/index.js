@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import ReactHtmlParser from 'react-html-parser';
 
+import TextBox from '../components/TextBox';
 import { getNews } from '../lib/api/news';
+import { getTextBoxData } from '../lib/api/textbox';
 
 import styles from '../styles/home.module.css';
 
-const Home = ({ news }) => {
+const Home = ({ news, textbox }) => {
     // console.log(news);
     return (
         <>
@@ -15,6 +17,7 @@ const Home = ({ news }) => {
                     SkeeballWorldTour
                 </title>
             </Head>
+            <TextBox data={textbox} />
             <section className={styles.newsSection}>
                 <h2 className="page-heading">Latest News</h2>
 
@@ -52,6 +55,7 @@ const Home = ({ news }) => {
 
 Home.propTypes = {
     news: PropTypes.array,
+    textbox: PropTypes.object,
 };
 
 export default Home;
@@ -60,8 +64,11 @@ export async function getStaticProps() {
     const newsResponse = await getNews().catch((error) => console.log(error));
     const news = JSON.parse(JSON.stringify(newsResponse)) || null;
 
+    const textboxResponse = await getTextBoxData().catch((error) => console.log(error));
+    const textbox = JSON.parse(JSON.stringify(textboxResponse)) || null;
+
     return {
-        props: { news },
+        props: { news, textbox },
         revalidate: 600, // page regeneration can occur in 10 minutes
     };
 }

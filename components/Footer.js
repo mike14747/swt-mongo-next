@@ -9,8 +9,8 @@ const Footer = () => {
     return (
         <footer className={styles.footer + ' container'}>
             <div className={styles.footerLeft}>
-                <p><b>Brought to you by:</b></p>
-                <p>
+                <p><strong>Brought to you by:</strong></p>
+                <p className={styles.sponsor}>
                     <a href="https://www.winkinglizard.com/" rel="noopener noreferrer" target="_blank">Winking Lizard Tavern</a>
                 </p>
                 <p className={styles.and}>and</p>

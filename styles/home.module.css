@@ -1,7 +1,16 @@
+.newsSection {
+    max-width: 600px;
+}
+
 .newsArticle {
     margin-bottom: 1rem;
     border-bottom: 1px rgba(0, 0, 0, 0.25) solid;
     padding: 1rem 0;
+}
+
+.contentSection img {
+    max-width: 100%;
+    height: auto;
 }
 
 .newsHeading {

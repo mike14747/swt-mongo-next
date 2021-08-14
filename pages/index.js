@@ -15,34 +15,37 @@ const Home = ({ news }) => {
                     SkeeballWorldTour
                 </title>
             </Head>
-            <h2 className="page-heading">Latest News</h2>
+            <section className={styles.newsSection}>
+                <h2 className="page-heading">Latest News</h2>
 
-            {!news && <p className="error">An error occurred fetching data.</p>}
+                {!news && <p className="error">An error occurred fetching data.</p>}
 
-            {news?.length === 0 &&
-                <article>
-                    <p>There are no news items to display. Check back again soon.</p>
-                </article>
-            }
-
-            {news?.length > 0 &&
-                news.map((item, index) => (
-                    <article key={index} className={styles.newsArticle}>
-                        <section>
-                            <h3 className={styles.newsHeading}>
-                                {item.heading}
-                            </h3>
-                            <p className={styles.newsDate}>
-                                {item.date}
-                            </p>
-                        </section>
-
-                        <section>
-                            {ReactHtmlParser(item.content)}
-                        </section>
+                {news?.length === 0 &&
+                    <article>
+                        <p>There are no news items to display. Check back again soon.</p>
                     </article>
-                ))
-            }
+                }
+
+                {news?.length > 0 &&
+                    news.map((item, index) => (
+                        <article key={index} className={styles.newsArticle}>
+                            <section>
+                                <h3 className={styles.newsHeading}>
+                                    {item.heading}
+                                </h3>
+                                <p className={styles.newsDate}>
+                                    {item.date}
+                                </p>
+                            </section>
+
+                            <section className={styles.contentSection}>
+                                {ReactHtmlParser(item.content)}
+                            </section>
+                        </article>
+                    ))
+                }
+            </section>
+
         </>
     );
 };

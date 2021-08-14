@@ -3,6 +3,7 @@ import Loading from '../components/Loading';
 import { useState } from 'react';
 import Router from 'next/router';
 import getBaseUrl from '../lib/getBaseUrl';
+import Head from 'next/head';
 
 import SettingsContext from '../context/settingsContext';
 import HeaderContext from '../context/headerContext';
@@ -25,6 +26,9 @@ function MyApp({ settings, currentSeason, headerTextbox, storesInNavbar, error, 
 
     return (
         <>
+            <Head>
+                <link rel="icon" type="image/png" href="/favicon/swt_favicon.png" />
+            </Head>
             <SettingsContext.Provider value={settings}>
                 <CurrentSeasonContext.Provider value={currentSeason}>
                     <HeaderContext.Provider value={headerTextbox}>

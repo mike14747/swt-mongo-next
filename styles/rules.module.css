@@ -1,0 +1,6 @@
+.rulesArticle p {
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
+    color: rgba(0, 0, 0, 0.75);
+    max-width: 90ch;
+    line-height: 1.50;
+}

@@ -5,6 +5,8 @@ import Head from 'next/head';
 
 import { getRules } from '../lib/api/rules';
 
+import styles from '../styles/rules.module.css';
+
 const Rules = ({ rules, error }) => {
     return (
         <>
@@ -12,13 +14,15 @@ const Rules = ({ rules, error }) => {
                 <title>League Rules</title>
             </Head>
             <h2 className="page-heading">League Rules</h2>
-            {rules
-                ? <ReactMarkdown
-                    // eslint-disable-next-line react/no-children-prop
-                    children={rules.content}
-                />
-                : error && <h4 className="text-danger text-center mt-4">{error.message}</h4>
-            }
+            <article className={styles.rulesArticle}>
+                {rules
+                    ? <ReactMarkdown
+                        // eslint-disable-next-line react/no-children-prop
+                        children={rules.content}
+                    />
+                    : error && <h4 className="text-danger text-center mt-4">{error.message}</h4>
+                }
+            </article>
         </>
     );
 };

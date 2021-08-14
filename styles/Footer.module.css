@@ -22,8 +22,13 @@
     display: block;
 }
 
+.sponsor {
+    margin-bottom: 0.50rem;
+}
+
 .and {
-    font-size: 0.80rem;
+    font-size: 0.90rem;
+    margin-bottom: 0.50rem;
 }
 
 @media (min-width: 480px) {

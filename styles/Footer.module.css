@@ -15,6 +15,15 @@
     align-items: center;
 }
 
+.footerLeft {
+    order: 2;
+}
+
+.footerRight {
+    order: 1;
+    margin-bottom: 1.5rem;;
+}
+
 .contact {
     font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
     font-weight: bolder;
@@ -34,11 +43,14 @@
 @media (min-width: 480px) {
     .footer {
         flex-direction: row;
-    }
-}
-
-@media (min-width: 480px) {
-    .footer {
         padding: 1rem;
+    }
+
+    .footerLeft {
+        order: 1;
+    }
+    
+    .footerRight {
+        order: 2;
     }
 }

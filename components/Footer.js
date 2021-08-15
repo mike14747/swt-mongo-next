@@ -8,7 +8,7 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer + ' container'}>
-            <div className={styles.footerLeft}>
+            <section className={styles.footerLeft}>
                 <p><strong>Brought to you by:</strong></p>
                 <p className={styles.sponsor}>
                     <a href="https://www.winkinglizard.com/" rel="noopener noreferrer" target="_blank">Winking Lizard Tavern</a>
@@ -17,13 +17,13 @@ const Footer = () => {
                 <p>
                     <a href="http://www.bellmusicco.com/" rel="noopener noreferrer" target="_blank">Bell Music Company</a>
                 </p>
-            </div>
-            <div className={styles.footerRight}>
+            </section>
+            <section className={styles.footerRight}>
                 <address className={styles.contact}>
                     <a href={`mailto:${contactEmail}`}>CONTACT US</a>
                 </address>
                 <p>&copy; 2010 Skeeball World Tour</p>
-            </div>
+            </section>
         </footer>
     );
 };

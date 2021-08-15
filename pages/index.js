@@ -3,6 +3,7 @@ import Head from 'next/head';
 import ReactHtmlParser from 'react-html-parser';
 
 import TextBox from '../components/TextBox';
+import AboutBox from '../components/AboutBox';
 import { getNews } from '../lib/api/news';
 import { getTextBoxData } from '../lib/api/textbox';
 
@@ -53,7 +54,11 @@ const Home = ({ news, textbox }) => {
                 <aside className={styles.aside}>
                     <TextBox data={textbox} />
 
-                    <img aria-hidden="true" src="/images/pic1.jpg" alt="Skeeball World Tour... join the fun!" className={styles.sidebarPic} />
+                    <section className={styles.picSection}>
+                        <img aria-hidden="true" src="/images/pic1.jpg" alt="Skeeball World Tour... join the fun!" className={styles.sidebarPic} />
+                    </section>
+
+                    <AboutBox />
                 </aside>
 
             </div>

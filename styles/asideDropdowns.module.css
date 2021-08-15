@@ -1,0 +1,93 @@
+.section {
+    flex: 0 1 250px;
+    position: relative;
+    display: block;
+    margin: 0 0.50rem 0 0;
+}
+
+.heading {
+    padding: 0.5rem;
+    text-align: center;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+    color: #333333;
+    font-size: 1rem;
+    font-size: clamp(0.8rem, 0.55vw + 0.5rem, 1.1rem);
+    font-weight: bolder;
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+    border-radius: 0.25rem;
+    margin: 0 0 0.50rem 0;
+}
+
+.textBoxHeading {
+    background-color: rgba(213, 239, 244, 0.75);
+}
+
+.aboutBoxHeading {
+    /* background-color: rgba(48, 96, 140, 0.25); */
+    background-color: rgba(122, 88, 56, 0.25);
+}
+
+.heading::after {
+    content: '\2B9F';
+    padding-left: 0.5rem;
+}
+
+.dropdownContent {
+    text-align: left;
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    margin: 0;
+    padding: 0.5rem;
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+}
+
+.textBoxDropdownContent {
+    left: 0px;
+    right: -100px;
+}
+
+.aboutBoxDropdownContent {
+    left: -100px;
+    right: 0px;
+}
+
+.section:hover .dropdownContent {
+    display: block;
+}
+
+.section ul {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .section {
+        flex: none;
+        margin: 0 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .dropdownContent {
+        display: block;
+        position: static;
+    }
+
+    .heading {
+        border: 1px rgba(0, 0, 0, 0.25) solid;
+        border-bottom: 1px rgba(0, 0, 0, 0) solid;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin: 0;
+    }
+
+    .heading::after {
+        content: '';
+        padding: 0;
+    }
+}

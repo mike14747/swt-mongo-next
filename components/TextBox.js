@@ -5,7 +5,7 @@ import styles from '../styles/TextBox.module.css';
 
 const TextBox = ({ data }) => {
     return (
-        <aside className={styles.textBoxDropdown}>
+        <div className={styles.textBoxDropdown}>
             {data?.heading &&
                 <div className={styles.textBoxHeading}>
                     {data.heading}
@@ -16,7 +16,7 @@ const TextBox = ({ data }) => {
                     {ReactHtmlParser(data.content)}
                 </div>
             }
-        </aside>
+        </div>
 
     );
 };

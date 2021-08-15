@@ -17,37 +17,46 @@ const Home = ({ news, textbox }) => {
                     SkeeballWorldTour
                 </title>
             </Head>
-            <TextBox data={textbox} />
-            <section className={styles.newsSection}>
-                <h2 className="page-heading">Latest News</h2>
 
-                {!news && <p className="error">An error occurred fetching data.</p>}
+            <div className={styles.homepageContainer}>
+                <section className={styles.newsSection}>
+                    <h2 className="page-heading">Latest News</h2>
 
-                {news?.length === 0 &&
-                    <article>
-                        <p>There are no news items to display. Check back again soon.</p>
-                    </article>
-                }
+                    {!news && <p className="error">An error occurred fetching data.</p>}
 
-                {news?.length > 0 &&
-                    news.map((item, index) => (
-                        <article key={index} className={styles.newsArticle}>
-                            <section>
-                                <h3 className={styles.newsHeading}>
-                                    {item.heading}
-                                </h3>
-                                <p className={styles.newsDate}>
-                                    {item.date}
-                                </p>
-                            </section>
-
-                            <section className={styles.contentSection}>
-                                {ReactHtmlParser(item.content)}
-                            </section>
+                    {news?.length === 0 &&
+                        <article>
+                            <p>There are no news items to display. Check back again soon.</p>
                         </article>
-                    ))
-                }
-            </section>
+                    }
+
+                    {news?.length > 0 &&
+                        news.map((item, index) => (
+                            <article key={index} className={styles.newsArticle}>
+                                <section>
+                                    <h3 className={styles.newsHeading}>
+                                        {item.heading}
+                                    </h3>
+                                    <p className={styles.newsDate}>
+                                        {item.date}
+                                    </p>
+                                </section>
+
+                                <section className={styles.contentSection}>
+                                    {ReactHtmlParser(item.content)}
+                                </section>
+                            </article>
+                        ))
+                    }
+                </section>
+
+                <aside className={styles.aside}>
+                    <TextBox data={textbox} />
+
+                    <img aria-hidden="true" src="/images/pic1.jpg" alt="Skeeball World Tour... join the fun!" className={styles.sidebarPic} />
+                </aside>
+
+            </div>
 
         </>
     );

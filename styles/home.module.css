@@ -1,5 +1,11 @@
+.homepageContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 .newsSection {
-    max-width: 600px;
+    max-width: 800px;
+    margin-right: 2rem;
 }
 
 .newsArticle {
@@ -23,4 +29,18 @@
 .newsDate {
     font-size: clamp(0.8rem, 0.55vw + 0.5rem, 1rem);
     color: rgba(0, 0, 0, 0.6);
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-start;
+    margin-top: 5rem;
+}
+
+.sidebarPic {
+    margin: 3rem 0;
+    display: block;
+    max-width: 100%;
 }

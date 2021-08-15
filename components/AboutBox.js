@@ -4,7 +4,7 @@ const AboutBox = () => {
     return (
         <section className={styles.section}>
             <h4 className={styles.heading + ' ' + styles.aboutBoxHeading}>
-                ABOUT
+                ABOUT SWT
             </h4>
 
             <div className={styles.dropdownContent + ' ' + styles.aboutBoxDropdownContent}>

@@ -9,15 +9,15 @@ const AboutBox = () => {
 
             <div className={styles.dropdownContent + ' ' + styles.aboutBoxDropdownContent}>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laboriosam pariatur facere voluptate libero nemo praesentium illum delectus, voluptates esse.
+                    SkeeballWorldTour is a social sports league centered around the alley game of skeeball.
                 </p>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, voluptas numquam laborum in deleniti quis asperiores iusto iste, dicta nobis aperiam non beatae laboriosam, officia debitis consequatur earum consectetur esse. Ad commodi vel recusandae accusantium!
+                    The league is hosted at several of north east Ohio&apos;s Winking Lizard Tavern locations.
                 </p>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id iste ducimus at corporis laudantium quisquam eaque, omnis cupiditate corrupti aliquid nihil labore eius voluptate eligendi magnam exercitationem. Optio, molestiae excepturi!
+                    Our league had been in existence for a few seasons before this website began tracking the results in the summer of 2010.
                 </p>
             </div>
         </section>

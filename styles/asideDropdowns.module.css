@@ -87,4 +87,14 @@
         content: '';
         padding: 0;
     }
+
+    .textBoxDropdownContent {
+        left: auto;
+        right: auto;
+    }
+    
+    .aboutBoxDropdownContent {
+        left: auto;
+        right: auto;
+    }
 }

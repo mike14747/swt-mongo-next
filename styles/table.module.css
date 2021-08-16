@@ -7,7 +7,6 @@
 }
 
 .tableWrapper {
-    /* min-width: 50%; */
     margin: 0 auto 1rem auto;
     display: block;
     overflow-x: auto;
@@ -15,7 +14,6 @@
 }
 
 .table {
-    /* width: 100%; */
     min-width: 50%;
     margin: 0 auto 1rem auto;
     color: #212529;
@@ -30,6 +28,10 @@
 }
 
 th.textLeft {
+    text-align: left;
+}
+
+td.textLeft {
     text-align: left;
 }
 

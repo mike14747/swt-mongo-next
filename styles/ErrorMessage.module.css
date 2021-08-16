@@ -1,0 +1,6 @@
+.errorHeading {
+    color: firebrick;
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
+    text-align: center;
+    margin: 2rem 0;
+}

@@ -20,7 +20,7 @@ const Standings = ({ standings, displayedSeason, seasons, error }) => {
             <h2 className="page-heading">Standings</h2>
 
             {seasons?.length > 0 &&
-                <aside className={styles.seasonList}>
+                <aside>
                     <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
                 </aside>
             }

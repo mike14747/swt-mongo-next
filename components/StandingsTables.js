@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import StandingsRow from './StandingsRow';
+import Link from 'next/link';
 
-import styles from '../styles/StandingsTables.module.css';
+import styles from '../styles/table.module.css';
 
 const StandingsTables = ({ storesArr }) => {
     return (
@@ -21,7 +21,20 @@ const StandingsTables = ({ storesArr }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <StandingsRow standingsRowData={s.teams} />
+                                {s.teams.map(s => (
+                                    <tr key={s.teamId}>
+                                        <td className={styles.textLeft}>
+                                            <Link href={'/teams/' + s.teamId}>
+                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                                <a>{s.teamName}</a>
+                                            </Link>
+                                        </td>
+                                        <td>{s.wins}</td>
+                                        <td>{s.losses}</td>
+                                        <td>{s.ties}</td>
+                                        <td>{s.totalPoints}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </section>

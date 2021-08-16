@@ -3,8 +3,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import { getChampions } from '../lib/api/champions';
+import ErrorMessage from '../components/ErrorMessage';
 
 import styles from '../styles/champions.module.css';
+import tableStyles from '../styles/table.module.css';
 
 const Champions = ({ champions, error }) => {
     return (
@@ -13,38 +15,36 @@ const Champions = ({ champions, error }) => {
                 <title>Champions</title>
             </Head>
             <h2 className="page-heading">Champions</h2>
-            {champions && champions.length > 0
-                ? <article className="d-flex justify-content-center">
-                    <div className="min-w-50 mx-auto">
-                        <table className="table table-bordered table-hover">
-                            <thead>
-                                <tr className="bg-gray6">
-                                    <th>Season</th>
-                                    <th>Champion</th>
-                                    <th>Store</th>
+
+            {error && <ErrorMessage text={error.message} />}
+
+            {champions && champions.length > 0 &&
+                <article className={styles.championsArticle}>
+                    <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                        <thead>
+                            <tr className={tableStyles.headingRow}>
+                                <th className={tableStyles.textLeft}>Season</th>
+                                <th className={tableStyles.textLeft}>Champion</th>
+                                <th className={tableStyles.textLeft}>Store</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {champions.map((c) => (
+                                <tr key={c.seasonId}>
+                                    <td className={tableStyles.textLeft}>{c.seasonName}-{c.year}</td>
+                                    <td className={tableStyles.textLeft}>
+                                        <Link href={'/teams/' + c.champion.teamId}>
+                                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                            <a>{c.champion.teamName}</a>
+                                        </Link>
+                                        {c.champion.comments?.length > 0 && <span className={styles.comment}>({c.champion.comments})</span>}
+                                    </td>
+                                    <td className={tableStyles.textLeft}>{c.champion.storeCity}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {champions.map((c) => (
-                                    <tr key={c.seasonId}>
-                                        <td>{c.seasonName}-{c.year}</td>
-                                        <td>
-                                            <Link href={'/teams/' + c.champion.teamId}>
-                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                                <a>{c.champion.teamName}</a>
-                                            </Link>
-                                            {c.champion.comments.length > 0 && <span className="small ml-2">*({c.champion.comments})</span>}
-                                        </td>
-                                        <td>{c.champion.storeCity}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                            ))}
+                        </tbody>
+                    </table>
                 </article>
-                : champions
-                    ? <div className="empty-result">There are no champions to display!</div>
-                    : error && <h4 className="text-danger text-center mt-4">An error occurred trying to fetch data!</h4>
             }
         </>
     );
@@ -66,7 +66,7 @@ export async function getStaticProps() {
         } else {
             error = { message: 'Champions are not currently available. Please try again later!' };
         }
-        return { props: { champions, error, revalidate: 1 } };
+        return { props: { champions, error, revalidate: 600 } };
     } catch (error) {
         console.error(error.message);
         return { props: { champions: null, error: { message: 'An error occurred trying to fetch data!' }, revalidate: 1 } };

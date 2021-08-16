@@ -1,0 +1,12 @@
+.comment {
+    margin-left: 0.50rem;
+    font-size: smaller;
+}
+
+.comment::before {
+    content: '*';
+}
+
+.championsArticle {
+    margin-top: 2rem;
+}

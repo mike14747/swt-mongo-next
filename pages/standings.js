@@ -41,7 +41,7 @@ Standings.propTypes = {
     error: PropTypes.object,
 };
 
-export async function getServerSideProps({ query }) {
+export async function getStaticProps({ query }) {
     let seasonId = 0;
     let standings = null;
     let displayedSeason = null;
@@ -78,10 +78,10 @@ export async function getServerSideProps({ query }) {
             error = { message: 'No standings are available for the selected season!' };
         }
 
-        return { props: { standings, displayedSeason, seasons, error } };
+        return { props: { standings, displayedSeason, seasons, error, revalidate: 600 } };
     } catch (error) {
         console.error(error.message);
-        return { props: { standings, displayedSeason, seasons, error: { message: 'An error occurred trying to fetch data!' } } };
+        return { props: { standings, displayedSeason, seasons, error: { message: 'An error occurred trying to fetch data!' }, revalidate: 600 } };
     }
 }
 

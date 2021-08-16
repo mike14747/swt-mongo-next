@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-import styles from '../styles/table.module.css';
+import tableStyles from '../styles/table.module.css';
 
 const StandingsTables = ({ storesArr }) => {
     return (
         <>
             {storesArr.map(s => (
                 <article key={`${s.storeId}${s.divisionId}`}>
-                    <h5 className={styles.storeHeading}>{s.storeCity} - {s.divisionName}</h5>
-                    <section className={styles.tableWrapper}>
-                        <table className={styles.table + ' ' + styles.tableBordered}>
+                    <h5 className={tableStyles.storeHeading}>{s.storeCity} - {s.divisionName}</h5>
+                    <section className={tableStyles.tableWrapper}>
+                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                             <thead>
-                                <tr className={styles.headingRow}>
-                                    <th className={styles.textLeft}>TEAM</th>
+                                <tr className={tableStyles.headingRow}>
+                                    <th className={tableStyles.textLeft}>TEAM</th>
                                     <th>W</th>
                                     <th>L</th>
                                     <th>T</th>
@@ -23,7 +23,7 @@ const StandingsTables = ({ storesArr }) => {
                             <tbody>
                                 {s.teams.map(s => (
                                     <tr key={s.teamId}>
-                                        <td className={styles.textLeft}>
+                                        <td className={tableStyles.textLeft}>
                                             <Link href={'/teams/' + s.teamId}>
                                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                                 <a>{s.teamName}</a>

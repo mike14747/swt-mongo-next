@@ -57,3 +57,8 @@ td.textLeft {
 .tableBordered thead td {
     border-bottom-width: 1px;
 }
+
+.tableHover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
+}

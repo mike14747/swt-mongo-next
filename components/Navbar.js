@@ -20,14 +20,14 @@ const NavBar = () => {
     ];
 
     const { storesInNavbar = [] } = useContext(NavbarContext);
-    const { currentSeasonId = 0, displaySchedule = 0 } = useContext(SettingsContext);
+    const { currentSeasonId = 0, displaySchedule = false } = useContext(SettingsContext);
 
     return (
         <nav className={styles.nav + ' container'}>
             <NavButton buttonText="Standings" href={`/standings?seasonId=${currentSeasonId}`} />
             <NavDropdown buttonText="Results" listItems={tempContent} />
-            {displaySchedule === 1 &&
-                <NavDropdown buttonText="Schedule" listItems={storesInNavbar} />
+            {displaySchedule &&
+                <NavDropdown buttonText="Schedule" listItems={tempContent} />
             }
         </nav>
     );

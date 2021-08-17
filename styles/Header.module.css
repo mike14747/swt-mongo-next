@@ -35,9 +35,6 @@
     max-width: 218px;
     height: auto;
     padding: 0.50rem;
-    position: absolute;
-    top: 0;
-    left: 0;
     transition: 0.3s;
 }
 
@@ -49,7 +46,6 @@
 
 a.logoLink {
     display: block;
-    position: relative;
 }
 
 @media (min-width: 480px) {
@@ -76,18 +72,6 @@ a.logoLink {
     .header {
         min-height: 120px;
     }
-
-    /* .headerLeft {
-        flex: 2;
-    }
-
-    .headerMiddle {
-        flex: 3;
-    }
-
-    .headerRight {
-        flex: 2;
-    } */
 }
 
 @media (min-width: 1024px) {

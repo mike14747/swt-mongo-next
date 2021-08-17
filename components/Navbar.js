@@ -24,7 +24,7 @@ const NavBar = () => {
 
     return (
         <nav className={styles.nav + ' container'}>
-            <NavButton buttonText="Standings" href={'/standings'} />
+            <NavButton buttonText="Standings" href={'/standings/' + currentSeasonId} />
             <NavDropdown buttonText="Results" listItems={tempContent} />
             {displaySchedule &&
                 <NavDropdown buttonText="Schedule" listItems={tempContent} />

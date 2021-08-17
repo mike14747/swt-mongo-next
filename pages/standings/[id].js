@@ -1,17 +1,33 @@
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 import { getStandingsBySeasonId, getStandingsSeasonsList } from '../../lib/api/standings';
 
-import StandingsBase from './index';
+import StandingsTables from '../../components/StandingsTables';
+import SeasonDropdown from '../../components/SeasonDropdown';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const Standings = ({ standings, displayedSeason, seasons, error }) => {
     return (
-        <StandingsBase
-            standings={standings}
-            displayedSeason={displayedSeason}
-            seasons={seasons}
-            error={error}
-        />
+        <>
+            <Head>
+                <title>Standings</title>
+            </Head>
+
+            <h2 className="page-heading">Standings</h2>
+
+            {seasons?.length > 0 &&
+                <aside>
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
+                </aside>
+            }
+
+            {error && <ErrorMessage text={error.message} />}
+
+            {standings?.stores?.length > 0 &&
+                <StandingsTables storesArr={standings.stores} />
+            }
+        </>
     );
 };
 

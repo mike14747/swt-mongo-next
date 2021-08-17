@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import { getPlayerSeasonsList, getCumulativeStatsForCurrentSeason, getCumulativeStatsForQuerySeason } from '../../lib/api/players';
-import { getCurrentSeasonDetails, getSeasonDetailsById } from '../../lib/api/seasons';
+import { getPlayerSeasonsList, getCumulativeStatsForQuerySeason } from '../../../../lib/api/player';
+import { getSeasonDetailsById } from '../../../../lib/api/seasons';
 
-import SeasonDropdown from '../../components/SeasonDropdown';
-import PlayerStatsBlock from '../../components/playerStatsBlock/PlayerStatsBlock';
-import ErrorMessage from '../../components/ErrorMessage';
+import SeasonDropdown from '../../../../components/SeasonDropdown';
+import PlayerStatsBlock from '../../../../components/playerStatsBlock/PlayerStatsBlock';
+import ErrorMessage from '../../../../components/ErrorMessage';
 
-import styles from '../../styles/players.module.css';
+import styles from '../../../../styles/players.module.css';
 
-const Players = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
+const Player = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
     return (
         <>
             <Head>
@@ -66,7 +66,7 @@ const Players = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
     );
 };
 
-Players.propTypes = {
+Player.propTypes = {
     playerInfo: PropTypes.object,
     stats: PropTypes.object,
     displayedSeason: PropTypes.object,
@@ -74,7 +74,7 @@ Players.propTypes = {
     error: PropTypes.object,
 };
 
-export async function getServerSideProps({ params, query }) {
+export async function getServerSideProps({ params }) {
     let playerInfo = null;
     let stats = null;
     let displayedSeason = null;
@@ -83,23 +83,17 @@ export async function getServerSideProps({ params, query }) {
     let statsResponse = null;
 
     try {
-        const seasonsListResponse = await getPlayerSeasonsList(params.id);
+        const seasonsListResponse = await getPlayerSeasonsList(params.playerId);
         if (seasonsListResponse?.length > 0) {
             seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({
                 ...season,
-                url: `/players/${params.id}?seasonId=${season.seasonId}`,
+                url: `/player/${params.playerId}/season/${season.seasonId}`,
             }));
         }
 
-        if (query?.seasonId) {
-            [statsResponse] = await getCumulativeStatsForQuerySeason(params.id, query.seasonId);
-            const [seasonInfoResponse] = await getSeasonDetailsById(query.seasonId);
-            displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
-        } else {
-            [statsResponse] = await getCumulativeStatsForCurrentSeason(params.id);
-            const [seasonInfoResponse] = await getCurrentSeasonDetails();
-            displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
-        }
+        [statsResponse] = await getCumulativeStatsForQuerySeason(params.playerId, params.seasonId);
+        const [seasonInfoResponse] = await getSeasonDetailsById(params.seasonId);
+        displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
 
         if (statsResponse) {
             const statsJson = JSON.parse(JSON.stringify(statsResponse));
@@ -123,4 +117,4 @@ export async function getServerSideProps({ params, query }) {
     }
 }
 
-export default Players;
+export default Player;

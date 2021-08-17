@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "5fd4e1f6270b7c59ea988957"
+  },
+  "tournyRankingsStatus": "hide",
+  "numLeaders": 20,
+  "currentSeasonId": 24,
+  "displaySchedule": true,
+  "contactEmail": "ktaylor@bellmusicco.com"
+}]

@@ -1,84 +1,67 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { useContext } from 'react';
-import CurrentSeasonContext from '../../context/currentSeasonContext';
 
 import { getPlayerSeasonsList, getCumulativeStatsForCurrentSeason, getCumulativeStatsForQuerySeason } from '../../lib/api/players';
+import { getCurrentSeasonDetails, getSeasonDetailsById } from '../../lib/api/seasons';
 
-import PageHeading from '../../components/PageHeading';
 import SeasonDropdown from '../../components/SeasonDropdown';
 import PlayerStatsBlock from '../../components/playerStatsBlock/PlayerStatsBlock';
 import ErrorMessage from '../../components/ErrorMessage';
 
-const Players = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
-    const currentSeason = useContext(CurrentSeasonContext);
+import styles from '../../styles/players.module.css';
 
+const Players = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
     return (
         <>
             <Head>
                 <title>Player Stats</title>
             </Head>
-            <PageHeading text="Player Stats" />
-            <div className="row mb-4">
-                <div className="col-6 text-left">
-                    {playerInfo &&
-                        <div className="mb-3">
-                            <div className="bigger font-weight-bolder"><span className="text-danger mr-2">Player:</span>{playerInfo.playerName}</div>
-                            <div>
-                                <span className="small mr-2">Current View:</span>
-                                <span className="font-weight-bolder">
-                                    none
+
+            <h2 className="page-heading">Player Stats</h2>
+
+            {seasons?.length > 0 &&
+                <aside>
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
+                </aside>
+            }
+
+            <article>
+                {playerInfo &&
+                    <section className={styles.infoSection}>
+                        <h3 className={styles.playerName}><span className={styles.textRed}>Player: </span>{playerInfo.playerName}</h3>
+                        <p>
+                            <small>Career Store(s): </small>
+                            {playerInfo.stores.map((s, i) => (
+                                <span key={s.storeId}>
+                                    {i > 0 && <>, </>}
+                                    <strong>{s.storeCity}</strong>
                                 </span>
-                            </div>
-                            <div>
-                                <span className="small mr-2">Career Store(s):</span>
-                                {playerInfo.stores.map((s, i) => (
-                                    <span key={s.storeId}>
-                                        {i > 0 && <>, </>}
-                                        <>{s.storeCity}</>
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    }
-                </div>
-                <div className="col-6 text-right p-2">
-                    {seasons && seasons.length > 0 &&
-                        <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
-                    }
-                </div>
-            </div>
+                            ))}
+                        </p>
+                    </section>
+                }
 
-            {error && <ErrorMessage text={error.message} />}
-
-            {stats &&
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="text-center bigger font-weight-bolder text-primary mb-2">
-                            {displayedSeason
-                                ? <><span className="small text-dark mr-2">Selected season: </span>{displayedSeason.seasonName}, {displayedSeason.year}</>
-                                : currentSeason &&
-                                <><span className="small text-dark mr-2">Current Season is: </span>{currentSeason.seasonName}, {currentSeason.year}</>
-                            }
-                        </div>
-                        <div className="d-flex justify-content-center mb-4">
+                {stats &&
+                    <section className={styles.statTotalsSection}>
+                        <div className={styles.totalStatsGroup + ' ' + styles.seasonStatsBox}>
+                            <h4 className={styles.seasonStatsHeading}>Season Stats</h4>
                             {stats.seasonStats
                                 ? <PlayerStatsBlock stats={stats.seasonStats} />
-                                : <div className="text-danger mt-3 mb-4 bigger">Player has no stats for the selected season.</div>
+                                : <ErrorMessage text="Player has no stats for the selected season." />
                             }
                         </div>
-                    </div>
-                    <div className="col-md-6 mb-4">
-                        <div className="text-center bigger font-weight-bolder text-success mb-2">Career Stats</div>
-                        <div className="d-flex justify-content-center mb-4">
+                        <div className={styles.totalStatsGroup + ' ' + styles.careerStatsBox}>
+                            <h4 className={styles.careerStatsHeading}>Career Stats</h4>
                             {stats.careerStats
                                 ? <PlayerStatsBlock stats={stats.careerStats} />
                                 : <div>Player has no career stats.</div>
                             }
                         </div>
-                    </div>
-                </div>
-            }
+                    </section>
+                }
+            </article>
+
+            {error && <ErrorMessage text={error.message} />}
         </>
     );
 };
@@ -101,17 +84,21 @@ export async function getServerSideProps({ params, query }) {
 
     try {
         const seasonsListResponse = await getPlayerSeasonsList(params.id);
-        if (seasonsListResponse && seasonsListResponse.length > 0) {
+        if (seasonsListResponse?.length > 0) {
             seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({
                 ...season,
                 url: `/players/${params.id}?seasonId=${season.seasonId}`,
             }));
         }
 
-        if (query && query.seasonId) {
+        if (query?.seasonId) {
             [statsResponse] = await getCumulativeStatsForQuerySeason(params.id, query.seasonId);
+            const [seasonInfoResponse] = await getSeasonDetailsById(query.seasonId);
+            displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
         } else {
             [statsResponse] = await getCumulativeStatsForCurrentSeason(params.id);
+            const [seasonInfoResponse] = await getCurrentSeasonDetails();
+            displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
         }
 
         if (statsResponse) {
@@ -125,13 +112,6 @@ export async function getServerSideProps({ params, query }) {
                 seasonStats: statsJson.seasonStats || null,
                 careerStats: statsJson.careerStats || null,
             };
-            if (stats.seasonStats) {
-                displayedSeason = {
-                    seasonId: statsResponse.seasonStats.seasonId,
-                    seasonName: statsResponse.seasonStats.seasonName,
-                    year: statsResponse.seasonStats.year,
-                };
-            }
         }
 
         if (stats === null) error = { message: 'Player was not found!' };

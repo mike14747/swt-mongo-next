@@ -1,0 +1,622 @@
+[
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac86"
+        },
+        "seasonId": 1,
+        "seasonNum": 3,
+        "seasonName": "Summer",
+        "year": 2010,
+        "seasonGames": 7,
+        "champion": {
+            "teamId": 106,
+            "teamName": "Spy Guys",
+            "storeCity": "Mentor",
+            "comments": "Mentor only Summer League"
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2010-07-01T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2010-08-12T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac87"
+        },
+        "seasonId": 2,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2010,
+        "seasonGames": 7,
+        "champion": {
+            "teamId": 104,
+            "teamName": "Team Polycoat",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2010-09-21T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2010-11-04T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac88"
+        },
+        "seasonId": 3,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2011,
+        "seasonGames": 7,
+        "champion": {
+            "teamId": 104,
+            "teamName": "Team Polycoat",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2011-01-11T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2011-02-24T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac89"
+        },
+        "seasonId": 4,
+        "seasonNum": 2,
+        "seasonName": "Spring",
+        "year": 2011,
+        "seasonGames": 7,
+        "champion": {
+            "teamId": 104,
+            "teamName": "Team Polycoat",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2011-03-29T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2011-05-12T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac8a"
+        },
+        "seasonId": 5,
+        "seasonNum": 3,
+        "seasonName": "Summer",
+        "year": 2011,
+        "seasonGames": 5,
+        "champion": {
+            "teamId": 106,
+            "teamName": "Spy Guys",
+            "storeCity": "Mentor",
+            "comments": "Mentor only Summer League"
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2011-06-16T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2011-07-14T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac8b"
+        },
+        "seasonId": 6,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2011,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 104,
+            "teamName": "Team Polycoat",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2011-09-20T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2011-11-03T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac8c"
+        },
+        "seasonId": 7,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2012,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 354,
+            "teamName": "Always Next Year",
+            "storeCity": "Brunswick",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2012-01-17T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2012-03-01T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac8d"
+        },
+        "seasonId": 8,
+        "seasonNum": 2,
+        "seasonName": "Spring",
+        "year": 2012,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 172,
+            "teamName": "That's What Skee Said",
+            "storeCity": "Canton",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2012-04-02T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2012-05-17T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac8e"
+        },
+        "seasonId": 9,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2012,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 106,
+            "teamName": "Spy Guys",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2012-09-24T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2012-11-08T00:00:00Z"
+        },
+        "tourny_date": null
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac8f"
+        },
+        "seasonId": 10,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2013,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 106,
+            "teamName": "Spy Guys",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2013-01-14T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2013-02-28T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2013-03-09T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac90"
+        },
+        "seasonId": 11,
+        "seasonNum": 2,
+        "seasonName": "Spring",
+        "year": 2013,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 106,
+            "teamName": "Spy Guys",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2013-03-26T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2013-05-09T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2013-05-18T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac91"
+        },
+        "seasonId": 12,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2013,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 172,
+            "teamName": "That's What Skee Said",
+            "storeCity": "Canton",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2013-09-23T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2013-11-07T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2013-11-16T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac92"
+        },
+        "seasonId": 13,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2014,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 503,
+            "teamName": "BumbleSkee Tuna",
+            "storeCity": "Macedonia",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2014-01-06T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2014-02-20T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2014-03-01T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac93"
+        },
+        "seasonId": 14,
+        "seasonNum": 2,
+        "seasonName": "Spring",
+        "year": 2014,
+        "seasonGames": 70,
+        "champion": {
+            "teamId": 554,
+            "teamName": "Out of Skeetirement",
+            "storeCity": "Brunswick",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2014-03-24T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2014-05-08T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2014-05-19T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac94"
+        },
+        "seasonId": 15,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2014,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 172,
+            "teamName": "That's What Skee Said",
+            "storeCity": "Canton",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2014-09-08T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2014-11-06T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2014-11-15T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac95"
+        },
+        "seasonId": 16,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2015,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 172,
+            "teamName": "That's What Skee Said",
+            "storeCity": "Canton",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2015-01-19T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2015-03-19T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2015-03-28T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac96"
+        },
+        "seasonId": 17,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2015,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 104,
+            "teamName": "Team Polycoat",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": null,
+        "startDate": {
+            "$date": "2015-09-14T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2015-11-12T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2015-11-21T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac97"
+        },
+        "seasonId": 18,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2016,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 172,
+            "teamName": "That's What Skee Said",
+            "storeCity": "Canton",
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2016-01-07T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2016-01-11T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2016-03-10T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2016-03-19T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac98"
+        },
+        "seasonId": 19,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2016,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 766,
+            "teamName": "Born to Skee Wild",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2016-09-08T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2016-09-12T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2016-11-10T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2016-11-19T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac99"
+        },
+        "seasonId": 20,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2017,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 556,
+            "teamName": "Skee-veland Rocks!",
+            "storeCity": "Brunswick",
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2017-01-13T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2017-01-16T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2017-03-16T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2017-03-25T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac9a"
+        },
+        "seasonId": 21,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2017,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 556,
+            "teamName": "Skee-veland Rocks!",
+            "storeCity": "Brunswick",
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2017-09-07T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2017-09-11T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2017-11-09T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2017-11-18T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac9b"
+        },
+        "seasonId": 22,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2018,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 760,
+            "teamName": "Scoopskee Potatoes",
+            "storeCity": "Mentor",
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2018-01-11T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2018-01-15T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2018-03-15T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2018-03-24T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac9c"
+        },
+        "seasonId": 23,
+        "seasonNum": 4,
+        "seasonName": "Fall",
+        "year": 2018,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": 579,
+            "teamName": "Whiskee Shots",
+            "storeCity": "Copley",
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2018-09-06T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2018-09-10T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2018-11-08T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2018-11-17T00:00:00Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5fd427a6f596152b10baac9d"
+        },
+        "seasonId": 24,
+        "seasonNum": 1,
+        "seasonName": "Winter",
+        "year": 2019,
+        "seasonGames": 90,
+        "champion": {
+            "teamId": null,
+            "teamName": null,
+            "storeCity": null,
+            "comments": ""
+        },
+        "regEnds": {
+            "$date": "2019-01-10T00:00:00Z"
+        },
+        "startDate": {
+            "$date": "2019-01-14T00:00:00Z"
+        },
+        "end_date": {
+            "$date": "2019-03-14T00:00:00Z"
+        },
+        "tourny_date": {
+            "$date": "2019-03-23T00:00:00Z"
+        }
+    }
+]

@@ -15,6 +15,7 @@ button.navbtn {
 button.navbtn:hover {
     background-color: #b7793f;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    outline: 1px #30608c solid;
     transition: 0.3s;
 }
 

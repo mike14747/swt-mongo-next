@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import { getStandingsBySeasonId, getStandingsSeasonsList } from '../lib/api/standings';
-import { getCurrentSeasonId } from '../lib/api/settings';
+import { getStandingsBySeasonId, getStandingsSeasonsList } from '../../lib/api/standings';
+import { getCurrentSeasonId } from '../../lib/api/settings';
 
-import StandingsTables from '../components/StandingsTables';
-import SeasonDropdown from '../components/SeasonDropdown';
-import ErrorMessage from '../components/ErrorMessage';
-
-import styles from '../styles/standings.module.css';
+import StandingsTables from '../../components/StandingsTables';
+import SeasonDropdown from '../../components/SeasonDropdown';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const Standings = ({ standings, displayedSeason, seasons, error }) => {
     return (
@@ -41,7 +39,7 @@ Standings.propTypes = {
     error: PropTypes.object,
 };
 
-export async function getStaticProps({ query }) {
+export async function getStaticProps() {
     let seasonId = 0;
     let standings = null;
     let displayedSeason = null;
@@ -53,18 +51,12 @@ export async function getStaticProps({ query }) {
         if (seasonsListResponse?.length > 0) {
             seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({
                 ...season,
-                url: '/standings?seasonId=' + season.seasonId,
+                url: '/standings/' + season.seasonId,
             }));
         }
 
-        if (query?.seasonId) {
-            seasonId = query.seasonId;
-        } else {
-            const seasonIdResponse = await getCurrentSeasonId();
-            if (seasonIdResponse) {
-                seasonId = JSON.parse(JSON.stringify(seasonIdResponse.currentSeasonId));
-            }
-        }
+        const seasonIdResponse = await getCurrentSeasonId();
+        if (seasonIdResponse) seasonId = JSON.parse(JSON.stringify(seasonIdResponse.currentSeasonId));
 
         const [standingsResponse] = await getStandingsBySeasonId(seasonId);
         if (standingsResponse) {
@@ -78,10 +70,10 @@ export async function getStaticProps({ query }) {
             error = { message: 'No standings are available for the selected season!' };
         }
 
-        return { props: { standings, displayedSeason, seasons, error, revalidate: 600 } };
+        return { props: { standings, displayedSeason, seasons, error } };
     } catch (error) {
         console.error(error.message);
-        return { props: { standings, displayedSeason, seasons, error: { message: 'An error occurred trying to fetch data!' }, revalidate: 600 } };
+        return { props: { standings, displayedSeason, seasons, error: { message: 'An error occurred trying to fetch data!' } } };
     }
 }
 

@@ -28,6 +28,7 @@ button.dropbtn:hover,
     color: #ffffff;
     background-color: #b7793f;
     outline: 1px #30608c solid;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.50);
     transition: 0.3s;
 }
 

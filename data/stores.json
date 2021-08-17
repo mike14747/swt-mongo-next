@@ -1,0 +1,101 @@
+[
+    {
+        "storeId": 19,
+        "name": "Winking Lizard Bedford",
+        "address": "25380 Miles Rd",
+        "city": "Bedford Heights",
+        "state": "Ohio",
+        "zip": "44146-1322",
+        "phone": "216.831.3488",
+        "mapUrl": "http://maps.google.com/maps?q=25380+Miles+Rd,+Bedford,+Ohio+44146-1322",
+        "active": true
+    },
+    {
+        "storeId": 12,
+        "name": "Winking Lizard Brunswick",
+        "address": "3634 Center Rd",
+        "city": "Brunswick",
+        "state": "Ohio",
+        "zip": "44212",
+        "phone": "330.220.9944",
+        "mapUrl": "http://maps.google.com/maps?q=3634+Center+Rd,+Brunswick,+Ohio+44212",
+        "active": true
+    },
+    {
+        "storeId": 13,
+        "name": "Winking Lizard Canton",
+        "address": "5710 Fulton Dr NW",
+        "city": "Canton",
+        "state": "Ohio",
+        "zip": "44718-1733",
+        "phone": "330.497.1133",
+        "mapUrl": "http://maps.google.com/maps?q=5710+Fulton+Dr+NW,+Canton,+Ohio+44718-1733",
+        "active": false
+    },
+    {
+        "storeId": 14,
+        "name": "Winking Lizard Copley",
+        "address": "79 Springside Dr",
+        "city": "Copley",
+        "state": "Ohio",
+        "zip": "44333",
+        "phone": "330.664.1780",
+        "mapUrl": "https://maps.google.com/maps?q=79+Springside+Dr+Copley+Ohio+44333",
+        "active": true
+    },
+    {
+        "storeId": 15,
+        "name": "Winking Lizard Independence",
+        "address": "6901 Rockside Rd",
+        "city": "Independence",
+        "state": "Ohio",
+        "zip": "44131-2348",
+        "phone": "216.524.2226",
+        "mapUrl": "http://maps.google.com/maps?q=6901+Rockside+Rd,+Independence,+Ohio+44131-2348",
+        "active": false
+    },
+    {
+        "storeId": 16,
+        "name": "Winking Lizard Lakewood",
+        "address": "14018 Detroit Rd",
+        "city": "Lakewood",
+        "state": "Ohio",
+        "zip": "44107-4522",
+        "phone": "216.226.6693",
+        "mapUrl": "http://maps.google.com/maps?q=14018+Detroit+Ave,+Lakewood,+Cuyahoga,+Ohio+44107-4523",
+        "active": true
+    },
+    {
+        "storeId": 17,
+        "name": "Winking Lizard Macedonia",
+        "address": "511 E Aurora Rd",
+        "city": "Macedonia",
+        "state": "Ohio",
+        "zip": "44056-1803",
+        "phone": "330.467.6200",
+        "mapUrl": "http://maps.google.com/maps?q=511+E+Aurora+Rd,+Macedonia,+Ohio+44056-1803",
+        "active": true
+    },
+    {
+        "storeId": 11,
+        "name": "Winking Lizard Mentor",
+        "address": "9570 Mentor Ave",
+        "city": "Mentor",
+        "state": "Ohio",
+        "zip": "44060",
+        "phone": "440.354.2968",
+        "mapUrl": "http://maps.google.com/maps?q=9570+Mentor+Avenue,+Mentor,+Ohio+44060",
+        "active": true
+    },
+    {
+        "storeId": 18,
+        "name": "Winking Lizard Peninsula",
+        "address": "1615 Main St",
+        "city": "Peninsula",
+        "state": "Ohio",
+        "zip": "44264-9754",
+        "phone": "330.467.1002",
+        "mapUrl": "http://maps.google.com/maps?q=1615+Main+St,+Peninsula,+Ohio+44264-9754",
+        "active": false
+    }
+]

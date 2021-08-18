@@ -1,0 +1,22 @@
+.gridHeading {
+    background-color: #eee8aa;
+    font-weight: bolder;
+    padding: 1rem;
+    text-align: right;
+    border-right: 1px #6c757d solid;
+    border-bottom: 1px #6c757d solid;
+}
+.gridValue {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px #6c757d solid;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    border: 1px #6c757d solid;
+}
+.gridContainer:last-child {
+    border-bottom: 0;
+}

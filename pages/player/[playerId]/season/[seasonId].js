@@ -5,7 +5,7 @@ import { getPlayerSeasonsList, getCumulativeStatsForQuerySeason } from '../../..
 import { getSeasonDetailsById } from '../../../../lib/api/seasons';
 
 import SeasonDropdown from '../../../../components/SeasonDropdown';
-import PlayerStatsBlock from '../../../../components/playerStatsBlock/PlayerStatsBlock';
+import PlayerStatsBlock from '../../../../components/PlayerStatsBlock';
 import ErrorMessage from '../../../../components/ErrorMessage';
 
 import styles from '../../../../styles/players.module.css';

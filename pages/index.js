@@ -55,7 +55,7 @@ const Home = ({ news, textbox }) => {
                     <TextBox data={textbox} />
 
                     <section className={styles.picSection}>
-                        <img aria-hidden="true" src="/images/pic1.jpg" alt="Skeeball World Tour... join the fun!" className={styles.sidebarPic} />
+                        <img aria-hidden="true" src="/images/non-news/pic1.jpg" alt="Skeeball World Tour... join the fun!" className={styles.sidebarPic} />
                     </section>
 
                     <AboutBox />

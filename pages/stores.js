@@ -26,15 +26,36 @@ const Stores = ({ stores, error }) => {
             }
 
             {stores?.length > 0 &&
-                <article className={styles.storesArticle}>
+                <article className={styles.article}>
                     {stores.map(store => (
-                        <section key={store.storeId} className={styles.store}>
-                            <h3 className={styles.storeName}>{store.name}</h3>
-                            <p>{store.address}</p>
-                            <p>{store.city}, {store.state} {store.zip}</p>
-                            <p>{store.phone}</p>
-                            <p>{store.mapUrl}</p>
-                        </section>
+                        <div key={store.storeId} className={styles.card}>
+                            <h3 className={styles.heading}>
+                                {store.name}
+                            </h3>
+                            <section className={styles.body}>
+                                <address>
+                                    <p>
+                                        {store.address}
+                                    </p>
+                                    <p>
+                                        {store.city}, {store.state} {store.zip}
+                                    </p>
+                                    <p>
+                                        {store.phone}
+                                    </p>
+                                </address>
+
+                                {store.mapUrl &&
+                                    <p className={styles.map}>
+                                        <a href={store.mapUrl} target="_blank" rel="noreferrer">
+                                            MAP IT!
+                                            <img src="/images/non-news/google-maps.png" alt="Map it at Google Maps" className={styles.mapIcon} />
+                                        </a>
+                                    </p>
+                                }
+
+                            </section>
+                        </div>
                     ))}
                 </article>
 

@@ -76,7 +76,7 @@ MyApp.getInitialProps = async (context) => {
             error = { message: errorMessage };
         }
 
-        const currentSeasonId = currentSeason.seasonId || 0;
+        const currentSeasonId = currentSeason?.seasonId || 0;
         const storesInNavbarResponse = await fetch(`${baseUrl}/api/stores-in-navbar/${currentSeasonId}`);
         if (storesInNavbarResponse.ok) {
             storesInNavbar = await storesInNavbarResponse.json();

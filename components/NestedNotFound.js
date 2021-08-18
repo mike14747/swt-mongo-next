@@ -5,7 +5,7 @@ const NestedNotFound = () => {
 export function getServerSideProps({ params }) {
     return {
         redirect: {
-            destination: '/player/' + params.playerId,
+            destination: '/', // eg: destination: '/player/' + params.playerId,
             permanent: false,
         },
     };

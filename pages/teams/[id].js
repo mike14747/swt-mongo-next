@@ -1,21 +1,17 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useContext } from 'react';
-import CurrentSeasonContext from '../../context/currentSeasonContext';
 
-import PageHeading from '../../components/PageHeading';
 import SeasonDropdown from '../../components/SeasonDropdown';
 import ErrorMessage from '../../components/ErrorMessage';
 
 const Teams = ({ stats, displayedSeason, seasons, error }) => {
-    const currentSeason = useContext(CurrentSeasonContext);
-
     return (
         <>
             <Head>
                 <title>Team Stats</title>
             </Head>
-            <PageHeading text="Team Stats" />
+            <h2 className="page-heading">Team Stats</h2>
             <div className="row mb-4">
                 <div className="col-6 text-left">
                     This is the TEAMS page!

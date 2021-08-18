@@ -65,7 +65,7 @@ const Stores = ({ stores, error }) => {
 };
 
 Stores.propTypes = {
-    stores: PropTypes.araay,
+    stores: PropTypes.array,
     error: PropTypes.object,
 };
 

@@ -2,10 +2,10 @@ const NestedNotFound = () => {
     return;
 };
 
-export function getServerSideProps({ params }) {
+export function getServerSideProps() {
     return {
         redirect: {
-            destination: '/player/' + params.playerId,
+            destination: '/schedule',
             permanent: false,
         },
     };

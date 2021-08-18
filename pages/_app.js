@@ -7,6 +7,7 @@ import Head from 'next/head';
 
 import SettingsContext from '../context/settingsContext';
 import CurrentSeasonContext from '../context/currentSeasonContext';
+import NavbarContext from '../context/navbarContext';
 
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
@@ -29,7 +30,9 @@ function MyApp({ settings, currentSeason, storesInNavbar, error, Component, page
             <SettingsContext.Provider value={settings}>
                 <CurrentSeasonContext.Provider value={currentSeason}>
                     <Header />
-                    <Navbar />
+                    <NavbarContext.Provider value={storesInNavbar || []}>
+                        <Navbar />
+                    </NavbarContext.Provider>
                     <main className="main-container">{loading ? <Loading /> : <Component {...pageProps} />}</main>
                     <Footer />
                 </CurrentSeasonContext.Provider>
@@ -69,6 +72,14 @@ MyApp.getInitialProps = async (context) => {
         const currentSeasonResponse = await fetch(`${baseUrl}/api/current-season`);
         if (currentSeasonResponse.ok) {
             [currentSeason] = await currentSeasonResponse.json();
+        } else {
+            error = { message: errorMessage };
+        }
+
+        const currentSeasonId = currentSeason.seasonId || 0;
+        const storesInNavbarResponse = await fetch(`${baseUrl}/api/stores-in-navbar/${currentSeasonId}`);
+        if (storesInNavbarResponse.ok) {
+            storesInNavbar = await storesInNavbarResponse.json();
         } else {
             error = { message: errorMessage };
         }

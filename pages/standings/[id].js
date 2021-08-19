@@ -57,9 +57,9 @@ export async function getStaticProps(context) {
         if (standingsResponse) {
             standings = JSON.parse(JSON.stringify(standingsResponse));
             displayedSeason = {
-                seasonId: standingsResponse.seasonId,
-                seasonName: standingsResponse.seasonName,
-                year: standingsResponse.year,
+                seasonId: standings.seasonId,
+                seasonName: standings.seasonName,
+                year: standings.year,
             };
         } else {
             error = { message: 'No standings are available for the selected season!' };

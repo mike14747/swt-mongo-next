@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.weekHeading {
+    text-align: center;
+    color: darkgreen;
+}
+
 .headingRow {
     background-color: rgba(0, 0, 0, 0.15);
 }

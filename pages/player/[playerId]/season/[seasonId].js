@@ -8,7 +8,7 @@ import SeasonDropdown from '../../../../components/SeasonDropdown';
 import PlayerStatsBlock from '../../../../components/PlayerStatsBlock';
 import ErrorMessage from '../../../../components/ErrorMessage';
 
-import styles from '../../../../styles/players.module.css';
+import styles from '../../../../styles/player.module.css';
 
 const Player = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
     return (
@@ -28,7 +28,7 @@ const Player = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
             <article>
                 {playerInfo &&
                     <section className={styles.infoSection}>
-                        <h3 className={styles.playerName}><span className={styles.textRed}>Player: </span>{playerInfo.playerName}</h3>
+                        <h3 className={styles.playerName}><span className={styles.playerText}>Player: </span>{playerInfo.playerName}</h3>
                         <p>
                             <small>Career Store(s): </small>
                             {playerInfo.stores.map((s, i) => (

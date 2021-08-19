@@ -18,7 +18,7 @@ const Champions = ({ champions, error }) => {
 
             {error && <ErrorMessage text={error.message} />}
 
-            {champions && champions.length > 0 &&
+            {champions?.length > 0 &&
                 <article className={styles.championsArticle}>
                     <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                         <thead>

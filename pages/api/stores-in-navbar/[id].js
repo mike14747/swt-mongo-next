@@ -1,10 +1,12 @@
 import { getNavbarStores } from '../../../lib/api/schedules';
+import { getCurrentSeasonId } from '../../../lib/api/settings';
 
 module.exports = async (req, res) => {
     switch (req.method) {
         case 'GET':
             try {
-                const storesResponse = await getNavbarStores(req.query.id);
+                const { currentSeasonId } = await getCurrentSeasonId();
+                const storesResponse = await getNavbarStores(currentSeasonId);
                 if (storesResponse) res.status(200).json(storesResponse);
             } catch (error) {
                 res.status(500).end();

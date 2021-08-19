@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { useContext } from 'react';
 
 import SeasonDropdown from '../../components/SeasonDropdown';
-import ErrorMessage from '../../components/ErrorMessage';
+// import ErrorMessage from '../../components/ErrorMessage';
 
 const Teams = ({ stats, displayedSeason, seasons, error }) => {
     return (

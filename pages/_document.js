@@ -11,6 +11,7 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     {/* <link rel="icon" href="data:," /> */}
+                    <link rel="icon" type="image/png" href="/favicon/swt_favicon.png" />
                 </Head>
                 <body>
                     <Main />

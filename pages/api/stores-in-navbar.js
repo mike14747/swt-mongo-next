@@ -1,5 +1,5 @@
-import { getNavbarStores } from '../../../lib/api/schedules';
-import { getCurrentSeasonId } from '../../../lib/api/settings';
+import { getNavbarStores } from '../../lib/api/schedules';
+import { getCurrentSeasonId } from '../../lib/api/settings';
 
 module.exports = async (req, res) => {
     switch (req.method) {

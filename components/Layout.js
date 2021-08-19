@@ -10,7 +10,7 @@ const fetcher = (url) => fetch(url).then(res => res.json());
 
 const Layout = ({ children }) => {
     const { data: settings, error: error1 } = useSWR('/api/settings', fetcher);
-    const { data: storesInNavbar, error: error2 } = useSWR('/api/stores-in-navbar/24', fetcher);
+    const { data: storesInNavbar, error: error2 } = useSWR('/api/stores-in-navbar', fetcher);
 
     if (error1 || error2) return <h1>An error has occurred!</h1>;
     if (!settings || !storesInNavbar) return <Loading />;

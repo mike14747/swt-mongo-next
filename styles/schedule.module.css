@@ -1,0 +1,12 @@
+.storeText {
+    color: #30608c;
+}
+
+.storeName {
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
+    font-weight: bolder;
+}
+
+.infoSection {
+    margin-bottom: 2rem;
+}

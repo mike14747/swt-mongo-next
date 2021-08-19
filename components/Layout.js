@@ -22,7 +22,6 @@ const Layout = ({ children }) => {
             <Navbar currentSeasonId={settings.currentSeasonId} displaySchedule={settings.displaySchedule} storesInNavbar={storesInNavbar} />
 
             <main className="main-container">
-                {/* {children} */}
                 { React.cloneElement(children, { currentSeasonId: settings.currentSeasonId }) }
             </main>
 

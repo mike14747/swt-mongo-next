@@ -1,11 +1,6 @@
-import { useContext } from 'react';
-import SettingsContext from '../context/settingsContext';
-
 import styles from '../styles/Footer.module.css';
 
-const Footer = () => {
-    const { contactEmail } = useContext(SettingsContext);
-
+const Footer = ({ contactEmail }) => {
     return (
         <footer className={styles.footer + ' container'}>
             <section className={styles.footerLeft}>
@@ -19,9 +14,11 @@ const Footer = () => {
                 </p>
             </section>
             <section className={styles.footerRight}>
-                <address className={styles.contact}>
-                    <a href={`mailto:${contactEmail}`}>CONTACT US</a>
-                </address>
+                {contactEmail &&
+                    <address className={styles.contact}>
+                        <a href={`mailto:${contactEmail}`}>CONTACT US</a>
+                    </address>
+                }
                 <p>&copy; 2010 Skeeball World Tour</p>
             </section>
         </footer>

@@ -8,14 +8,16 @@ export default function NavDropdown({ buttonText, listItems }) {
         <div className={styles.navdropdown}>
             <button className={styles.navdropbtn}>{buttonText}</button>
             <ul className={styles.navdropdownContent}>
-                {listItems.map((item, index) => (
-                    <li key={index}>
-                        <Link href={item.href}>
-                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            <a>{item.text}</a>
-                        </Link>
-                    </li>
-                ))}
+                {listItems?.length > 0 &&
+                    listItems.map((item, index) => (
+                        <li key={index}>
+                            <Link href={item.href}>
+                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                <a>{item.text}</a>
+                            </Link>
+                        </li>
+                    ))
+                }
             </ul>
         </div>
     );

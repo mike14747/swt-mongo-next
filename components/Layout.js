@@ -1,3 +1,4 @@
+import React from 'react';
 import useSWR from 'swr';
 import PropTypes from 'prop-types';
 
@@ -21,7 +22,8 @@ const Layout = ({ children }) => {
             <Navbar currentSeasonId={settings.currentSeasonId} displaySchedule={settings.displaySchedule} storesInNavbar={storesInNavbar} />
 
             <main className="main-container">
-                {children}
+                {/* {children} */}
+                { React.cloneElement(children, { currentSeasonId: settings.currentSeasonId }) }
             </main>
 
             <Footer contactEmail={settings.contactEmail} />

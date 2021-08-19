@@ -5,7 +5,7 @@ const Loading = () => {
             <style jsx>{`
                 #loading {
                     text-align: center;
-                    margin: 1 rem;
+                    margin: 3 rem;
                 }
             `}</style>
         </div>

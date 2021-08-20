@@ -8,6 +8,8 @@ These all come from the settings collection via getSettings() in /lib/settings.j
     -   Footer.js (it might also be needed in the TextBox component in the future)
 -   currentSeasonId
     -   Navbar
+    -   all pages via React.cloneElement()
 -   displaySchedule
     -   Navbar
-
+-   storesInNavbar
+    -   Navbar

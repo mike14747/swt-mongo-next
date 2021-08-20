@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import tableStyles from '../styles/table.module.css';
 
-const StandingsTables = ({ storesArr }) => {
+const StandingsTables = ({ currentSeasonId, storesArr }) => {
     return (
         <>
             {storesArr.map(s => (
@@ -24,7 +24,7 @@ const StandingsTables = ({ storesArr }) => {
                                 {s.teams.map(s => (
                                     <tr key={s.teamId}>
                                         <td className={tableStyles.textLeft}>
-                                            <Link href={'/teams/' + s.teamId}>
+                                            <Link href={'/team/' + s.teamId + '/season/' + currentSeasonId}>
                                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                                 <a>{s.teamName}</a>
                                             </Link>
@@ -45,6 +45,7 @@ const StandingsTables = ({ storesArr }) => {
 };
 
 StandingsTables.propTypes = {
+    currentSeasonId: PropTypes.number,
     storesArr: PropTypes.array,
 };
 

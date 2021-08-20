@@ -7,7 +7,7 @@ import StandingsTables from '../../components/StandingsTables';
 import SeasonDropdown from '../../components/SeasonDropdown';
 import ErrorMessage from '../../components/ErrorMessage';
 
-const Standings = ({ standings, displayedSeason, seasons, error }) => {
+const Standings = ({ currentSeasonId, standings, displayedSeason, seasons, error }) => {
     return (
         <>
             <Head>
@@ -25,13 +25,14 @@ const Standings = ({ standings, displayedSeason, seasons, error }) => {
             {error && <ErrorMessage text={error.message} />}
 
             {standings?.stores?.length > 0 &&
-                <StandingsTables storesArr={standings.stores} />
+                <StandingsTables currentSeasonId={currentSeasonId} storesArr={standings.stores} />
             }
         </>
     );
 };
 
 Standings.propTypes = {
+    currentSeasonId: PropTypes.number,
     standings: PropTypes.object,
     displayedSeason: PropTypes.object,
     seasons: PropTypes.array,

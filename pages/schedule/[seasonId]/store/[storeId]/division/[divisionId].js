@@ -46,6 +46,7 @@ const Schedules = ({ currentSeasonId, storeInfo, displayedSeason, seasons, sched
 };
 
 Schedules.propTypes = {
+    currentSeasonId: PropTypes.number,
     storeInfo: PropTypes.object,
     displayedSeason: PropTypes.object,
     seasons: PropTypes.array,

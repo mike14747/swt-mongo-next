@@ -8,7 +8,7 @@ import ErrorMessage from '../components/ErrorMessage';
 import styles from '../styles/champions.module.css';
 import tableStyles from '../styles/table.module.css';
 
-const Champions = ({ champions, error }) => {
+const Champions = ({ currentSeasonId, champions, error }) => {
     return (
         <>
             <Head>
@@ -33,7 +33,7 @@ const Champions = ({ champions, error }) => {
                                 <tr key={c.seasonId}>
                                     <td className={tableStyles.textLeft}>{c.seasonName}-{c.year}</td>
                                     <td className={tableStyles.textLeft}>
-                                        <Link href={'/teams/' + c.champion.teamId}>
+                                        <Link href={'/team/' + c.champion.teamId + '/season/' + currentSeasonId}>
                                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                             <a>{c.champion.teamName}</a>
                                         </Link>
@@ -51,6 +51,7 @@ const Champions = ({ champions, error }) => {
 };
 
 Champions.propTypes = {
+    currentSeasonId: PropTypes.number,
     champions: PropTypes.array,
     error: PropTypes.object,
 };

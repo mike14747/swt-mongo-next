@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
+import { searchPlayers, searchTeams } from '../../lib/api/search';
 import ErrorMessage from '../../components/ErrorMessage';
 
 import styles from '../../styles/search.module.css';
 
 const Search = ({ players, teams, slug, error }) => {
-    // console.log('players:', players);
-    // console.log('teams:', teams);
+    console.log('players:', players);
+    console.log('teams:', teams);
     return (
         <>
             <Head>
@@ -38,19 +39,24 @@ Search.propTypes = {
     error: PropTypes.object,
 };
 
-export function getServerSideProps({ params }) {
+export async function getServerSideProps({ params }) {
     let players = null;
     let teams = null;
-    let slug = '';
+    const slug = params.slug;
     let error = null;
 
-    return {
-        props: {
-            players: [params.slug],
-            teams: [params.slug],
-            slug: params.slug,
-        },
-    };
+    try {
+        const [playerResponse] = await searchPlayers(slug);
+        if (playerResponse) players = JSON.parse(JSON.stringify(playerResponse));
+
+        const [teamResponse] = await searchTeams(slug);
+        if (teamResponse) teams = JSON.parse(JSON.stringify(teamResponse));
+
+        return { props: { players, teams, slug, error } };
+    } catch (error) {
+        console.error(error.message);
+        return { props: { players: null, teams: null, slug, error: { message: 'An error occurred trying to fetch data!' } } };
+    }
 }
 
 export default Search;

@@ -1,9 +1,9 @@
-const Loading = () => {
+const Error = () => {
     return (
-        <div id="loading">
-            <img src="/images/loading/loading.gif" alt="Loading" />
+        <div id="error">
+            <h1 id="heading">A server error has occurred!</h1>
             <style jsx>{`
-                #loading {
+                #error {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -12,9 +12,14 @@ const Loading = () => {
                     height: 100vh;
                     background-color: #ffffff;
                 }
+
+                #heading {
+                    text-align: center;
+                    color: firebrick;
+                }
             `}</style>
         </div>
     );
 };
 
-export default Loading;
+export default Error;

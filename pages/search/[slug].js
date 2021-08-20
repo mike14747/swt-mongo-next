@@ -46,10 +46,10 @@ export async function getServerSideProps({ params }) {
     let error = null;
 
     try {
-        const [playerResponse] = await searchPlayers(slug);
+        const playerResponse = await searchPlayers(slug);
         if (playerResponse) players = JSON.parse(JSON.stringify(playerResponse));
 
-        const [teamResponse] = await searchTeams(slug);
+        const teamResponse = await searchTeams(slug);
         if (teamResponse) teams = JSON.parse(JSON.stringify(teamResponse));
 
         return { props: { players, teams, slug, error } };

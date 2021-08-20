@@ -5,7 +5,7 @@ import Head from 'next/head';
 // import { getSeasonDetailsById } from '../../../../lib/api/seasons';
 
 import SeasonDropdown from '../../../../components/SeasonDropdown';
-// import TeamStatsBlock from '../../../../components/TeamStatsBlock';
+import TeamStatsBlock from '../../../../components/TeamStatsBlock';
 import ErrorMessage from '../../../../components/ErrorMessage';
 
 import styles from '../../../../styles/team.module.css';

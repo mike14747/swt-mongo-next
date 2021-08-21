@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styles from '../styles/PlayerStatsBlock.module.css';
+import styles from '../styles/StatsBlock.module.css';
 
 const PlayerStatsBlock = ({ stats }) => {
     return (

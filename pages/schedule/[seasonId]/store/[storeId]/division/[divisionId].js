@@ -9,7 +9,6 @@ import { getScheduleSeasonsListByStore, getAllSchedulesList, getScheduleBySeason
 import styles from '../../../../../../styles/schedule.module.css';
 
 const Schedules = ({ currentSeasonId, storeInfo, displayedSeason, seasons, schedule, error }) => {
-    // console.log(schedule);
     return (
         <>
             <Head>
@@ -24,7 +23,7 @@ const Schedules = ({ currentSeasonId, storeInfo, displayedSeason, seasons, sched
 
             {seasons?.length > 0 &&
                 <aside>
-                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Schedule From" listItems={seasons} />
                 </aside>
             }
 

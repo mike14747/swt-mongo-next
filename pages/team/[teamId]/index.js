@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import { getTeamSeasonsList, getTeamInfo } from '../../../lib/api/team';
+import { getTeamSeasonsListAndInfo } from '../../../lib/api/team';
 
 import SeasonDropdown from '../../../components/SeasonDropdown';
 import ErrorMessage from '../../../components/ErrorMessage';
@@ -61,16 +61,19 @@ export async function getServerSideProps({ params }) {
     let error = null;
 
     try {
-        const seasonsListResponse = await getTeamSeasonsList(params.teamId);
-        if (seasonsListResponse?.length > 0) {
-            seasons = JSON.parse(JSON.stringify(seasonsListResponse)).map((season) => ({
+        const [seasonsListAndInfoResponse] = await getTeamSeasonsListAndInfo(params.teamId);
+        if (seasonsListAndInfoResponse) {
+            const listAndInfoJSON = JSON.parse(JSON.stringify(seasonsListAndInfoResponse));
+            seasons = listAndInfoJSON?.seasons?.map((season) => ({
                 ...season,
                 url: `/team/${params.teamId}/season/${season.seasonId}`,
-            }));
+            })).reverse();
+            teamInfo = {
+                teamId: listAndInfoJSON?.teamId,
+                teamName: listAndInfoJSON?.teamName,
+                stores: listAndInfoJSON?.stores,
+            };
         }
-
-        const [teamInfoResponse] = await getTeamInfo(params.teamId);
-        if (teamInfoResponse) teamInfo = JSON.parse(JSON.stringify(teamInfoResponse));
 
         return { props: { teamInfo, seasons, error } };
     } catch (error) {

@@ -1,0 +1,56 @@
+.teamText {
+    color: firebrick;
+}
+
+.teamName {
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
+    font-weight: bolder;
+}
+
+.infoSection {
+    margin-bottom: 2rem;
+}
+
+.infoSection p {
+    margin-bottom: 0.5rem;
+}
+
+.seasonStatsHeading,
+.careerStatsHeading {
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
+    color: darkgreen;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.seasonStatsHeading {
+    color: #30608c;
+}
+
+.careerStatsHeading {
+    color: darkgreen;
+}
+
+.statTotalsSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.totalStatsGroup {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 480px) {
+    .statTotalsSection {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .seasonStatsBox {
+        margin-right: 0.5rem;
+    }
+
+    .careerStatsBox {
+        margin-left: 0.5rem;
+    }
+}

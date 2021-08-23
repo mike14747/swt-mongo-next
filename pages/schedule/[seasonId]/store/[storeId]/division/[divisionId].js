@@ -4,11 +4,11 @@ import Head from 'next/head';
 import SeasonDropdown from '../../../../../../components/SeasonDropdown';
 import ScheduleTable from '../../../../../../components/scheduleTable';
 import ErrorMessage from '../../../../../../components/ErrorMessage';
-import { getScheduleSeasonsListByStore, getAllSchedulesList, getScheduleBySeasonStoreDivision } from '../../../../../../lib/api/schedules';
+import { getScheduleSeasonsListByStore, getAllSchedulesList, getScheduleBySeasonStoreDivision } from '../../../../../../lib/api/schedule';
 
 import styles from '../../../../../../styles/schedule.module.css';
 
-const Schedules = ({ currentSeasonId, storeInfo, displayedSeason, seasons, schedule, error }) => {
+const Schedule = ({ currentSeasonId, storeInfo, displayedSeason, seasons, schedule, error }) => {
     return (
         <>
             <Head>
@@ -44,7 +44,7 @@ const Schedules = ({ currentSeasonId, storeInfo, displayedSeason, seasons, sched
     );
 };
 
-Schedules.propTypes = {
+Schedule.propTypes = {
     currentSeasonId: PropTypes.number,
     storeInfo: PropTypes.object,
     displayedSeason: PropTypes.object,
@@ -106,4 +106,4 @@ export async function getStaticPaths() {
     };
 }
 
-export default Schedules;
+export default Schedule;

@@ -1,4 +1,4 @@
-import { getNavbarStores } from '../../lib/api/schedules';
+import { getNavbarStores } from '../../lib/api/schedule';
 import { getCurrentSeasonId } from '../../lib/api/settings';
 
 module.exports = async (req, res) => {

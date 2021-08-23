@@ -12,7 +12,7 @@ const NoSchedule = () => {
             <h2 className="page-heading">Schedule</h2>
 
             <article>
-                <ErrorMessage text="No schedule was selected for displaying stats. You should not be navigating to this page directly." />
+                <ErrorMessage text="No season and/or store was selected for displaying schedules. You should not be navigating to this page directly." />
             </article>
         </>
     );

@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import SeasonDropdown from '../../../../../../components/SeasonDropdown';
 import ErrorMessage from '../../../../../../components/ErrorMessage';
 import { getResultsSeasonsListByStore, getAllResultsList, getResultsBySeasonStoreDivision } from '../../../../../../lib/api/results';
 
 import styles from '../../../../../../styles/results.module.css';
+import tableStyles from '../../../../../../styles/table.module.css';
 
 const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results, error }) => {
     console.log('results:', results);
@@ -32,6 +34,74 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
                     <section className={styles.infoSection}>
                         <h3 className={styles.storeName}><span className={styles.storeText}>Store: </span>{storeInfo.storeName} ({storeInfo.divisionName})</h3>
                     </section>
+                }
+
+                {results?.length > 0 &&
+                    results.map((week) => (
+                        <article key={week.weekId}>
+                            <h4>Week: {week.weekId} ({week.date})</h4>
+                            {week.matches.map((match, index) => (
+                                <section key={index}>
+                                    <h5>Start time: {match.startTime}, Alley: {match.alley}</h5>
+                                    {/* <p>
+                                        {match.teams.map(team => (
+                                            <span key={team.teamId}>
+                                                {team.type} team: {team.teamName}<br />
+                                            </span>
+                                        ))}
+                                    </p> */}
+
+                                    <section className={tableStyles.tableWrapper}>
+                                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                                            {match.teams.map((team, index) => (
+                                                <tbody key={index}>
+                                                    <tr>
+                                                        <td className={tableStyles.textLeft}>
+                                                            <Link href={'/team/' + team.teamId + '/season/' + currentSeasonId}>
+                                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                                                <a>{team.teamName}</a>
+                                                            </Link>
+                                                        </td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>TOTAL POINTS</td>
+                                                    </tr>
+
+                                                    {team.players.map((player, index) => (
+                                                        <tr key={index}>
+                                                            <td className={tableStyles.textLeft}>
+                                                                <Link href={'/player/' + player.playerId + '/season/' + currentSeasonId}>
+                                                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                                                    <a>{player.playerName}</a>
+                                                                </Link>
+                                                            </td>
+                                                            {player.scores.map((score, index) => (
+                                                                <td key={index}>{score}</td>
+                                                            ))}
+                                                            <td>{player.totalPoints}</td>
+                                                        </tr>
+                                                    ))}
+
+                                                    {index === 0 &&
+                                                        <tr><td colSpan="12" className="border-0"></td></tr>
+                                                    }
+                                                </tbody>
+                                            ))}
+                                        </table>
+                                    </section>
+
+                                </section>
+                            ))}
+                        </article>
+                    ))
                 }
             </article>
 

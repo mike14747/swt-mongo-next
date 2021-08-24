@@ -49,7 +49,7 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
                                         <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                                             {match.teams.map((team, index) => (
                                                 <tbody key={index}>
-                                                    <tr>
+                                                    <tr className={tableStyles.resultsHeadingRow}>
                                                         <td className={tableStyles.textLeft}>
                                                             <Link href={'/team/' + team.teamId + '/season/' + currentSeasonId}>
                                                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -85,7 +85,7 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
                                                         </tr>
                                                     ))}
 
-                                                    <tr>
+                                                    <tr className={tableStyles.resultsHeadingRow}>
                                                         <td className={tableStyles.textLeft}>Total</td>
                                                         {team.teamTotals.gameTotals.map((score, index) => (
                                                             <td key={index}>{score}</td>

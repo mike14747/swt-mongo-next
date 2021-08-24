@@ -41,8 +41,8 @@ const Team = ({ teamInfo, stats, displayedSeason, seasons, error }) => {
                     </section>
                 }
 
-                {stats &&
-                    <section className={styles.statTotalsSection}>
+                {stats
+                    ? <section className={styles.statTotalsSection}>
                         <div className={styles.totalStatsGroup + ' ' + styles.seasonStatsBox}>
                             <h4 className={styles.seasonStatsHeading}>Season Stats</h4>
                             {stats.seasons[0]
@@ -55,6 +55,7 @@ const Team = ({ teamInfo, stats, displayedSeason, seasons, error }) => {
                             <p>Players on this team will have their games and avg scores listed here eventually.</p>
                         </div> */}
                     </section>
+                    : <ErrorMessage text="Team has no stats for the selected season." />
                 }
             </article>
 
@@ -94,10 +95,10 @@ export async function getServerSideProps({ params }) {
         }
 
         const [seasonInfoResponse] = await getSeasonDetailsById(params.seasonId);
-        displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
+        if (seasonInfoResponse) displayedSeason = JSON.parse(JSON.stringify(seasonInfoResponse));
 
         const [statsResponse] = await getCumulativeStatsForQuerySeason(params.teamId, params.seasonId);
-        stats = JSON.parse(JSON.stringify(statsResponse));
+        if (statsResponse) stats = JSON.parse(JSON.stringify(statsResponse));
 
         if (seasons === null) error = { message: 'Team was not found!' };
 

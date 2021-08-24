@@ -11,6 +11,11 @@
     background-color: rgba(0, 0, 0, 0.15);
 }
 
+.resultsHeadingRow {
+    background-color: rgba(0, 0, 0, 0.15);
+    font-weight: bolder;
+}
+
 .tableWrapper {
     margin: 0 auto 1rem auto;
     display: block;
@@ -63,7 +68,7 @@ td.textLeft {
     border-bottom-width: 1px;
 }
 
-.tableHover tbody tr:hover {
+.tableHover tbody tr:not(.resultsHeadingRow):hover {
     color: #212529;
     background-color: rgba(0, 0, 0, 0.075);
 }

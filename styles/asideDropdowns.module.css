@@ -26,7 +26,7 @@
 }
 
 .heading::after {
-    content: '\2B9F';
+    content: '\25BC';
     padding-left: 0.5rem;
 }
 

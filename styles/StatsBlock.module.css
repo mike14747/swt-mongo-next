@@ -1,22 +1,23 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    border: 1px rgba(0, 0, 0, 0.50) solid;
+}
+
+.gridContainer:last-child {
+    border-bottom: 0;
+}
+
 .gridHeading {
     background-color: #eee8aa;
     font-weight: bolder;
     padding: 1rem;
     text-align: right;
-    border-right: 1px #6c757d solid;
-    border-bottom: 1px #6c757d solid;
+    border-right: 1px rgba(0, 0, 0, 0.50) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.50) solid;
 }
 .gridValue {
     padding: 1rem;
     text-align: center;
-    border-bottom: 1px #6c757d solid;
-}
-
-.gridContainer {
-    display: grid;
-    grid-template-columns: auto auto;
-    border: 1px #6c757d solid;
-}
-.gridContainer:last-child {
-    border-bottom: 0;
+    border-bottom: 1px rgba(0, 0, 0, 0.50) solid;
 }

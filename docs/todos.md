@@ -4,7 +4,7 @@
 
 Get team players stats showing up on the teams page.
 
-Get the search page displaying the data it's receiving.
+~~Get the search page displaying the data it's receiving.~~
 
 Add game results for players.
 
@@ -18,8 +18,8 @@ Add an all-time records page and serverless function to get its data.
 
 Add a tournament rankings page?
 
-Add results data to MongoDB.
+~~Add results data to MongoDB.~~
 
-Get a results page (with nested routes like the schedule page) added.
+~~Get a results page (with nested routes like the schedule page) added.~~
 
 Write tests.

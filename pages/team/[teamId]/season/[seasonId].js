@@ -42,19 +42,19 @@ const Team = ({ teamInfo, stats, displayedSeason, seasons, error }) => {
                 }
 
                 {stats
-                    ? <section className={styles.statTotalsSection}>
-                        <div className={styles.totalStatsGroup + ' ' + styles.seasonStatsBox}>
+                    ? <div className={styles.statTotalsSection}>
+                        <section className={styles.totalStatsGroup + ' ' + styles.seasonStatsBox}>
                             <h4 className={styles.seasonStatsHeading}>Season Stats</h4>
                             {stats.seasons[0]
                                 ? <TeamStatsBlock stats={stats.seasons[0]} />
                                 : <ErrorMessage text="Team has no stats for the selected season." />
                             }
-                        </div>
-                        {/* <div className={styles.totalStatsGroup + ' ' + styles.careerStatsBox}>
+                        </section>
+                        {/* <section className={styles.totalStatsGroup + ' ' + styles.careerStatsBox}>
                             <h4 className={styles.careerStatsHeading}>Players</h4>
                             <p>Players on this team will have their games and avg scores listed here eventually.</p>
-                        </div> */}
-                    </section>
+                        </section> */}
+                    </div>
                     : <ErrorMessage text="Team has no stats for the selected season." />
                 }
             </article>

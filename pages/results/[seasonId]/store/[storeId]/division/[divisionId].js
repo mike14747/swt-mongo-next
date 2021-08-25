@@ -45,7 +45,7 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
                                 <section key={index}>
                                     <h5 className={tableStyles.matchHeading}>Start time: {match.startTime}, Alley: {match.alley}</h5>
 
-                                    <section className={tableStyles.tableWrapper}>
+                                    <div className={tableStyles.tableWrapper}>
                                         <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                                             {match.teams.map((team, index) => (
                                                 <tbody key={index}>
@@ -101,7 +101,7 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
                                                 </tbody>
                                             ))}
                                         </table>
-                                    </section>
+                                    </div>
 
                                 </section>
                             ))}

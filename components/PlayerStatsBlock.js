@@ -4,7 +4,7 @@ import styles from '../styles/StatsBlock.module.css';
 
 const PlayerStatsBlock = ({ stats }) => {
     return (
-        <section className={styles.gridContainer}>
+        <div className={styles.gridContainer}>
             <div className={styles.gridHeading}>Games Played</div>
             <div className={styles.gridValue}>{stats.gamesPlayed}</div>
 
@@ -34,7 +34,7 @@ const PlayerStatsBlock = ({ stats }) => {
 
             <div className={styles.gridHeading}>Best 10-game series</div>
             <div className={styles.gridValue}>{stats.highTenGame}</div>
-        </section>
+        </div>
     );
 };
 

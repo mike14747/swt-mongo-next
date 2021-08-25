@@ -28,11 +28,11 @@ const Stores = ({ stores, error }) => {
             {stores?.length > 0 &&
                 <article className={styles.article}>
                     {stores.map(store => (
-                        <div key={store.storeId} className={styles.card}>
+                        <section key={store.storeId} className={styles.card}>
                             <h3 className={styles.heading}>
                                 {store.name}
                             </h3>
-                            <section className={styles.body}>
+                            <div className={styles.body}>
                                 <address>
                                     <p>
                                         {store.address}
@@ -54,8 +54,8 @@ const Stores = ({ stores, error }) => {
                                     </p>
                                 }
 
-                            </section>
-                        </div>
+                            </div>
+                        </section>
                     ))}
                 </article>
 

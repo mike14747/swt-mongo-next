@@ -1,6 +1,6 @@
 const NoMatch = () => {
     return (
-        <article id="no-match">
+        <section id="no-match">
             <h2 className="error">
                 Error 404!
             </h2>
@@ -20,7 +20,7 @@ const NoMatch = () => {
                     margin-bottom: 1rem;
                 }
             `}</style>
-        </article>
+        </section>
     );
 };
 

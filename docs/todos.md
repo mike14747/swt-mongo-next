@@ -23,3 +23,5 @@ Add a tournament rankings page?
 ~~Get a results page (with nested routes like the schedule page) added.~~
 
 Write tests.
+
+Convert PlayStatsBlock.js and TeamStatsBlock.js from css grid to flexbox.

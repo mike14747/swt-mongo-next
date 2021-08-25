@@ -43,9 +43,9 @@ const Home = ({ news, textbox }) => {
                                     </p>
                                 </section>
 
-                                <section className={styles.contentSection}>
+                                <div className={styles.contentSection}>
                                     {ReactHtmlParser(item.content)}
-                                </section>
+                                </div>
                             </article>
                         ))
                     }
@@ -54,9 +54,9 @@ const Home = ({ news, textbox }) => {
                 <aside className={styles.aside}>
                     <TextBox data={textbox} />
 
-                    <section className={styles.picSection}>
+                    <div className={styles.picSection}>
                         <img aria-hidden="true" src="/images/non-news/pic1.jpg" alt="Skeeball World Tour... join the fun!" className={styles.sidebarPic} />
-                    </section>
+                    </div>
 
                     <AboutBox />
                 </aside>

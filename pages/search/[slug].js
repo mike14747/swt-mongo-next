@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { searchPlayers, searchTeams } from '../../lib/api/search';
 import ErrorMessage from '../../components/ErrorMessage';
 
 import styles from '../../styles/search.module.css';
 
-const Search = ({ players, teams, slug, error }) => {
-    console.log('players:', players);
-    console.log('teams:', teams);
+const Search = ({ currentSeasonId, players, teams, slug, error }) => {
+    // console.log('players:', players);
+    // console.log('teams:', teams);
     return (
         <>
             <Head>
@@ -17,13 +18,49 @@ const Search = ({ players, teams, slug, error }) => {
 
             <h2 className="page-heading">Player/Team Search</h2>
 
-            <article>
-                <section>
-                    Player results for: {slug}
+            {slug &&
+                <h3 className={styles.searchResultsHeading}>Search results for: <span className={styles.slug}>{slug}</span></h3>
+            }
+
+            <article className={styles.searchArticle}>
+                <section className={styles.searchSection}>
+                    <h4 className={styles.groupHeading}><strong>Player Matches:</strong> {players?.length ? players.length : 0}</h4>
+                    {players?.map(player => (
+                        <p key={player.playerId}>
+                            <Link href={'/player/' + player.playerId + '/season/' + currentSeasonId}>
+                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                <a>
+                                    {player.playerName}
+                                </a>
+                            </Link>
+                            <span> ({player.stores.map((s, i) => (
+                                <span key={s.storeId}>
+                                    {i > 0 && <>, </>}
+                                    {s.storeCity}
+                                </span>
+                            ))})</span>
+                        </p>
+                    ))}
                 </section>
 
-                <section>
-                    Team results for: {slug}
+                <section className={styles.searchSection}>
+                    <h4 className={styles.groupHeading}><strong>Team Matches:</strong> {teams?.length ? teams.length : 0}</h4>
+                    {teams?.map(team => (
+                        <p key={team.teamId}>
+                            <Link href={'/team/' + team.teamId + '/season/' + currentSeasonId}>
+                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                <a>
+                                    {team.teamName}
+                                </a>
+                            </Link>
+                            <span> ({team.stores.map((s, i) => (
+                                <span key={s.storeId}>
+                                    {i > 0 && <>, </>}
+                                    {s.storeCity}
+                                </span>
+                            ))})</span>
+                        </p>
+                    ))}
                 </section>
             </article>
 
@@ -33,6 +70,7 @@ const Search = ({ players, teams, slug, error }) => {
 };
 
 Search.propTypes = {
+    currentSeasonId: PropTypes.number,
     players: PropTypes.array,
     teams: PropTypes.array,
     slug: PropTypes.string,

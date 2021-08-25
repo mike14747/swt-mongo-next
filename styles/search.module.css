@@ -1,0 +1,42 @@
+.searchArticle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.searchSection {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.searchSection > p {
+    margin: 1rem 0;
+}
+
+.searchResultsHeading {
+    text-align: left;
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
+.groupHeading {
+    color: darkgreen;
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
+    margin-bottom: 1rem;
+}
+
+.slug {
+    color: firebrick;
+    font-weight: normal;
+}
+
+@media (min-width: 768px) {
+    .searchArticle {
+        flex-direction: row;
+    }
+
+    .searchSection {
+        margin-bottom: 0;
+    }
+}

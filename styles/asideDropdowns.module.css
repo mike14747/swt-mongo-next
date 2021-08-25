@@ -17,17 +17,17 @@
     margin: 0;
 }
 
+.heading::after {
+    content: '\25BC';
+    padding-left: 0.25rem;
+}
+
 .textBoxHeading {
     background-color: rgba(213, 239, 244, 0.75);
 }
 
 .aboutBoxHeading {
     background-color: rgba(122, 88, 56, 0.25);
-}
-
-.heading::after {
-    content: '\25BC';
-    padding-left: 0.5rem;
 }
 
 .dropdownContent {

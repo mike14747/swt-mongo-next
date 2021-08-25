@@ -7,8 +7,8 @@ const ScheduleTable = ({ currentSeasonId, schedule }) => {
     return (
         <article>
             {schedule.map((week) => (
-                <section key={week.weekId} className="mb-5">
-                    <h5 className={tableStyles.weekHeading}>Week {week.weekId} <small>({week.date})</small></h5>
+                <section key={week.weekId}>
+                    <h4 className={tableStyles.weekHeading}>Week {week.weekId} <small>({week.date})</small></h4>
                     <div className={tableStyles.tableWrapper}>
                         <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                             <thead>

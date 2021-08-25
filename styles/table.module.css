@@ -5,6 +5,27 @@
 .weekHeading {
     text-align: center;
     color: darkgreen;
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
+}
+
+.weekHeadingResults {
+    margin: 1rem 0;
+}
+
+.matchHeading {
+    text-align: center;
+    color: firebrick;
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
+}
+
+.resultsWeek {
+    margin-bottom: 2rem;
+    border-bottom: 1px rgba(0, 0, 0, 0.25) solid;
+}
+
+.resultsWeek:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
 }
 
 .headingRow {

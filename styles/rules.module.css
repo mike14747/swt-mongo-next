@@ -3,4 +3,5 @@
     color: rgba(0, 0, 0, 0.75);
     max-width: 90ch;
     line-height: 1.50;
+    margin: 0 auto 1.5rem auto;
 }

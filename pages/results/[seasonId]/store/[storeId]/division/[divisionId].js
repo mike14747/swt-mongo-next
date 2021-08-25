@@ -39,11 +39,11 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
 
                 {results?.length > 0 &&
                     results.map((week, index) => (
-                        <article key={index}>
-                            <h4>Week: {week.weekId} ({week.date})</h4>
+                        <section key={index} className={tableStyles.resultsWeek}>
+                            <h4 className={tableStyles.weekHeading + ' ' + tableStyles.weekHeadingResults}>Week: {week.weekId} ({week.date})</h4>
                             {week.matches.map((match, index) => (
                                 <section key={index}>
-                                    <h5>Start time: {match.startTime}, Alley: {match.alley}</h5>
+                                    <h5 className={tableStyles.matchHeading}>Start time: {match.startTime}, Alley: {match.alley}</h5>
 
                                     <section className={tableStyles.tableWrapper}>
                                         <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
@@ -105,7 +105,7 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
 
                                 </section>
                             ))}
-                        </article>
+                        </section>
                     ))
                 }
             </article>

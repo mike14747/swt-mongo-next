@@ -1,3 +1,6 @@
+# the original image that the header image was made from
+public/images/header/header_bg(original).psp
+
 # Logs
 logs
 *.log

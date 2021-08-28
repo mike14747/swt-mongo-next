@@ -439,17 +439,17 @@ textarea {
 
 fieldset {
     min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
+    padding: 0.50rem;
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+    margin: 1rem auto;
 }
 
 legend {
-    float: left;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    background-color: #f0f0f0;
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+    padding: 0.25rem 1rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.20rem);
     line-height: inherit;
     color: inherit;
     white-space: normal;

@@ -16,6 +16,10 @@
     padding: 1rem 0;
 }
 
+.newsArticle:last-child {
+    border-bottom: 0;
+}
+
 .contentSection img {
     max-width: 100%;
     height: auto;

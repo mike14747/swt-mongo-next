@@ -15,42 +15,33 @@
     margin-bottom: 0.50rem;
 }
 
-.seasonStatsHeading,
-.careerStatsHeading {
+.statsHeading {
     font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
-    color: darkgreen;
+    color: #30608c;
     font-weight: bolder;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
-.seasonStatsHeading {
-    color: #30608c;
-}
-
-.careerStatsHeading {
-    color: darkgreen;
-}
-
-.statTotalsSection {
+.statsSection {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.totalStatsGroup {
-    margin-bottom: 2rem;
+.statsGroup {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 0.50rem 2rem 0.50rem;
+    width: 100%;
+    max-width: 400px;
 }
 
-@media (min-width: 480px) {
-    .statTotalsSection {
+@media (min-width: 768px) {
+    .statsSection {
         flex-direction: row;
         justify-content: space-around;
-    }
-
-    .seasonStatsBox {
-        margin-right: 0.50rem;
-    }
-
-    .careerStatsBox {
-        margin-left: 0.50rem;
+        align-items: flex-start;
     }
 }

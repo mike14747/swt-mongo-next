@@ -42,16 +42,16 @@ const Player = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
                 }
 
                 {stats &&
-                    <div className={styles.statTotalsSection}>
-                        <section className={styles.totalStatsGroup + ' ' + styles.seasonStatsBox}>
-                            <h4 className={styles.seasonStatsHeading}>Season Stats</h4>
+                    <div className={styles.statsSection}>
+                        <section className={styles.statsGroup}>
+                            <h4 className={styles.statsHeading}>Season Stats</h4>
                             {stats.seasonStats
                                 ? <PlayerStatsBlock stats={stats.seasonStats} />
                                 : <ErrorMessage text="Player has no stats for the selected season." />
                             }
                         </section>
-                        <section className={styles.totalStatsGroup + ' ' + styles.careerStatsBox}>
-                            <h4 className={styles.careerStatsHeading}>Career Stats</h4>
+                        <section className={styles.statsGroup + ' ' + styles.careerStatsBox}>
+                            <h4 className={styles.statsHeading}>Career Stats</h4>
                             {stats.careerStats
                                 ? <PlayerStatsBlock stats={stats.careerStats} />
                                 : <div>Player has no career stats.</div>

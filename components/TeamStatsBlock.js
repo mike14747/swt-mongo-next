@@ -4,30 +4,46 @@ import styles from '../styles/StatsBlock.module.css';
 
 const TeamStatsBlock = ({ stats }) => {
     return (
-        <div className={styles.gridContainer}>
-            <div className={styles.gridHeading}>Record</div>
-            <div className={styles.gridValue}>{stats.wins}-{stats.losses}-{stats.ties}</div>
+        <div className={styles.statsContainer}>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>Record</div>
+                <div className={styles.statsValue}>{stats.wins}-{stats.losses}-{stats.ties}</div>
+            </div>
 
-            <div className={styles.gridHeading}>Total Points</div>
-            <div className={styles.gridValue}>{stats.totalPoints}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>Total Points</div>
+                <div className={styles.statsValue}>{stats.totalPoints}</div>
+            </div>
 
-            <div className={styles.gridHeading}>1-game Average</div>
-            <div className={styles.gridValue}>{stats.oneGameAvg}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>1-game Average</div>
+                <div className={styles.statsValue}>{stats.oneGameAvg}</div>
+            </div>
 
-            <div className={styles.gridHeading}>1-game High</div>
-            <div className={styles.gridValue}>{stats.oneGameHigh}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>1-game High</div>
+                <div className={styles.statsValue}>{stats.oneGameHigh}</div>
+            </div>
 
-            <div className={styles.gridHeading}>1-game Low</div>
-            <div className={styles.gridValue}>{stats.oneGameLow}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>1-game Low</div>
+                <div className={styles.statsValue}>{stats.oneGameLow}</div>
+            </div>
 
-            <div className={styles.gridHeading}>10-game Average</div>
-            <div className={styles.gridValue}>{stats.tenGameAvg}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>10-game Average</div>
+                <div className={styles.statsValue}>{stats.tenGameAvg}</div>
+            </div>
 
-            <div className={styles.gridHeading}>10-game High</div>
-            <div className={styles.gridValue}>{stats.tenGameHigh}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>10-game High</div>
+                <div className={styles.statsValue}>{stats.tenGameHigh}</div>
+            </div>
 
-            <div className={styles.gridHeading}>10-game Low</div>
-            <div className={styles.gridValue}>{stats.tenGameLow}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>10-game Low</div>
+                <div className={styles.statsValue}>{stats.tenGameLow}</div>
+            </div>
         </div>
     );
 };

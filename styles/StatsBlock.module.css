@@ -1,23 +1,40 @@
-.gridContainer {
-    display: grid;
-    grid-template-columns: auto auto;
+.statsContainer {
+    flex: 1;
     border: 1px rgba(0, 0, 0, 0.50) solid;
+    margin: 0;
 }
 
-.gridContainer:last-child {
-    border-bottom: 0;
+.statsRow {
+    display: flex;
+    flex-direction: row;
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
 }
 
-.gridHeading {
-    background-color: #eee8aa;
+.statsHeading {
+    flex: 1;
     font-weight: bolder;
-    padding: 1rem;
     text-align: right;
+    background-color: #eee8aa;
     border-right: 1px rgba(0, 0, 0, 0.50) solid;
     border-bottom: 1px rgba(0, 0, 0, 0.50) solid;
 }
-.gridValue {
-    padding: 1rem;
+
+.statsValue {
+    flex: 1;
     text-align: center;
     border-bottom: 1px rgba(0, 0, 0, 0.50) solid;
+}
+
+.statsHeading,
+.statsValue {
+    padding: 1rem 0.50rem;
+}
+
+@media (mid-width: 480px) {
+    .statsContainer {
+        flex: 1;
+        border: 1px rgba(0, 0, 0, 0.50) solid;
+        /* margin: 0 auto; */
+        min-width: 50%;
+    }
 }

@@ -4,36 +4,56 @@ import styles from '../styles/StatsBlock.module.css';
 
 const PlayerStatsBlock = ({ stats }) => {
     return (
-        <div className={styles.gridContainer}>
-            <div className={styles.gridHeading}>Games Played</div>
-            <div className={styles.gridValue}>{stats.gamesPlayed}</div>
+        <div className={styles.statsContainer}>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>Games Played</div>
+                <div className={styles.statsValue}>{stats.gamesPlayed}</div>
+            </div>
 
-            <div className={styles.gridHeading}>Avg / Game</div>
-            <div className={styles.gridValue}>{(stats.totalPoints / stats.gamesPlayed).toFixed(1)}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>Avg / Game</div>
+                <div className={styles.statsValue}>{(stats.totalPoints / stats.gamesPlayed).toFixed(1)}</div>
+            </div>
 
-            <div className={styles.gridHeading}>800+ games</div>
-            <div className={styles.gridValue}>{`${stats.num800plus} (${(stats.num800plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>800+ games</div>
+                <div className={styles.statsValue}>{`${stats.num800plus} (${(stats.num800plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>700+ games</div>
-            <div className={styles.gridValue}>{`${stats.num700plus} (${(stats.num700plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>700+ games</div>
+                <div className={styles.statsValue}>{`${stats.num700plus} (${(stats.num700plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>600+ games</div>
-            <div className={styles.gridValue}>{`${stats.num600plus} (${(stats.num600plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>600+ games</div>
+                <div className={styles.statsValue}>{`${stats.num600plus} (${(stats.num600plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>500+ games</div>
-            <div className={styles.gridValue}>{`${stats.num500plus} (${(stats.num500plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>500+ games</div>
+                <div className={styles.statsValue}>{`${stats.num500plus} (${(stats.num500plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>400+ games</div>
-            <div className={styles.gridValue}>{`${stats.num400plus} (${(stats.num400plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>400+ games</div>
+                <div className={styles.statsValue}>{`${stats.num400plus} (${(stats.num400plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>300+ games</div>
-            <div className={styles.gridValue}>{`${stats.num300plus} (${(stats.num300plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>300+ games</div>
+                <div className={styles.statsValue}>{`${stats.num300plus} (${(stats.num300plus * 100 / stats.gamesPlayed).toFixed(1)})%`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>High Game</div>
-            <div className={styles.gridValue}>{`${stats.highGame} (${stats.numHighGames})`}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>High Game</div>
+                <div className={styles.statsValue}>{`${stats.highGame} (${stats.numHighGames})`}</div>
+            </div>
 
-            <div className={styles.gridHeading}>Best 10-game series</div>
-            <div className={styles.gridValue}>{stats.highTenGame}</div>
+            <div className={styles.statsRow}>
+                <div className={styles.statsHeading}>Best 10-game series</div>
+                <div className={styles.statsValue}>{stats.highTenGame}</div>
+            </div>
         </div>
     );
 };

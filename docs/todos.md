@@ -24,4 +24,6 @@ Add a tournament rankings page?
 
 Write tests.
 
-Convert PlayStatsBlock.js and TeamStatsBlock.js from css grid to flexbox.
+~~Convert PlayStatsBlock.js and TeamStatsBlock.js from css grid to flexbox.~~
+
+Get the dynamic colors working on the results page for records and total games scores (green, blue and red).

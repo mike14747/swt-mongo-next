@@ -18,8 +18,9 @@ button.dropbtn {
     transition: 0.3s;
 }
 
-button.dropbtn::after {
-    content: '\2B9F';
+.downArrow::after {
+    content: '\25BC';
+    font-size: 80%;
     padding-left: 0.5rem;
 }
 

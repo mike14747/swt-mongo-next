@@ -14,7 +14,7 @@ function Dropdown({ displayedSeason, buttonText, listItems }) {
                 </>
             }
             <div className={styles.dropdown}>
-                <button className={styles.dropbtn}>{buttonText}</button>
+                <button className={styles.dropbtn}>{buttonText}<span aria-hidden="true" className={styles.downArrow}></span></button>
                 <ul className={styles.dropdownContent}>
                     {listItems.map(item => (
                         <Fragment key={item.seasonId}>

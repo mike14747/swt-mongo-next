@@ -7,6 +7,7 @@ const SearchBar = () => {
     const router = useRouter();
     const [searchInput, setSearchInput] = useState('');
     const [submitted, setSubmitted] = useState(false);
+
     useEffect(() => {
         if (submitted) {
             setSearchInput('');
@@ -23,10 +24,16 @@ const SearchBar = () => {
     };
 
     return (
-        <form className={styles.formSearchbar} onSubmit={handleSubmit}>
-            <input type="text" maxLength="20" placeholder="Find Player/Team" className={styles.inputSearchbar} value={searchInput} onChange={event => setSearchInput(event.target.value)} />
-
-            <button type="submit" name="submit" className={styles.searchButton}>Go</button>
+        <form onSubmit={handleSubmit}>
+            <input
+                aria-label= "Find Player/Team"
+                type="text"
+                maxLength="20"
+                placeholder="Find Player/Team"
+                className={styles.inputSearchbar}
+                value={searchInput}
+                onChange={event => setSearchInput(event.target.value)}
+            />
         </form>
     );
 };

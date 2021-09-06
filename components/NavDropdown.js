@@ -6,7 +6,7 @@ import styles from '../styles/NavDropdown.module.css';
 export default function NavDropdown({ buttonText, listItems }) {
     return (
         <div className={styles.navdropdown}>
-            <button className={styles.navdropbtn}>{buttonText}<span className={styles.downArrow}></span></button>
+            <button className={styles.navdropbtn}>{buttonText}<span aria-hidden="true" className={styles.downArrow}></span></button>
             <ul className={styles.navdropdownContent}>
                 {listItems?.length > 0 &&
                     listItems.map((item, index) => (

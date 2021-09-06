@@ -25,15 +25,18 @@ const SearchBar = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                aria-label= "Find Player/Team"
-                type="text"
-                maxLength="20"
-                placeholder="Find Player/Team"
-                className={styles.inputSearchbar}
-                value={searchInput}
-                onChange={event => setSearchInput(event.target.value)}
-            />
+            <label htmlFor="search" className={styles.searchLabel}>
+                Search:
+                <input
+                    id="search"
+                    type="text"
+                    maxLength="20"
+                    placeholder="Find Player/Team"
+                    className={styles.inputSearchbar}
+                    value={searchInput}
+                    onChange={event => setSearchInput(event.target.value)}
+                />
+            </label>
         </form>
     );
 };

@@ -1,3 +1,7 @@
+label.searchLabel {
+    color: transparent;
+}
+
 input.inputSearchbar {
     display: block;
     width: 100%;
@@ -6,10 +10,8 @@ input.inputSearchbar {
     border: 1px #999999 solid;
     border-radius: .25rem;
     padding: 0.25rem 0.25rem 0.25rem 2rem;
-    margin-right: 0.25rem;
     color: #333333;
     background-color: #ffffff;
-    /* background-image: url('../lib/assets/images/magnifying_glass.png'); */
     background-image: url('/images/non-news/magnifying_glass.png');
     background-repeat: no-repeat;
     background-position: 6px, 6px;
@@ -22,5 +24,5 @@ input.inputSearchbar:placeholder-shown {
 
 input.inputSearchbar:focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 123, 0.25);
+    box-shadow: 0 0 8px 4px rgba(183, 121, 63, 0.75);
 }

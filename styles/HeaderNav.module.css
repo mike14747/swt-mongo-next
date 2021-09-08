@@ -1,7 +1,7 @@
 .hNavContainer {
     position: relative;
     display: inline-block;
-    margin-bottom: -0.50rem;
+    padding-left: 4rem;
 }
 
 .hNavBurger {
@@ -23,13 +23,13 @@
 }
 
 ul.hNavContent {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 0.55vw + 0.55rem, 1.2rem);
     font-weight: 500;
     display: none;
     position: absolute;
     right: 0;
     text-align: left;
-    width: calc(100% + 200px);
+    width: 252px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 2;
     margin: 0 0 0 -100px;
@@ -73,16 +73,4 @@ li > a.link:hover {
     color: #ffffff;
     text-decoration: none;
     transition: 0.3s;
-}
-
-@media (min-width: 768px) {
-    ul.hNavContent {
-        width: calc(100% + 100px);
-    }
-}
-
-@media (min-width: 1024px) {
-    ul.hNavContent {
-        width: 100%;
-    }
 }

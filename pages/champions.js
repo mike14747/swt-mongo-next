@@ -14,38 +14,41 @@ const Champions = ({ currentSeasonId, champions, error }) => {
             <Head>
                 <title>Champions</title>
             </Head>
-            <h2 className="page-heading">Champions</h2>
+            <article>
+                <h2 className="page-heading">Champions</h2>
 
-            {error && <ErrorMessage text={error.message} />}
+                {error && <ErrorMessage text={error.message} />}
 
-            {champions?.length > 0 &&
-                <article className={styles.championsArticle}>
-                    <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
-                        <thead>
-                            <tr className={tableStyles.headingRow}>
-                                <th className={tableStyles.textLeft}>Season</th>
-                                <th className={tableStyles.textLeft}>Champion</th>
-                                <th className={tableStyles.textLeft}>Store</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {champions.map((c) => (
-                                <tr key={c.seasonId}>
-                                    <td className={tableStyles.textLeft}>{c.seasonName}-{c.year}</td>
-                                    <td className={tableStyles.textLeft}>
-                                        <Link href={'/team/' + c.champion.teamId + '/season/' + currentSeasonId}>
-                                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                            <a>{c.champion.teamName}</a>
-                                        </Link>
-                                        {c.champion.comments?.length > 0 && <span className={styles.comment}>({c.champion.comments})</span>}
-                                    </td>
-                                    <td className={tableStyles.textLeft}>{c.champion.storeCity}</td>
+                {champions?.length > 0 &&
+                    <div className={tableStyles.tableWrapper}>
+                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                            <thead>
+                                <tr className={tableStyles.headingRow}>
+                                    <th className={tableStyles.textLeft}>Season</th>
+                                    <th className={tableStyles.textLeft}>Champion</th>
+                                    <th className={tableStyles.textLeft}>Store</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </article>
-            }
+                            </thead>
+                            <tbody>
+                                {champions.map((c) => (
+                                    <tr key={c.seasonId}>
+                                        <td className={tableStyles.textLeft}>{c.seasonName}-{c.year}</td>
+                                        <td className={tableStyles.textLeft}>
+                                            <Link href={'/team/' + c.champion.teamId + '/season/' + currentSeasonId}>
+                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                                <a>{c.champion.teamName}</a>
+                                            </Link>
+                                            {c.champion.comments?.length > 0 && <span className={styles.comment}>({c.champion.comments})</span>}
+                                        </td>
+                                        <td className={tableStyles.textLeft}>{c.champion.storeCity}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </article>
+
         </>
     );
 };

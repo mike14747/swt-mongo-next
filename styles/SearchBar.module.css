@@ -1,5 +1,9 @@
 label.searchLabel {
-    color: transparent;
+    margin: 0;
+}
+
+.searchText {
+    display: none;
 }
 
 input.inputSearchbar {
@@ -25,4 +29,11 @@ input.inputSearchbar:placeholder-shown {
 input.inputSearchbar:focus {
     outline: 0;
     box-shadow: 0 0 8px 4px rgba(183, 121, 63, 0.75);
+}
+
+@media (min-width: 768px) {
+    .searchText {
+        display: inline;
+        color: transparent;
+    }
 }

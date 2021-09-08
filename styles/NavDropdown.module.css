@@ -35,8 +35,8 @@ ul.navdropdownContent {
     text-align: left;
     display: none;
     position: absolute;
-    left: -50%;
-    right: -50%;
+    left: -100%;
+    right: 3px;
     background-color: #f3e3c0;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -47,8 +47,8 @@ ul.navdropdownContent {
 
 ul.navdropdownContent > li > a {
     background-color: #ffffff;
-    color: #132637;
-    padding: 0.75rem;
+    color: #216290;
+    padding: 1rem 0.50rem;
     text-decoration: none;
     display: block;
 }
@@ -65,6 +65,7 @@ ul.navdropdownContent > li > a:hover {
 
 ul.navdropdownContent > li {
     display: block;
+    font-size: clamp(0.9rem, 0.55vw + 0.55rem, 1.1rem);
     margin: 0;
     border-top: 1px rgba(167, 160, 154, 1) solid;
     border-right: 1px rgba(167, 160, 154, 1) solid;
@@ -79,5 +80,20 @@ ul.navdropdownContent > li:last-child {
     button.navdropbtn {
         margin: 0 0.50rem 0.50rem 0.50rem;
         padding: 0.5rem 0.75rem;
+    }
+
+    ul.navdropdownContent {
+        text-align: left;
+        display: none;
+        position: absolute;
+        left: -75%;
+        right: -25%;
+        max-width: 250px;
+        background-color: #f3e3c0;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        margin: 0;
+        padding: 0 !important;
+        list-style-type: none;
     }
 }

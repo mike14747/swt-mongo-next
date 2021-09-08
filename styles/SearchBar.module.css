@@ -15,10 +15,8 @@ input.inputSearchbar {
     border-radius: .25rem;
     padding: 0.25rem 0.25rem 0.25rem 2rem;
     color: #333333;
-    background-color: #ffffff;
-    background-image: url('/images/non-news/magnifying_glass.png');
-    background-repeat: no-repeat;
-    background-position: 6px, 6px;
+    background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
+        url('/images/header/magnifying_glass.png') no-repeat 6px 6px, rgba(255, 255, 255, 1);
     line-height: 1;
 }
 
@@ -28,7 +26,7 @@ input.inputSearchbar:placeholder-shown {
 
 input.inputSearchbar:focus {
     outline: 0;
-    box-shadow: 0 0 8px 4px rgba(183, 121, 63, 0.75);
+    box-shadow: 0 0 4px 2px rgba(183, 121, 63, 0.75);
 }
 
 @media (min-width: 768px) {

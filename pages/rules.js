@@ -13,8 +13,10 @@ const Rules = ({ rules, error }) => {
             <Head>
                 <title>League Rules</title>
             </Head>
-            <h2 className="page-heading">League Rules</h2>
+
             <article className={styles.rulesArticle}>
+                <h2 className="page-heading no-season-dropdown">League Rules</h2>
+
                 {rules
                     ? <ReactMarkdown
                         // eslint-disable-next-line react/no-children-prop

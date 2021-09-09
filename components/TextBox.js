@@ -5,7 +5,7 @@ import styles from '../styles/asideDropdowns.module.css';
 
 const TextBox = ({ data }) => {
     return (
-        <section className={styles.section}>
+        <aside aria-label="Text Box" className={styles.section}>
             {data?.heading &&
                 <h4 className={styles.heading + ' ' + styles.textBoxHeading}>
                     {data.heading}
@@ -16,7 +16,7 @@ const TextBox = ({ data }) => {
                     {ReactHtmlParser(data.content)}
                 </div>
             }
-        </section>
+        </aside>
 
     );
 };

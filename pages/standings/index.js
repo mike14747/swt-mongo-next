@@ -13,17 +13,15 @@ const NoStandings = ({ seasons, error }) => {
                 <title>Standings</title>
             </Head>
 
-            <h2 className="page-heading">Standings</h2>
-
-            {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={null} buttonText="View Standings From" listItems={seasons} />
-                </aside>
-            }
-
-            {error && <ErrorMessage text={error.message} />}
-
             <article>
+                <h2 className="page-heading">Standings</h2>
+
+                {seasons?.length > 0 &&
+                    <SeasonDropdown displayedSeason={null} buttonText="View Standings From" listItems={seasons} />
+                }
+
+                {error && <ErrorMessage text={error.message} />}
+
                 <ErrorMessage text="No season was selected for displaying standings. You should not be navigating to this page directly." />
             </article>
         </>

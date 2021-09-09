@@ -17,15 +17,13 @@ const Team = ({ teamInfo, stats, displayedSeason, seasons, error }) => {
                 <title>Team Stats</title>
             </Head>
 
-            <h2 className="page-heading">Team Stats</h2>
-
-            {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
-                </aside>
-            }
-
             <article>
+                <h2 className="page-heading">Team Stats</h2>
+
+                {seasons?.length > 0 &&
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
+                }
+
                 {teamInfo &&
                     <section className={styles.infoSection}>
                         <h3 className={styles.teamName}><span className={styles.teamText}>Team: </span>{teamInfo.teamName}</h3>
@@ -57,9 +55,9 @@ const Team = ({ teamInfo, stats, displayedSeason, seasons, error }) => {
                     </div>
                     : <ErrorMessage text="Team has no stats for the selected season." />
                 }
-            </article>
 
-            {error && <ErrorMessage text={error.message} />}
+                {error && <ErrorMessage text={error.message} />}
+            </article>
         </>
     );
 };

@@ -8,9 +8,10 @@ const StandingsTables = ({ currentSeasonId, storesArr }) => {
         <>
             {storesArr.map(s => (
                 <article key={`${s.storeId}${s.divisionId}`}>
-                    <h5 className={tableStyles.storeHeading}>{s.storeCity} - {s.divisionName}</h5>
+                    <h3 className={tableStyles.storeHeading}>{s.storeCity} - {s.divisionName}</h3>
                     <div className={tableStyles.tableWrapper}>
-                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+                        <table tabIndex="0" className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                             <thead>
                                 <tr className={tableStyles.headingRow}>
                                     <th className={tableStyles.textLeft}>TEAM</th>

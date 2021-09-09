@@ -11,7 +11,7 @@
     cursor: pointer;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #f5f5f5;
     border: 1px rgba(167, 160, 154, 1) solid;
     padding: .25rem .50rem;
     margin: 0.50rem 0;
@@ -19,7 +19,7 @@
 
 .hNavBurger:hover,
 .hNavContainer:hover .hNavBurger {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: #ffffff;
 }
 
 ul.hNavContent {

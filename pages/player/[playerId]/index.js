@@ -15,15 +15,13 @@ const Player = ({ playerInfo, seasons, error }) => {
                 <title>Player Stats</title>
             </Head>
 
-            <h2 className="page-heading">Player Stats</h2>
-
-            {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={null} buttonText="View Stats From" listItems={seasons} />
-                </aside>
-            }
-
             <article>
+                <h2 className="page-heading">Player Stats</h2>
+
+                {seasons?.length > 0 &&
+                    <SeasonDropdown displayedSeason={null} buttonText="View Stats From" listItems={seasons} />
+                }
+
                 {playerInfo &&
                     <section className={styles.infoSection}>
                         <h3 className={styles.playerName}><span className={styles.playerText}>Player: </span>{playerInfo.playerName}</h3>
@@ -38,11 +36,9 @@ const Player = ({ playerInfo, seasons, error }) => {
                         </p>
                     </section>
                 }
-            </article>
 
-            {error && <ErrorMessage text={error.message} />}
+                {error && <ErrorMessage text={error.message} />}
 
-            <article>
                 <ErrorMessage text="No season was selected for displaying stats. You should not be navigating to this page directly." />
             </article>
         </>

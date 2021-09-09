@@ -13,53 +13,54 @@ const Stores = ({ stores, error }) => {
                 <title>Stores</title>
             </Head>
 
-            <h2 className="page-heading">
-                Stores
-            </h2>
+            <article>
+                <h2 className="page-heading no-season-dropdown">
+                    Stores
+                </h2>
 
-            {error && <ErrorMessage text={error.message} />}
+                {error && <ErrorMessage text={error.message} />}
 
-            {stores?.length === 0 &&
-                <article>
+                {stores?.length === 0 &&
                     <p>There are no stores to display. Check back again soon.</p>
-                </article>
-            }
+                }
 
-            {stores?.length > 0 &&
-                <article className={styles.article}>
-                    {stores.map(store => (
-                        <section key={store.storeId} className={styles.card}>
-                            <h3 className={styles.heading}>
-                                {store.name}
-                            </h3>
-                            <div className={styles.body}>
-                                <address>
-                                    <p>
-                                        {store.address}
-                                    </p>
-                                    <p>
-                                        {store.city}, {store.state} {store.zip}
-                                    </p>
-                                    <p>
-                                        {store.phone}
-                                    </p>
-                                </address>
+                {stores?.length > 0 &&
+                    <div className={styles.storesDiv}>
+                        {stores.map(store => (
+                            <section key={store.storeId} className={styles.card}>
+                                <h3 className={styles.heading}>
+                                    {store.name}
+                                </h3>
+                                <div className={styles.body}>
+                                    <address>
+                                        <p>
+                                            {store.address}
+                                        </p>
+                                        <p>
+                                            {store.city}, {store.state} {store.zip}
+                                        </p>
+                                        <p>
+                                            {store.phone}
+                                        </p>
+                                    </address>
 
-                                {store.mapUrl &&
-                                    <p className={styles.map}>
-                                        <a href={store.mapUrl} target="_blank" rel="noreferrer">
-                                            MAP IT!
-                                            <img src="/images/non-news/google-maps.png" alt="Map it at Google Maps" className={styles.mapIcon} />
-                                        </a>
-                                    </p>
-                                }
+                                    {store.mapUrl &&
+                                        <p className={styles.map}>
+                                            <a href={store.mapUrl} target="_blank" rel="noreferrer">
+                                                MAP IT!
+                                                <img src="/images/non-news/google-maps.png" alt={'Map to ' + store.name} className={styles.mapIcon} />
+                                            </a>
+                                        </p>
+                                    }
 
-                            </div>
-                        </section>
-                    ))}
-                </article>
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+                }
+            </article>
 
-            }
+
         </>
     );
 };

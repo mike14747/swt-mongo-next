@@ -19,7 +19,7 @@ const NavBar = ({ currentSeasonId, displaySchedule, storesInNavbar }) => {
     });
 
     return (
-        <nav className={styles.nav + ' container'}>
+        <nav aria-label="Primary Navigation" className={styles.nav + ' container'}>
             <NavButton buttonText="Standings" href={'/standings/' + currentSeasonId} />
             <NavDropdown buttonText="Results" listItems={resultsStoresInNavbar} />
             {displaySchedule &&

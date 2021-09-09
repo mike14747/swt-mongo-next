@@ -16,7 +16,7 @@ const NoMatch = () => {
                 <style jsx>{`
                     #no-match {
                         max-width: 80ch;
-                        margin: 0 auto;
+                        margin: 2rem auto 0 auto;
                     }
 
                     p {

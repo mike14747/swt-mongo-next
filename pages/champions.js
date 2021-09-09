@@ -15,13 +15,14 @@ const Champions = ({ currentSeasonId, champions, error }) => {
                 <title>Champions</title>
             </Head>
             <article>
-                <h2 className="page-heading">Champions</h2>
+                <h2 className="page-heading no-season-dropdown">Champions</h2>
 
                 {error && <ErrorMessage text={error.message} />}
 
                 {champions?.length > 0 &&
                     <div className={tableStyles.tableWrapper}>
-                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+                        <table tabIndex="0" className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                             <thead>
                                 <tr className={tableStyles.headingRow}>
                                     <th className={tableStyles.textLeft}>Season</th>
@@ -34,10 +35,12 @@ const Champions = ({ currentSeasonId, champions, error }) => {
                                     <tr key={c.seasonId}>
                                         <td className={tableStyles.textLeft}>{c.seasonName}-{c.year}</td>
                                         <td className={tableStyles.textLeft}>
-                                            <Link href={'/team/' + c.champion.teamId + '/season/' + currentSeasonId}>
-                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                                <a>{c.champion.teamName}</a>
-                                            </Link>
+                                            {c.champion?.teamId &&
+                                                <Link href={'/team/' + c.champion.teamId + '/season/' + currentSeasonId}>
+                                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                                    <a>{c.champion.teamName}</a>
+                                                </Link>
+                                            }
                                             {c.champion.comments?.length > 0 && <span className={styles.comment}>({c.champion.comments})</span>}
                                         </td>
                                         <td className={tableStyles.textLeft}>{c.champion.storeCity}</td>

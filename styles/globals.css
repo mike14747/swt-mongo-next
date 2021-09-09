@@ -550,10 +550,8 @@ template {
     border-bottom: 1px rgba(0, 0, 0, 0.50) solid;
 }
 
-.error {
-    text-align: center;
-    margin: 1rem 0;
-    color: red;
+.no-season-dropdown {
+    margin-bottom: 2rem;
 }
 
 /* use with the <main> element on pages */

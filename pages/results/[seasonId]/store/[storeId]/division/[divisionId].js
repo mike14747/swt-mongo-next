@@ -20,97 +20,95 @@ const Results = ({ currentSeasonId, storeInfo, displayedSeason, seasons, results
                 </title>
             </Head>
 
-            <h2 className="page-heading">
-                Results
-            </h2>
-
-            {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Results From" listItems={seasons} />
-                </aside>
-            }
-
             <article>
-                {storeInfo &&
-                    <section className={styles.infoSection}>
-                        <h3 className={styles.storeName}><span className={styles.storeText}>Store: </span>{storeInfo.storeName} ({storeInfo.divisionName})</h3>
-                    </section>
+                <h2 className="page-heading">
+                    Results
+                </h2>
+
+                {seasons?.length > 0 &&
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Results From" listItems={seasons} />
                 }
 
-                {results?.length > 0 &&
-                    results.map((week, index) => (
-                        <section key={index} className={tableStyles.resultsWeek}>
-                            <h4 className={tableStyles.weekHeading + ' ' + tableStyles.weekHeadingResults}>Week: {week.weekId} ({week.date})</h4>
-                            {week.matches.map((match, index) => (
-                                <section key={index}>
-                                    <h5 className={tableStyles.matchHeading}>Start time: {match.startTime}, Alley: {match.alley}</h5>
+                <section>
+                    {storeInfo &&
+                        <h3 className={styles.storeName}><span className={styles.storeText}>Store: </span>{storeInfo.storeName} ({storeInfo.divisionName})</h3>
+                    }
 
-                                    <div className={tableStyles.tableWrapper}>
-                                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
-                                            {match.teams.map((team, index) => (
-                                                <tbody key={index}>
-                                                    <tr className={tableStyles.resultsHeadingRow}>
-                                                        <td className={tableStyles.textLeft}>
-                                                            <Link href={'/team/' + team.teamId + '/season/' + currentSeasonId}>
-                                                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                                                <a>{team.teamName}</a>
-                                                            </Link>
-                                                            <span className={styles.record}> ({team.teamTotals.wins}-{team.teamTotals.losses}-{team.teamTotals.ties})</span>
-                                                        </td>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>3</td>
-                                                        <td>4</td>
-                                                        <td>5</td>
-                                                        <td>6</td>
-                                                        <td>7</td>
-                                                        <td>8</td>
-                                                        <td>9</td>
-                                                        <td>10</td>
-                                                        <td>TOTAL POINTS</td>
-                                                    </tr>
+                    {results?.length > 0 &&
+                        results.map((week, index) => (
+                            <div key={index} className={tableStyles.resultsWeek}>
+                                <h4 className={tableStyles.weekHeading + ' ' + tableStyles.weekHeadingResults}>Week: {week.weekId} ({week.date})</h4>
+                                {week.matches.map((match, index) => (
+                                    <section key={index}>
+                                        <h5 className={tableStyles.matchHeading}>Start time: {match.startTime}, Alley: {match.alley}</h5>
 
-                                                    {team.players.map((player, index) => (
-                                                        <tr key={index}>
+                                        <div className={tableStyles.tableWrapper}>
+                                            <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                                                {match.teams.map((team, index) => (
+                                                    <tbody key={index}>
+                                                        <tr className={tableStyles.resultsHeadingRow}>
                                                             <td className={tableStyles.textLeft}>
-                                                                <Link href={'/player/' + player.playerId + '/season/' + currentSeasonId}>
+                                                                <Link href={'/team/' + team.teamId + '/season/' + currentSeasonId}>
                                                                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                                                    <a>{player.playerName}</a>
+                                                                    <a>{team.teamName}</a>
                                                                 </Link>
+                                                                <span className={styles.record}> ({team.teamTotals.wins}-{team.teamTotals.losses}-{team.teamTotals.ties})</span>
                                                             </td>
-                                                            {player.scores.map((score, index) => (
+                                                            <td>1</td>
+                                                            <td>2</td>
+                                                            <td>3</td>
+                                                            <td>4</td>
+                                                            <td>5</td>
+                                                            <td>6</td>
+                                                            <td>7</td>
+                                                            <td>8</td>
+                                                            <td>9</td>
+                                                            <td>10</td>
+                                                            <td>TOTAL POINTS</td>
+                                                        </tr>
+
+                                                        {team.players.map((player, index) => (
+                                                            <tr key={index}>
+                                                                <td className={tableStyles.textLeft}>
+                                                                    <Link href={'/player/' + player.playerId + '/season/' + currentSeasonId}>
+                                                                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                                                        <a>{player.playerName}</a>
+                                                                    </Link>
+                                                                </td>
+                                                                {player.scores.map((score, index) => (
+                                                                    <td key={index}>{score}</td>
+                                                                ))}
+                                                                <td>{player.totalPoints}</td>
+                                                            </tr>
+                                                        ))}
+
+                                                        <tr className={tableStyles.resultsHeadingRow}>
+                                                            <td className={tableStyles.textLeft}>Total</td>
+                                                            {team.teamTotals.gameTotals.map((score, index) => (
                                                                 <td key={index}>{score}</td>
                                                             ))}
-                                                            <td>{player.totalPoints}</td>
+                                                            <td>
+                                                                {team.teamTotals.totalPoints}
+                                                            </td>
                                                         </tr>
-                                                    ))}
 
-                                                    <tr className={tableStyles.resultsHeadingRow}>
-                                                        <td className={tableStyles.textLeft}>Total</td>
-                                                        {team.teamTotals.gameTotals.map((score, index) => (
-                                                            <td key={index}>{score}</td>
-                                                        ))}
-                                                        <td>
-                                                            {team.teamTotals.totalPoints}
-                                                        </td>
-                                                    </tr>
+                                                        {index === 0 &&
+                                                            <tr><td colSpan="12" className="border-0"></td></tr>
+                                                        }
+                                                    </tbody>
+                                                ))}
+                                            </table>
+                                        </div>
 
-                                                    {index === 0 &&
-                                                        <tr><td colSpan="12" className="border-0"></td></tr>
-                                                    }
-                                                </tbody>
-                                            ))}
-                                        </table>
-                                    </div>
+                                    </section>
+                                ))}
+                            </div>
+                        ))
+                    }
+                </section>
 
-                                </section>
-                            ))}
-                        </section>
-                    ))
-                }
+                {error && <ErrorMessage text={error.message} />}
             </article>
-
-            {error && <ErrorMessage text={error.message} />}
         </>
     );
 };

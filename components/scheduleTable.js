@@ -10,7 +10,8 @@ const ScheduleTable = ({ currentSeasonId, schedule }) => {
                 <section key={week.weekId}>
                     <h4 className={tableStyles.weekHeading}>Week {week.weekId} <small>({week.date})</small></h4>
                     <div className={tableStyles.tableWrapper}>
-                        <table className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
+                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+                        <table tabIndex="0" className={tableStyles.table + ' ' + tableStyles.tableBordered + ' ' + tableStyles.tableHover}>
                             <thead>
                                 <tr className={tableStyles.headingRow}>
                                     <th className={tableStyles.textLeft}>Away Team</th>

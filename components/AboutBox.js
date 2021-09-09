@@ -2,7 +2,7 @@ import styles from '../styles/asideDropdowns.module.css';
 
 const AboutBox = () => {
     return (
-        <section className={styles.section}>
+        <aside aria-label="About SWT" className={styles.section}>
             <h4 className={styles.heading + ' ' + styles.aboutBoxHeading}>
                 ABOUT SWT
             </h4>
@@ -20,7 +20,7 @@ const AboutBox = () => {
                     Our league had been in existence for a few seasons before this website began tracking the results in the summer of 2010.
                 </p>
             </div>
-        </section>
+        </aside>
     );
 };
 

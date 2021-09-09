@@ -17,15 +17,13 @@ const Player = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
                 <title>Player Stats</title>
             </Head>
 
-            <h2 className="page-heading">Player Stats</h2>
-
-            {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
-                </aside>
-            }
-
             <article>
+                <h2 className="page-heading">Player Stats</h2>
+
+                {seasons?.length > 0 &&
+                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Stats From" listItems={seasons} />
+                }
+
                 {playerInfo &&
                     <section className={styles.infoSection}>
                         <h3 className={styles.playerName}><span className={styles.playerText}>Player: </span>{playerInfo.playerName}</h3>
@@ -59,9 +57,9 @@ const Player = ({ playerInfo, stats, displayedSeason, seasons, error }) => {
                         </section>
                     </div>
                 }
-            </article>
 
-            {error && <ErrorMessage text={error.message} />}
+                {error && <ErrorMessage text={error.message} />}
+            </article>
         </>
     );
 };

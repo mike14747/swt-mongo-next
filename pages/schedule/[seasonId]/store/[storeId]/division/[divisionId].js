@@ -6,7 +6,7 @@ import ScheduleTable from '../../../../../../components/scheduleTable';
 import ErrorMessage from '../../../../../../components/ErrorMessage';
 import { getScheduleSeasonsListByStore, getAllSchedulesList, getScheduleBySeasonStoreDivision } from '../../../../../../lib/api/schedule';
 
-import styles from '../../../../../../styles/schedule.module.css';
+import styles from '../../../../../../styles/Schedule.module.css';
 
 const Schedule = ({ currentSeasonId, storeInfo, displayedSeason, seasons, schedule, error }) => {
     return (
@@ -22,9 +22,7 @@ const Schedule = ({ currentSeasonId, storeInfo, displayedSeason, seasons, schedu
             </h2>
 
             {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Schedule From" listItems={seasons} />
-                </aside>
+                <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Schedule From" listItems={seasons} />
             }
 
             <article>

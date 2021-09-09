@@ -51,7 +51,7 @@ const Home = ({ news, textbox }) => {
                     }
                 </section>
 
-                <aside className={styles.aside}>
+                <section className={styles.asideSection}>
                     <TextBox data={textbox} />
 
                     <div className={styles.picSection}>
@@ -59,7 +59,7 @@ const Home = ({ news, textbox }) => {
                     </div>
 
                     <AboutBox />
-                </aside>
+                </section>
 
             </div>
 

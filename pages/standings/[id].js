@@ -17,9 +17,7 @@ const Standings = ({ currentSeasonId, standings, displayedSeason, seasons, error
             <h2 className="page-heading">Standings</h2>
 
             {seasons?.length > 0 &&
-                <aside>
-                    <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
-                </aside>
+                <SeasonDropdown displayedSeason={displayedSeason} buttonText="View Standings From" listItems={seasons} />
             }
 
             {error && <ErrorMessage text={error.message} />}

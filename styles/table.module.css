@@ -1,5 +1,6 @@
 .storeHeading {
     text-align: center;
+    font-size: clamp(1.1rem, 0.7vw + 0.7rem, 1.5rem);
 }
 
 .weekHeading {
@@ -42,6 +43,12 @@
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+}
+
+.tableWrapper:focus {
+    outline: 1px rgba(0, 0, 0, 0.15) dashed;
+    outline-offset: 0.25rem;
+    transition: 0.3s;
 }
 
 .table {

@@ -7,7 +7,7 @@ import styles from '../styles/HeaderNav.module.css';
 
 const HeaderNav = () => {
     return (
-        <div className={styles.hNavContainer}>
+        <nav aria-label="Secondary Navigation" className={styles.hNavContainer}>
             <span className={styles.hNavBurger}>&#9776;</span>
             <ul className={styles.hNavContent}>
                 {HeaderNavLinks?.length > 0 &&
@@ -20,7 +20,7 @@ const HeaderNav = () => {
                     ))
                 }
             </ul>
-        </div>
+        </nav>
     );
 };
 

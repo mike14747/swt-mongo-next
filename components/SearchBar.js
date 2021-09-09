@@ -26,7 +26,7 @@ const SearchBar = () => {
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="search" className={styles.searchLabel}>
-                <span className={styles.searchText}>Search:</span>
+                {/* <span className={styles.searchText}>Search:</span> */}
                 <input
                     id="search"
                     type="text"

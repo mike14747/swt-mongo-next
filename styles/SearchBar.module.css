@@ -15,8 +15,7 @@ input.inputSearchbar {
     border-radius: .25rem;
     padding: 0.25rem 0.25rem 0.25rem 2rem;
     color: #333333;
-    background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
-        url('/images/header/magnifying_glass.png') no-repeat 6px 6px, rgba(255, 255, 255, 1);
+    background: url('/images/header/magnifying_glass.png') no-repeat 6px 6px, rgba(255, 255, 255, 1);
     line-height: 1;
 }
 
